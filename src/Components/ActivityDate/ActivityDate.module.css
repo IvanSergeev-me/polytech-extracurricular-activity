@@ -1,0 +1,17 @@
+.top__date_and_time{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+.date_and_time__title{
+    margin-right: 1em;
+    font-size: 1em;
+    color: var(--grey);
+    font-weight: 600;
+}
+.date_and_time__separation{
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--grey);
+    margin-right:1em;
+}

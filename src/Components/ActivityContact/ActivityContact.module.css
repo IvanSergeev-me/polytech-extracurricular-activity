@@ -1,0 +1,23 @@
+.contact{
+    display: flex;
+}
+.contact__title{
+    color: var(--text);
+    font-size: 1em;
+    font-weight: 600;
+}
+.contact__title::first-letter{
+    text-transform: uppercase;
+}
+.contact__text{
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1em;
+    color: var(--blue);
+}
+.contact__separation{
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 1em;
+}

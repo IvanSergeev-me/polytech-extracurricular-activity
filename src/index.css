@@ -1,13 +1,98 @@
-body {
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: Montserrat, sans-serif;
+}
+html,body{
+	height: 100%;
+	width: 100%;
+	line-height: 1;
+	font-size: 1em;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family:inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+
+#root{
+  height: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html[data-theme="dark"] {
+  --primary-background: rgb(34,34,34);
+  --mild-theme: #363636;
+  --leftside-bar: #3b3b3b;
+  --leftside-bar-shadow: 5px 5px 10px rgba(0,0,0,0.377);
+  --header: #373737;
+  --search2: #313131;
+  --search: #313131;
+  --text: #f0f0f0;
+  --invert-text: #272727;
+  --select: #292929;
+  --content: #474747;
+  --invert: 0;
+  --double-invert: 1;
+  --closeToContent: #3a3a3a;
+  --theme: #3a3a3a;
+  --theme-mild-opposite: #d2d2d2;
+  --settings: #292929;
+  --blue: #90b3e7;
+  --green: #94f0b9;
+  --red: #e27992;
+  --purple: #6f72d4;
+  --mildPurple: #8d91f8;
+  --orange: #f0b357;
+  --reallyBlue: #567dff;
+  --lightBlue: #dbdbff;
+  --darker: #272727;
+  --purpleGradient: linear-gradient(45deg,#99a2f4,#b199f4);
+  --orangeGradient: linear-gradient(45deg,#e27992,#f4af99);
+  --almostTransparent: rgba(0,0,0,0.281);
+  --almostTransparentOpposite: hsla(0,0%,100%,0.103);
+  --schedule: #2e2e2e;
+  --scheduleBg: #232323;
+  --schedule-shadow: 0;
+  --info-blue: #83a2ff;
+  --form: #252525;
+}
+:root {
+  --light-box-shadow: 0 0 3px rgba(0,0,0,0.342);
+  --header-box-shadow: 3px 0 3px rgba(0,0,0,0.342);
+  --grey: #808080;
+  --brLight: 9px;
+  --brSemi: 19px;
+  --brBold: 30px;
+  --strong-shadow: 0 0 50px #000;
+  --very-mild-shadow: 0 0 32px rgb(0 0 0 / 8%);
+  --desktop-page-padding: 40px;
+  --mobile-page-padding: 5px;
+  --dimension:500px;
+}
+.app{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+body::-webkit-scrollbar {
+	width: 2px;
+}
+   
+  body::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+   
+  body::-webkit-scrollbar-thumb {
+	background-color: rgb(26, 26, 26);
+	outline: 1px solid rgb(26, 26, 26);
 }

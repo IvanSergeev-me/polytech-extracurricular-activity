@@ -1,0 +1,122 @@
+.header{
+    box-sizing: border-box;
+    position: relative;
+    background: var(--schedule);
+    box-shadow: var(--very-mild-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10%;
+}
+.header__logo_container{
+    flex:1;
+}
+.logo{
+    width: 70%;
+    object-fit: contain;
+}
+.header__search_container{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.header__profile_container{
+    box-sizing: border-box;
+    flex:1;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.profile_container__profile{
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 10px;
+    align-items: center;
+    text-decoration: none;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.profile_container__profile:hover{
+    transition-property:all;
+    transition: 0.3s;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.image_filler{
+    
+    width: 70px;
+    height: 70px;
+    background-color: #DCDCDC;
+    border-radius: 100%;
+}
+.title{
+    text-decoration: none;
+    margin-top: 1em;
+    color:var(--text);
+    font-size: 1em;
+    font-weight: 600;
+}
+.profile_active{
+    box-sizing: border-box;
+    outline: 4px solid var(--reallyBlue);
+    border: 5px solid var(--schedule);
+}
+.search_container__search_form{
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.search_form__title{
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--grey);
+}
+.search_form__input_container{
+    border: 3px solid transparent;
+    box-sizing: border-box;
+    margin-top: 1em;
+    border-radius: 7px;
+    padding: 10px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    background-color: var(--search);
+    width: 100%;
+}
+
+.active_search{
+    box-sizing: border-box;
+    border: 3px solid var(--almostTransparentOpposite) ;
+}
+
+.input_container__input{
+    box-sizing: border-box;
+    width: 100%;
+}
+.input_container__submit{
+    box-sizing: border-box;
+    margin-right: 5px;
+}
+.error_title{
+    box-sizing: border-box;
+    color: var(--red);
+}
+
+.input__field{
+    box-sizing: border-box;
+    color:var(--text);
+    font-weight: 600;
+    outline: none;
+    border: none;
+    background-color: var(--search);
+    width: 100%;
+}
+.input__field::placeholder{
+    box-sizing: border-box;
+    font-size: 1em;
+    color:var(--grey) ;
+}

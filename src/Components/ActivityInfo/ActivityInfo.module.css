@@ -1,0 +1,123 @@
+.activity_container{
+    height: 100%;
+    overflow-x: hidden;
+    position: relative;
+    background: var(--theme);
+    padding: 10px 10%;
+}
+.activity_container__top{
+    display: flex;
+    flex-direction: column;
+}
+.top__heading{
+    display: flex;
+    align-items: center;
+}
+.title{
+    color: var(--text);
+    font-size: 2em;
+    font-weight: 600;
+}
+.members{
+    margin-left: 3em;
+    display: flex;
+    align-items: center;
+}
+.members__icon{
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+.members__text{
+    font-size: 1em;
+    color: var(--text);
+}
+
+.top__tags_container{
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.top__tags_container div:not(:first-child){
+    margin-left: 10px;
+}
+.activity_container__main{
+    margin-top: 1em;
+    display: flex;
+    align-items: stretch;
+}
+.main__left{
+    max-width: 500px;
+}
+
+.left__filler{
+    background-color: var(--grey);
+    width: var(--dimension);
+    height: var(--dimension);
+}
+.left__img{
+    width: var(--dimension);
+    height: var(--dimension);
+    object-fit: fill;
+}
+.main__right{
+    margin-left: 3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.right__description{
+    font-size: 1em;
+    color: var(--text);
+}
+.right__button_container{
+    display: flex;
+    align-items: center;
+}
+.button_container__button{
+    border: none;
+    padding:5px 10px;
+    text-align: center;
+    color: var(--text);
+    font-size: 1em;
+    font-weight: 600;
+    border-radius: 7px;
+}
+.def_btn{
+    background-color: #567dff;
+}
+.red_btn{
+    background-color: #EC5F6B;
+}
+.grn_btn{
+    background-color: #25c259;
+}
+
+.contacts_and_links__content{
+    margin-top: 1em;
+}
+.contacts_list__row{
+    margin-top: 10px;
+    list-style-type:none;
+}
+.contacts_list__row div{
+    margin-left: 1em;
+}
+.contacts_list__row::before { 
+    position: absolute;
+    content: '';
+    margin-top:5px;
+    height: 5px;
+    width: 5px;
+    background-color: var(--text);
+    border-radius: 50%;
+}
+.activity_container__gallery{
+    margin-top: 1em;
+    width: 100%;
+}
+.gallery__carousel_container{
+    margin-top: 1em;
+    width: 100%;
+}
