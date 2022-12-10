@@ -8,4 +8,4 @@ export interface RoleRights{
     canDo:boolean
 }
 
-export type RoleRightName = 'canBan' | 'canCreatePost' | 'canEditPost' | 'canDeletePost' | 'canEditRoles'
+export type RoleRightName = 'canBan' | 'canCreatePost' | 'canEditPost' | 'canDeletePost' | 'canEditRoles' | 'canEditSchedule'

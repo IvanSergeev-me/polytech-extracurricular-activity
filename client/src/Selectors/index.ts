@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import { getFirstLetters } from '../Assets/Images/Utils/getFirstLetters';
 import { RootState } from '../Redux/redux-store';
 
 //Todo: декомпозировать файл селекторов
@@ -30,9 +31,9 @@ export const selectAppStatus = createSelector(
     (appStatus) => appStatus, 
 );
 
-export const selectCommunity = createSelector(
+export const selectCommunityName = createSelector(
     [communitySelector],
-    (community) => community, 
+    (community) => community.community_name, 
 );
 
 export const selectCommunityUserRoles = createSelector(
@@ -46,20 +47,40 @@ export const selectCommunityPosts = createSelector(
     (community) => community.posts,
 );
 
+export const selectCommunitySchedule = createSelector(
+    [communitySelector],
+    (community) => community.schedule,
+);
+
+export const selectCommunityMembers = createSelector(
+    [communitySelector],
+    (community) => community.members,
+);
+
+// export const selectSubjectsByDay = createSelector(
+//     [communitySelector],
+//     (community, day) => ({
+//         community.subjects.filter(s => s.day === props.day_name)
+//     }),
+// );
+
 export const selectUserFirstLetters = createSelector(
     [userSelector],
     (user) =>{
         if(user){
-            let letter1= user.lastname.charAt(0).toUpperCase();
-            let letter2 = user.name.charAt(0).toUpperCase();
-            let firstLetters = letter1+letter2;
-            return(firstLetters)
+            return(getFirstLetters([user.lastname, user.name]));
         }
         return("")
     }
 );
 
+export const selectUserId = createSelector(
+    [userSelector],
+    (user) => user?.id
+)
+
 export const selectIsAuth = createSelector(
     [isAuthSelector],
     (isAuth) => isAuth
 )
+

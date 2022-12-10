@@ -1,3 +1,5 @@
+import { DayType } from "../TimeAndDate"
+
 export interface ICommunityPublication {
     id:number,
     images?: IPublicationImage[],
@@ -8,6 +10,20 @@ export interface ICommunityPublication {
 }
 
 export interface IPublicationImage {
-    id:0,
+    id:number,
     image:string,
+}
+
+export interface ISubject {
+    id:number,
+    name:string,
+    day:DayType,
+    time_start:string,
+    time_end:string,
+    audience:string,
+    date_start:string,
+    date_end:string,
+
+    time_range?:string[];
+    date_range?:string[];
 }

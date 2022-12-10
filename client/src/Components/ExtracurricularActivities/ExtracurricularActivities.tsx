@@ -6,6 +6,7 @@ import style from "./Activities.module.css";
 import { useNavigate } from 'react-router-dom';
 import { selectActivities } from "../../Selectors";
 import ActivityTag from "../ActivityTag/ActivityTag";
+import NotFoundPage from "../NotFoundPage/NotFoundPage";
 //import { useActivitiesActions } from "../../Hooks/useActions";
 
 
@@ -18,7 +19,7 @@ interface ImageBoxProps {
 const ExtracurricularActivities:FC = (props) => {
     let activities = useTypedSelector(selectActivities);
 
-    if (activities.length === 0) return <div>Тут страница со смайликом : (</div>
+    if (activities.length === 0) return <NotFoundPage />
 
     return (
         <section className={style.activities_container}>

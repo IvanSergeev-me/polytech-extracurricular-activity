@@ -1,6 +1,6 @@
 //import { IActivity } from "../../../Models/Activities";
 import { ActivityInfoApplicationStatus } from "../../../Models/ApplictationStatuses";
-import { ICommunityPublication } from "../../../Models/Community";
+import { ICommunityPublication, ISubject } from "../../../Models/Community";
 import { IMember } from "../../../Models/User";
 
 export enum ActionsEnum{
@@ -9,7 +9,12 @@ export enum ActionsEnum{
     SET_APP_STATUS = "COMMUNITY/SET_APP_STATUS",
     SET_ERROR = "COMMUNITY/SET_ERROR",
     SET_MEMBERS = "COMMUNITY/SET_MEMBERS",
-    SET_POSTS = "COMMUNITY/SET_POSTS"
+    SET_POSTS = "COMMUNITY/SET_POSTS",
+    SET_SCHEDULE = "COMMUNITY/SET_SCHEDULE",
+    ADD_POST = "COMMUNITY/ADD_POST",
+    ADD_SUBJECT = "COMMUNITY/ADD_SUBJECT",
+    DELETE_SUBJECT = "COMMUNITY/DELETE_SUBJECT",
+    DELETE_POST = "COMMUNITY/DELETE_POST",
 }
 
 export interface communityState{
@@ -19,6 +24,7 @@ export interface communityState{
     community_name:string;
     members:IMember[];
     posts:ICommunityPublication[];
+    schedule:ISubject[];
 }
 
 export interface setLoadingAction{
@@ -41,9 +47,44 @@ export interface setPostsAction{
     posts:ICommunityPublication[];
 }
 
+export interface addPostAction{
+    type:ActionsEnum.ADD_POST;
+    post:ICommunityPublication;
+}
+
 export interface setErrorAction{
     type:ActionsEnum.SET_ERROR;
     error_message:string;
 }
 
-export type ActionList = setLoadingAction | setAppStatusAction | setErrorAction | setMembersAction | setPostsAction;
+export interface setScheduleAction{
+    type:ActionsEnum.SET_SCHEDULE;
+    schedule:ISubject[];
+}
+
+export interface addSubjectAction{
+    type:ActionsEnum.ADD_SUBJECT;
+    subject:ISubject;
+}
+
+export interface deleteSubjectAction{
+    type:ActionsEnum.DELETE_SUBJECT;
+    id:number
+}
+
+export interface deletePostAction{
+    type:ActionsEnum.DELETE_POST;
+    id:number;
+}
+
+export type ActionList = 
+    setLoadingAction |
+    setAppStatusAction |
+    setErrorAction |
+    setMembersAction | 
+    setPostsAction | 
+    addPostAction | 
+    setScheduleAction | 
+    addSubjectAction |
+    deleteSubjectAction |
+    deletePostAction;

@@ -5,9 +5,7 @@ import {AsidePanel} from "./CommunityAside/CommunityAside";
 import style from './CommunityPage.module.css';
 import { CommunityProvider } from "../../Context";
 import { useTypedSelector } from "../../Hooks/useTypedSelector";
-import { selectCommunity } from "../../Selectors";
-import CommunityPosts from "./CommunityPosts/CommunityPosts";
-import { Routes } from "react-router-dom";
+import { selectCommunityName } from "../../Selectors";
 import AppRouter from "../Router/Router";
 import { communityRoutes } from "../../Routes/routes";
 
@@ -24,12 +22,12 @@ const CommunityPageContent:FC = (props) =>{
     let isMember = true; //temp
     let info_id = 1; //temp
 
-    const community = useTypedSelector(selectCommunity);
+    const community_name = useTypedSelector(selectCommunityName);
 
     return(
         <section className={style.community_page_container}>
             <div className={style.community_page_container__main_content}>
-                {isMember?<CommunityHeaderIfMember community_name={community.community_name} info_id={info_id}/>:<CommunityHeaderIfGuest />}
+                {isMember?<CommunityHeaderIfMember community_name={community_name} info_id={info_id}/>:<CommunityHeaderIfGuest />}
                 <AppRouter routes={communityRoutes}/>
             </div>
             <AsidePanel isHidden={true}/>

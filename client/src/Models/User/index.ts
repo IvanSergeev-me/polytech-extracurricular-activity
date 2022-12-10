@@ -15,6 +15,6 @@ export interface IMember{
     roles:CommunityRole[],
     name:string,
     lastname:string,
-    image?: string,
+    image: string,
 }
 

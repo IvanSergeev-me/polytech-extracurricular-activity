@@ -22,7 +22,7 @@ const ActivityInfo:FC = () => {
     const activityInfo = useTypedSelector(selectActivity);
     
 
-    const {setAppStatus} = useActivityInfoActions()
+    const {setAppStatus} = useActivityInfoActions();
 
     const onAppStatusSubmit = (payload:ActivityInfoApplicationStatus) =>{
         setAppStatus(payload);

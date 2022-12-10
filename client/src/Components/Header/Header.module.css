@@ -96,7 +96,7 @@
 
 .active_search{
     box-sizing: border-box;
-    border: 3px solid var(--almostTransparentOpposite) ;
+    border: 3px solid var(--almostTransparentOpposite);
 }
 
 .input_container__input{
