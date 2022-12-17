@@ -7,12 +7,12 @@ export let initialState:communityState = {
     community_name:"Музыкальное сообщество",
     members:[
         {id:0, name:"Иван", lastname:"Сергеев", image:"https://play-lh.googleusercontent.com/8ddL1kuoNUB5vUvgDVjYY3_6HwQcrg1K2fd_R8soD-e2QYj8fT9cfhfh3G0hnSruLKec", roles:[
-            {name:"Руководитель", rights:[{name:"canCreatePost", canDo:true}]},
-            {name:"Модератор", rights:[{name:"canCreatePost", canDo:true},{name:"canEditSchedule", canDo:true}]},
+            {name:"Руководитель", rights:[{name:"canEditPost", canDo:true}]},
+            {name:"Модератор", rights:[{name:"canEditPost", canDo:true},{name:"canEditSchedule", canDo:true}]},
             {name:"Преподаватель по гитаре", rights:[]},
         ]},
         {id:1, name:"Вадим", lastname:"Сидоров", image:"", roles:[
-            {name:"Модератор", rights:[{name:"canCreatePost", canDo:true},{name:"canEditSchedule", canDo:true}]},
+            {name:"Модератор", rights:[{name:"canEditPost", canDo:true},{name:"canEditSchedule", canDo:true}]},
         ]},
         {id:2, name:"Сергей", lastname:"Ларичев", image:"", roles:[
             {name:"Участник", rights:[]},
@@ -31,8 +31,8 @@ export let initialState:communityState = {
             {id:4, image:"https://archello.s3.eu-central-1.amazonaws.com/images/2020/04/17/DSC-5845-1.1587100243.7966.jpg"},], 
             title:"title2", text:"text2", authorId:1, date:"27.11.2022"}],
     schedule:[
-        {id:0, name:"Занятие такое-то",audience:"Н-505", day:"Wed", time_start:"12:20", time_end:"13:50", date_start:"1 сен", date_end:"1 дек"},
-        {id:1, name:"Занятие такое-то",audience:"Н-505", day:"Fri", time_start:"10:40", time_end:"12:20", date_start:"1 сен", date_end:"1 дек"},
+        {id:0, name:"Занятие такое-то",audience:"Н-505", day:"Wed", time_start:"09:00", time_end:"10:30", date_start:"1 сен", date_end:"1 дек"},
+        {id:1, name:"Занятие такое-то",audience:"Н-505", day:"Fri", time_start:"10:40", time_end:"12:10", date_start:"1 сен", date_end:"1 дек"},
         {id:3, name:"Занятие такое-то2",audience:"Н-505", day:"Wed", time_start:"12:20", time_end:"13:50", date_start:"1 сен", date_end:"1 дек"},
     ]
 }

@@ -1,0 +1,14 @@
+.community_settings-content {
+    background-color: var(--scheduleBg);
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1em;
+    margin-left: 10px;
+}
+.community_settings-arrow {
+    color: var(--scheduleBg);
+    stroke: var(--scheduleBg);
+    border: none;
+}

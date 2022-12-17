@@ -6,7 +6,8 @@ import { useCommunityActions } from "../../../Hooks/useActions";
 import { useTypedSelector } from "../../../Hooks/useTypedSelector";
 import { selectUserId } from "../../../Selectors";
 import { IPublicationImage } from "../../../Models/Community";
-import { getCurrentDate } from "../../../Assets/Images/Utils/getCurrentDate";
+import { getCurrentDate } from "../../../Assets/Utils/getCurrentDate";
+import { rolesRightsNames } from "../../../Models/RolesAndRights";
 
 type AddPublicationFormValues = {
     title:string;
@@ -121,7 +122,7 @@ const ChoosenFile:FC<ChoosenFileProps> = (props) =>{
     )
 }
 
-export default withCommunityRights(AddPublicationForm, ["canCreatePost"]);
+export default withCommunityRights(AddPublicationForm, [rolesRightsNames.canEditPost]);
 
 
 

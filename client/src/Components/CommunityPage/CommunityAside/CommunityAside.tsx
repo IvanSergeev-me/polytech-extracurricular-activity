@@ -4,8 +4,8 @@ import {useCommunityContext} from "../../../Context/index";
 import { useTypedSelector } from "../../../Hooks/useTypedSelector";
 import { selectCommunityMembers } from "../../../Selectors";
 import { IMember } from "../../../Models/User";
-import { CommunityRole } from "../../../Models/RolesAndRights";
-import { getFirstLetters } from "../../../Assets/Images/Utils/getFirstLetters";
+import { ICommunityRole } from "../../../Models/RolesAndRights";
+import { getFirstLetters } from "../../../Assets/Utils/getFirstLetters";
 
 interface AsideProps {
     isHidden: boolean
@@ -55,7 +55,7 @@ const AsideMember:FC<IMember> = (props) =>{
     )
 }
 
-const AsideRole:FC<CommunityRole> = (props) =>{
+const AsideRole:FC<ICommunityRole> = (props) =>{
     return(
         <div className={style.aside_roles__role}>{props.name}</div>
     )

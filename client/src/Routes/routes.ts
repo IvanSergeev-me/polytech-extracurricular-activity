@@ -6,6 +6,11 @@ import CommunitySchedule from "../Components/CommunityPage/CommunitySchedule/Com
 import ExtracurricularActivities from "../Components/ExtracurricularActivities/ExtracurricularActivities";
 import Login from "../Components/Login/Login";
 import NotFoundPage from "../Components/NotFoundPage/NotFoundPage";
+import Profile from "../Components/Profile/Profile";
+import ProfileAdmin from "../Components/Profile/ProfileAdmin/ProfileAdmin";
+import ProfileMain from "../Components/Profile/ProfileMain/ProfileMain";
+import ProfileRequests from "../Components/Profile/ProfileRequests/ProfileRequests";
+import ProfileStatistics from "../Components/Profile/ProfileStatistics/ProfileStatistics";
 
 export interface IRoute {
     path:string;
@@ -21,12 +26,21 @@ export enum routeNames {
     ACTIVITIES = "/Activities",
     ACTIVITY_INFO ="/Activities/:id",
     COMMUNITY_PAGE="/Community/:id/*",
+    PROFILE="/Profile/*",
     NO_MATCH = "*"
 }
 
 export enum communityRouteNames {
     POSTS = "/",
     SCHEDULE= "/Schedule",
+    NO_MATCH = "*"
+}
+
+export enum profileRouteNames {
+    MAIN = "/",
+    STAT= "/statistics",
+    REQUESTS = "/requests",
+    ADMIN = "/admin",
     NO_MATCH = "*"
 }
 
@@ -40,10 +54,20 @@ export const privateRoutes: IRoute[] = [
     {path: routeNames.ACTIVITIES ,element:ExtracurricularActivities },
     {path: routeNames.ACTIVITY_INFO ,element:ActivityInfo },
     {path: routeNames.COMMUNITY_PAGE ,element:CommunityPage },
+    {path: routeNames.PROFILE, element:Profile},
     {path: routeNames.NO_MATCH, element:NotFoundPage}
 ]
 
 export const communityRoutes:IRoute[] = [
     {path:communityRouteNames.POSTS, element:CommunityPosts},
     {path:communityRouteNames.SCHEDULE, element:CommunitySchedule},
+    {path:communityRouteNames.NO_MATCH, element:NotFoundPage},
+]
+
+export const profileRoutes:IRoute[] = [
+    {path:profileRouteNames.MAIN, element:ProfileMain},
+    {path:profileRouteNames.STAT, element:ProfileStatistics},
+    {path:profileRouteNames.REQUESTS, element:ProfileRequests},
+    {path:profileRouteNames.ADMIN, element:ProfileAdmin},
+    {path:profileRouteNames.NO_MATCH, element:NotFoundPage},
 ]

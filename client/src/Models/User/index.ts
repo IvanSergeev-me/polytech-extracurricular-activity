@@ -1,4 +1,4 @@
-import { CommunityRole } from "../RolesAndRights"
+import { ICommunityRole } from "../RolesAndRights"
 
 export interface IUser{
     id:number,
@@ -7,14 +7,23 @@ export interface IUser{
     lastname:string,
     image?: string,
     login:string,
+    group?:string,
     activitiesMember?:number[]
 }
 
 export interface IMember{
     id:number,
-    roles:CommunityRole[],
+    roles:ICommunityRole[],
     name:string,
     lastname:string,
     image: string,
+    group?:string,
+}
+
+export interface IMemberShort {
+    id:number,
+    name:string,
+    lastname:string,
+    group?:string,
 }
 

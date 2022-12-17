@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { getFirstLetters } from '../Assets/Images/Utils/getFirstLetters';
+import { getFirstLetters } from '../Assets/Utils/getFirstLetters';
 import { RootState } from '../Redux/redux-store';
 
 //Todo: декомпозировать файл селекторов
@@ -13,6 +13,8 @@ const userSelector = (state:RootState) => state.authReducer.user;
 const communitySelector = (state:RootState) => state.communityReducer;
 
 const isAuthSelector = (state:RootState) => state.authReducer.isAuth;
+
+const profileSelector = (state:RootState) => state.profileReducer;
 
 export const appStatusSelector = (state:RootState) => state.activityInfoReducer.appStatus;
 
@@ -36,6 +38,7 @@ export const selectCommunityName = createSelector(
     (community) => community.community_name, 
 );
 
+//dont works
 export const selectCommunityUserRoles = createSelector(
     //Select user roles in community and its rights
     [communitySelector],
@@ -57,13 +60,6 @@ export const selectCommunityMembers = createSelector(
     (community) => community.members,
 );
 
-// export const selectSubjectsByDay = createSelector(
-//     [communitySelector],
-//     (community, day) => ({
-//         community.subjects.filter(s => s.day === props.day_name)
-//     }),
-// );
-
 export const selectUserFirstLetters = createSelector(
     [userSelector],
     (user) =>{
@@ -74,13 +70,24 @@ export const selectUserFirstLetters = createSelector(
     }
 );
 
+export const selectCommunitiesInProfile = createSelector(
+    [profileSelector],
+    (profile) => profile.communities,
+);
+
+export const selectEventsInProfile = createSelector(
+    [profileSelector],
+    (profile) => profile.events,
+)
+
+
 export const selectUserId = createSelector(
     [userSelector],
     (user) => user?.id
-)
+);
 
 export const selectIsAuth = createSelector(
     [isAuthSelector],
     (isAuth) => isAuth
-)
+);
 

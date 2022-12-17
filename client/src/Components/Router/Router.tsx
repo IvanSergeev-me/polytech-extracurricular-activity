@@ -12,7 +12,7 @@ const AppRouter = ({routes, ...props}:AppRouterProps) => {
                 {routes.map(route =>
                     <Route
                         path={route.path}
-                        element={<route.element/>}
+                        element={<route.element />}
                         key={route.path}
                     />
                 )}

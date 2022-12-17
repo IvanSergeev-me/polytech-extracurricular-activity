@@ -1,0 +1,31 @@
+.event_settings-overlay{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+[role='tooltip'].event_settings-content {
+    width: 50%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+}
+
+[data-popup='tooltip'].event_settings-overlay {
+    background: rgba(0, 0, 0, 0.66);
+}
+
+.event_settings-content {
+    position: absolute;
+    background-color: var(--scheduleBg);
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1em;
+    top: 50% !important;
+    left: 25% !important;
+}
+.event_settings-arrow {
+    display: none;
+}

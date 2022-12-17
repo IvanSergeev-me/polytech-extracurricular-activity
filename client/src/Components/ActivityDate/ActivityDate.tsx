@@ -1,5 +1,5 @@
 import React, {FC, useMemo} from "react";
-import { parseDate } from "../../Assets/Images/Utils/parseActivityDate";
+import { parseDate } from "../../Assets/Utils/parseActivityDate";
 import style from "./ActivityDate.module.css"
 
 interface ActivityDateProps{

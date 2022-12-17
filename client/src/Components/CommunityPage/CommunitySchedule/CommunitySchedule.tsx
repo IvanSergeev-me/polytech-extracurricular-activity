@@ -2,6 +2,7 @@ import React , { FC } from "react";
 import { useCommunityActions } from "../../../Hooks/useActions";
 import { useTypedSelector } from "../../../Hooks/useTypedSelector";
 import { ISubject } from "../../../Models/Community";
+import { rolesRightsNames } from "../../../Models/RolesAndRights";
 import { dayGlossary, DayType } from "../../../Models/TimeAndDate";
 import { selectCommunitySchedule } from "../../../Selectors";
 import { withCommunityRights } from "../../HOC/withCommunityRights";
@@ -70,6 +71,11 @@ const Subject:FC<ISubject> = (props) =>{
     const deleteThisSubject = () =>{
         deleteSubject(props.id);
     }
+    
+    //import { getSubjectColor } from "../../../Assets/Images/Utils/getSubjectColor";
+    //const subjectColor = useMemo(()=>getSubjectColor(props.time_start, props.time_end),[]) ;
+    //console.log(subjectColor)
+    // style={{background:subjectColor}}
 
     return(
         <div className={style.subjects__subject_container}>
@@ -105,4 +111,4 @@ const DeleteSubject:FC<DeleteSubjectProps> = (props) =>{
     );
 }
 
-const DeleteSubjectWithRights = withCommunityRights(DeleteSubject, ["canEditSchedule"]);
+const DeleteSubjectWithRights = withCommunityRights(DeleteSubject, [rolesRightsNames.canEditSchedule]);

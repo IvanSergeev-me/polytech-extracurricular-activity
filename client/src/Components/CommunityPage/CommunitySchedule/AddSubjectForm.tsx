@@ -8,6 +8,7 @@ import TimeRangePicker from '@wojtekmaj/react-timerange-picker';
 import Select from "react-select";
 import { getDays, DayOption } from "./selectOptions";
 import "./ExternalComponents.css";
+import { rolesRightsNames } from "../../../Models/RolesAndRights";
 
 
 type AddSubjectFormValues = ISubject;
@@ -99,4 +100,4 @@ const AddSubjectForm:FC = (props) =>{
 }
 
 
-export default withCommunityRights(AddSubjectForm, ["canEditSchedule"]);
+export default withCommunityRights(AddSubjectForm, [rolesRightsNames.canEditSchedule]);

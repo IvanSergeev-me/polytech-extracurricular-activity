@@ -1,11 +1,18 @@
-export interface CommunityRole{
+export interface ICommunityRole{
     name:string,
-    rights:RoleRights[]
+    rights:IRoleRights[]
 }
 
-export interface RoleRights{
+export interface IRoleRights{
     name:RoleRightName,
     canDo:boolean
 }
 
-export type RoleRightName = 'canBan' | 'canCreatePost' | 'canEditPost' | 'canDeletePost' | 'canEditRoles' | 'canEditSchedule'
+export enum rolesRightsNames{
+    canBan = 'canBan',
+    canEditPost = 'canEditPost',
+    canEditRoles = 'canEditRoles',
+    canEditSchedule = 'canEditSchedule',
+}
+
+export type RoleRightName = 'canBan' | 'canEditPost' | 'canEditRoles' | 'canEditSchedule';
