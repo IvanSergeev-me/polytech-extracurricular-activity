@@ -1,4 +1,4 @@
-import { ICommunityInProfile, IEventInProfile } from "../../../Models/Profile";
+import { ICommunityInProfile, IEventInProfile, IUserRequest } from "../../../Models/Profile";
 
 
 export enum ActionsEnum{
@@ -6,18 +6,25 @@ export enum ActionsEnum{
     SET_EVENTS = "PROFILE/SET_ACTIVITY",
     SET_LOADING = "PROFILE/SET_LOADING",
     SET_ERROR = "PROFILE/SET_ERROR",
+    SET_USER_REQUESTS = "PROFILE/SET_USER_REQUESTS",
 }
 
 export interface profileState{
     isLoading: boolean;
     communities:ICommunityInProfile[];
     events:IEventInProfile[];
+    userRequests:IUserRequest[]
     error:string;
 }
 
 export interface setLoadingAction{
     type:ActionsEnum.SET_LOADING;
     isLoading:boolean;
+}
+
+export interface setRequestsAction{
+    type:ActionsEnum.SET_USER_REQUESTS;
+    userRequests:IUserRequest[];
 }
 
 export interface setEventsAction{
@@ -35,4 +42,4 @@ export interface setErrorAction{
     error_message:string;
 }
 
-export type ActionList = setEventsAction | setCommunitiesAction | setLoadingAction | setErrorAction;
+export type ActionList = setEventsAction | setCommunitiesAction | setLoadingAction | setErrorAction | setRequestsAction;

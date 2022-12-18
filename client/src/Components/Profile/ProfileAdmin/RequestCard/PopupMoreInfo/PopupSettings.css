@@ -1,0 +1,94 @@
+.request_more-overlay{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+[role='tooltip'].request_more-content {
+    height: 50%;
+    width: 50%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+}
+
+[data-popup='tooltip'].request_more-overlay {
+    background: rgba(0, 0, 0, 0.66);
+}
+
+.request_more-content {
+    overflow: auto;
+    position: absolute;
+    background-color: var(--scheduleBg);
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1em;
+    top: 25% !important;
+    left: 25% !important;
+}
+.request_more-arrow {
+    display: none;
+}
+.request_more__content_box{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.content_box__request_top{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.content_box__request_top h2{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.request_top__field p{
+    flex-wrap: wrap;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    color: var(--text);
+    font-size: 1em;
+}
+
+.request_top__field{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;  
+}
+.content_box__request_buttons{
+    gap: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.request_buttons__button{
+    outline: none;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    color: var(--text);
+    border-radius: 9px;
+    width: 150px;
+    padding: 10px;
+    font-weight: 600;
+}
+.reject{
+    background-color: var(--red);
+}
+.approve{
+    background-color: var(--reallyBlue);
+}
+.request_top__title_box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}

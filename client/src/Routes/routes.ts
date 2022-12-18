@@ -9,7 +9,7 @@ import NotFoundPage from "../Components/NotFoundPage/NotFoundPage";
 import Profile from "../Components/Profile/Profile";
 import ProfileAdmin from "../Components/Profile/ProfileAdmin/ProfileAdmin";
 import ProfileMain from "../Components/Profile/ProfileMain/ProfileMain";
-import ProfileRequests from "../Components/Profile/ProfileRequests/ProfileRequests";
+import ProfileLinks from "../Components/Profile/ProfileLinks/ProfileLinks";
 import ProfileStatistics from "../Components/Profile/ProfileStatistics/ProfileStatistics";
 
 export interface IRoute {
@@ -39,7 +39,7 @@ export enum communityRouteNames {
 export enum profileRouteNames {
     MAIN = "/",
     STAT= "/statistics",
-    REQUESTS = "/requests",
+    LINKS = "/links",
     ADMIN = "/admin",
     NO_MATCH = "*"
 }
@@ -67,7 +67,7 @@ export const communityRoutes:IRoute[] = [
 export const profileRoutes:IRoute[] = [
     {path:profileRouteNames.MAIN, element:ProfileMain},
     {path:profileRouteNames.STAT, element:ProfileStatistics},
-    {path:profileRouteNames.REQUESTS, element:ProfileRequests},
+    {path:profileRouteNames.LINKS, element:ProfileLinks},
     {path:profileRouteNames.ADMIN, element:ProfileAdmin},
     {path:profileRouteNames.NO_MATCH, element:NotFoundPage},
 ]

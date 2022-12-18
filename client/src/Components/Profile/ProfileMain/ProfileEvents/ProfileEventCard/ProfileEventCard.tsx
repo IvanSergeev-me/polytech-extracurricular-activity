@@ -1,4 +1,4 @@
-import React, { FC, useCallback } from "react";
+import React, { FC, useCallback, useState } from "react";
 import { IEventInProfile, IEventShortInfo } from "../../../../../Models/Profile";
 import style from "../../../Profile.module.css";
 import Popup from 'reactjs-popup';
@@ -33,13 +33,18 @@ interface SettingsProps {
 }
 
 const SettingsPopup = ({info}:SettingsProps) =>{
+    const [isOpen, setOpen] = useState<boolean>(false);
+
+    const setIsOpen = () =>{
+        setOpen(true)
+    }
 
     const closePopup = () =>{
-        console.log("close")
+        setOpen(false);
     }
 
     return(
-        <Popup contentStyle={style} className={"event_settings"} trigger={<div className={style.event_container__event__more_button}>Подробнее</div>}>
+        <Popup onOpen={setIsOpen} open={isOpen} contentStyle={style} className={"event_settings"} trigger={<div className={style.event_container__event__more_button}>Подробнее</div>}>
             <div className={style.event_info_wrapper}>
                 <div className={style.event_info_wrapper__event_info_wrapper_top}>
                     <div className={style.event_info_wrapper_top__controls}>   
@@ -48,6 +53,7 @@ const SettingsPopup = ({info}:SettingsProps) =>{
                     </div>
                     <div className={style.event_info_wrapper_top__date_container}>
                         <p>{info.date_visit}</p>
+                        <p>Место: {info.location}</p>
                     </div>     
                 </div>
                 <div className={style.event_info_wrapper__description_container}>

@@ -38,7 +38,11 @@ export type Activity = {
     time?:string
 }
 
+export type TypeGlossary = Record<ActivityType, string>;
+
 export type ActivityType = 'event'|'community';
+
+export const typeGlossary:TypeGlossary = {"community":"Сообщество", "event":"Мероприятие"};
 
 export type Community = Activity & {communityId?:number}
 

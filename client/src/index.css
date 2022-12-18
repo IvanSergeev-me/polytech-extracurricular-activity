@@ -65,6 +65,45 @@ html[data-theme="dark"] {
   --info-blue: #83a2ff;
   --form: #252525;
 }
+
+html[data-theme="light"] {
+  --blue: #6d86e3;
+  --leftside-bar: #f1f1f1;
+  --mild-theme: #f5f5f5;
+  --primary-background: rgb(243,243,243);
+  --leftside-bar-shadow: 5px 5px 10px hsla(0,0%,40.8%,0.24);
+  --header: #e9e9e9;
+  --text: #272727;
+  --invert-text: #f0f0f0;
+  --select: #f3f3f3;
+  --content: #f1f1f1;
+  --invert: 1;
+  --double-invert: 0;
+  --closeToContent: #f3f3f3;
+  --theme: #fff;
+  --theme-mild-opposite: #565656;
+  --search2: #eee;
+  --search: #e7e7e7;
+  --settings: #dadada;
+  --green: #62c087;
+  --red: #e27992;
+  --orange: rgb(203 104 46);
+  --purple: #9094fe;
+  --mildPurple: #9a99ff;
+  --reallyBlue: #567dff;
+  --lightBlue: #dbdbff;
+  --darker: #c4c4c4;
+  --purpleGradient: linear-gradient(90deg,#6e72eb,rgb(91 129 237));
+  --orangeGradient: linear-gradient(45deg,#ffbdf1,#ff94ad);
+  --almostTransparent: hsla(0,0%,87.8%,0.486);
+  --almostTransparentOpposite: rgba(53,53,53,0.151);
+  --schedule: #fff;
+  --scheduleBg: #eee;
+  --schedule-shadow: 0 0 2px rgb(0 0 0 / 24%);
+  --info-blue: #133db8;
+  --form: #fff;
+}
+
 :root {
   --light-box-shadow: 0 0 3px rgba(0,0,0,0.342);
   --header-box-shadow: 3px 0 3px rgba(0,0,0,0.342);

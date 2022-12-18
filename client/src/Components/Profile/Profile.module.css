@@ -269,7 +269,71 @@
     text-align: center;
 }
 .event_members_container__member{
+    display: flex;
+    align-items: center;
+    gap: 10px;
     color: var(--text);
     border-top: 1px solid var(--text);
     padding: 10px;
+}
+
+.profile_page_container__requests{
+    width: 100%;
+}
+
+.requests__requests_wrapper{
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.requests_wrapper__requests_col{
+    max-width: 500px;
+    width: 500px;
+    padding: 10px;
+    display: flex;
+    gap:15px;
+    flex-direction: column;
+    border-radius: 9px;
+    background-color: var(--scheduleBg);
+}
+
+.requests_col__options{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.profile_page_container__admin_section{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.admin_section__requests{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.requests__request_container{
+    max-width:500px;
+    width: 500px;
+    padding: 10px;
+    display: flex;
+    gap:10px;
+    flex-direction: column;
+    border-radius: 9px;
+    background-color: var(--scheduleBg);
+}
+
+.request_container__type{
+    color: var(--grey);
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.request_container__date{
+    color: var(--grey);
+    font-size: 1em;
 }

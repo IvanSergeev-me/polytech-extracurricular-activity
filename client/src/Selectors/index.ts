@@ -78,7 +78,12 @@ export const selectCommunitiesInProfile = createSelector(
 export const selectEventsInProfile = createSelector(
     [profileSelector],
     (profile) => profile.events,
-)
+);
+
+export const selectUsersRequests = createSelector(
+    [profileSelector],
+    (profile) => profile.userRequests,
+);
 
 
 export const selectUserId = createSelector(

@@ -15,7 +15,7 @@ const ProfileNavbar = ({currentPath}:ProfileNavbarProps) => {
         <nav className={style.profile_page_container__nav}>
             <NavElement currentPath={currentPath} link="./" name={"Сообщества и мероприятия"}/>
             <NavElement currentPath={currentPath} link="statistics" name={"Статистика"}/>
-            <NavElement currentPath={currentPath} link="requests" name={"Подать заявку"}/>
+            <NavElement currentPath={currentPath} link="links" name={"Подать заявку"}/>
             {isAdmin && <NavElement currentPath={currentPath} link="admin" name={"Администрирование"}/>}
         </nav>
     );
