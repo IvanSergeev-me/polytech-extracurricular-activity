@@ -1,13 +1,8 @@
 import React, {FC, useState} from "react";
+import { IPhoto } from "../../Models/Activities";
 import style from "./ActivityPhotoCard.module.css";
 
-interface ActivityPhotoProps{
-    id:number;
-    description:string;
-    content:string;
-} 
-
-const ActivityPhotoCard:FC<ActivityPhotoProps> = (props) =>{
+const ActivityPhotoCard:FC<IPhoto> = (props) =>{
 
     const selectedDefault = -1;
     // eslint-disable-next-line

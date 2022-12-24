@@ -1,3 +1,4 @@
+import { activityTypeList } from "../../../Models/Activities";
 import { ICommunityInfo, IEventShortInfo } from "../../../Models/Profile";
 import { ActionsEnum, ActionList, profileState } from "./types";
 
@@ -30,7 +31,7 @@ export let initialState:profileState = {
         {id:10, 
             date:"01.01.2022", 
             name:"Сообщество танцев", 
-            type:"community", 
+            type:activityTypeList.community, 
             info:{
                 id:10,
                 authorGroup:"191-361", 
@@ -46,7 +47,7 @@ export let initialState:profileState = {
         {id:11, 
             date:"01.01.2022", 
             name:"Кружок рукоделия", 
-            type:"community", 
+            type:activityTypeList.community, 
             info:{
                 id:11,
                 authorGroup:"191-361", 

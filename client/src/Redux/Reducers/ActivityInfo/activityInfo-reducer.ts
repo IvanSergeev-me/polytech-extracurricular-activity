@@ -1,3 +1,4 @@
+import { activityTypeList } from "../../../Models/Activities";
 import { ActionsEnum, ActionList, activitiyInfoState } from "./types";
 
 export let initialState:activitiyInfoState = {
@@ -10,7 +11,7 @@ export let initialState:activitiyInfoState = {
         description: "Тестовый дескрипшн",
         date:"",
         time:"",
-        type: "community",
+        type: activityTypeList.community,
         //linked community/event id
         tags: [{id:0, name:"Тестовый таг 0", color:"#AAAAAA"}, {id:1, name:"Тестовый таг 1", color:"#A1A1AA"}],
         members_count:100,

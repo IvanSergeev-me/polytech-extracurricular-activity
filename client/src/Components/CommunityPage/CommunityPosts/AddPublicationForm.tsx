@@ -20,7 +20,7 @@ const AddPublicationForm:FC = (props) =>{
     const {addPost} = useCommunityActions();
     const currentDate = useMemo(()=>getCurrentDate(),[]);
     const userId = useTypedSelector(selectUserId);
-    const [files, setFiles] = useState<File[]>([])
+    const [files, setFiles] = useState<File[]>([]);
 
     // eslint-disable-next-line
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm< AddPublicationFormValues >();

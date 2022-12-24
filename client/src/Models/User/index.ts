@@ -5,9 +5,10 @@ export interface IUser{
     role:string,
     name:string,
     lastname:string,
+    middlename:string,
     image?: string,
     login:string,
-    group?:string,
+    group:string,
     activitiesMember?:number[]
 }
 

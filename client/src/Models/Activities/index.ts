@@ -1,3 +1,33 @@
+export enum activityTypeList{
+    community = "community",
+    event = "event",
+}
+
+export interface ITag{
+    id:number,
+    color?:string,
+    name:string,
+}
+
+export interface ILink{
+    id:number,
+    name:string,
+    link:string,
+}
+
+export interface IContact{
+    id:number,
+    name:string,
+    contact:string,
+    type:'link'|'contact',
+}
+
+export interface IPhoto{  
+    id:number,
+    description:string,
+    content:string,
+}
+
 export interface IActivityCard{
     id:number,
     type:string,
@@ -38,37 +68,14 @@ export type Activity = {
     time?:string
 }
 
+
+export type ActivityType = activityTypeList.community | activityTypeList.event;
+
 export type TypeGlossary = Record<ActivityType, string>;
 
-export type ActivityType = 'event'|'community';
+export type CommunityType = Activity & {communityId?:number}
+
+export type EventType = Activity & {date:string, time:string}
 
 export const typeGlossary:TypeGlossary = {"community":"Сообщество", "event":"Мероприятие"};
 
-export type Community = Activity & {communityId?:number}
-
-export type Event = Activity & {date:string, time:string}
-
-export interface ITag{
-    id:number,
-    color?:string,
-    name:string,
-}
-
-export interface ILink{
-    id:number,
-    name:string,
-    link:string,
-}
-
-export interface IContact{
-    id:number,
-    name:string,
-    contact:string,
-    type:'link'|'contact',
-}
-
-export interface IPhoto{  
-    id:number,
-    description:string,
-    content:string,
-}

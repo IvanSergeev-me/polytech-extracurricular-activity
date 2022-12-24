@@ -3,7 +3,7 @@ import { ActionsEnum, ActionList, authState } from "./types";
 export let initialState:authState = {
     isLoading:false,
     isAuth:true,
-    user:{id:0, name:"Иван", lastname:"Сергеев", role:"admin", login:"Sergeev"},
+    user:{id:0, name:"Иван",middlename:"Николаевич", lastname:"Сергеев",group:"191-361", activitiesMember:[1,3,5], role:"admin", login:"Sergeev"},
     error:"",
 }
 

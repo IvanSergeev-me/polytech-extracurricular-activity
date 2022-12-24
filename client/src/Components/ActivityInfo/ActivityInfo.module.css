@@ -113,11 +113,3 @@
     background-color: var(--text);
     border-radius: 50%;
 }
-.activity_container__gallery{
-    margin-top: 1em;
-    width: 100%;
-}
-.gallery__carousel_container{
-    margin-top: 1em;
-    width: 100%;
-}

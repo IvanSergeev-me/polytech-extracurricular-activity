@@ -4,13 +4,9 @@ import { selectUsersRequests } from "../../../Selectors";
 import style from "../Profile.module.css";
 import RequestCard from "./RequestCard/RequestCard";
 
-interface ProfileAdminProps {
-    
-}
+interface ProfileAdminProps {}
  
 const ProfileAdmin: FC<ProfileAdminProps> = () => {
-
-    
 
     return ( 
         <div className={style.profile_page_container__admin_section}>
