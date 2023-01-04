@@ -1,8 +1,16 @@
-import { IActivity } from "../../../Models/Activities";
-import { ActionsEnum, setActivitiesAction, setLoadingAction, setPageAction } from "./types";
+import { createAsyncThunk } from "@reduxjs/toolkit";
+ 
+export const getActivitiesThunk = createAsyncThunk(
+    "activities/getActivities",
+    async(_, thunkAPI) =>
+    {
+        try {
+            const response = null;
+            return response;
 
-export const ActivitiesActionCreators = {
-    fetchLoading: (isLoading:boolean): setLoadingAction => ({type:ActionsEnum.SET_LOADING, isLoading}),
-    setActivities: (activities:IActivity[]):setActivitiesAction => ({type:ActionsEnum.SET_ACTIVITIES, activities}),
-    setPage:(page:number):setPageAction =>({type:ActionsEnum.SET_PAGE, page}),
-}
+        } catch (error) {
+            return thunkAPI.rejectWithValue("error")
+        }
+        
+    }
+);

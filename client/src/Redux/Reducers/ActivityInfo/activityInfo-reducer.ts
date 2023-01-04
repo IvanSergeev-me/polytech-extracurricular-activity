@@ -1,5 +1,8 @@
-import { activityTypeList } from "../../../Models/Activities";
-import { ActionsEnum, ActionList, activitiyInfoState } from "./types";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { activityTypeList, IActivity } from "../../../Models/Activities";
+import { ActivityInfoApplicationStatus } from "../../../Models/ApplictationStatuses";
+import { setAppStatusThunk } from "./action-creators";
+import { activitiyInfoState } from "./types";
 
 export let initialState:activitiyInfoState = {
     isLoading:false,
@@ -26,19 +29,38 @@ export let initialState:activitiyInfoState = {
     appStatus:"activityinfo/APPLICATION_NOT_SENT",
     error:"",
 }
-
-const activityInfoReducer = (state:activitiyInfoState = initialState , action: ActionList) => {
-    switch (action.type) {
-        case ActionsEnum.SET_LOADING:
-            return { ...state, isLoading:action.isLoading }
-        case ActionsEnum.SET_ACTIVITY:
-            return {...state, activity:action.activity}
-        case ActionsEnum.SET_APP_STATUS:
-            return {...state, appStatus:action.appStatus}
-        case ActionsEnum.SET_ERROR:
-            return {...state, error:action.error_message}
-        default: return state;
+export const activityInfoSlice = createSlice({
+    name:"activityInfoSlice",
+    initialState:initialState,
+    reducers:{
+        setIsLoading(state, action:PayloadAction<boolean>){
+            state.isLoading = action.payload;
+        },
+        setError(state, action:PayloadAction<string>){
+            state.error = action.payload;
+            state.isLoading = false;
+        },
+        setActivity(state, action:PayloadAction<IActivity>){
+            state.activity = action.payload;
+        },
+        setAppStatus(state, action:PayloadAction<ActivityInfoApplicationStatus>){
+            state.appStatus = action.payload;
+        }
+    },
+    extraReducers:{
+        [setAppStatusThunk.fulfilled.type]:(state, action:PayloadAction<ActivityInfoApplicationStatus>)=>{
+            state.appStatus = action.payload;
+            state.error = "";
+            state.isLoading = false;
+        },
+        [setAppStatusThunk.pending.type]:(state, action)=>{
+            state.isLoading = true;
+        },
+        [setAppStatusThunk.rejected.type]:(state, action:PayloadAction<string>)=>{
+            state.error = action.payload;
+            state.isLoading = false;
+        },
     }
-}
+})
 
-export default activityInfoReducer;
+export default activityInfoSlice.reducer;

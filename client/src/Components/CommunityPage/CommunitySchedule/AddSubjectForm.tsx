@@ -23,12 +23,10 @@ const AddSubjectForm:FC = (props) =>{
     const { register, control, handleSubmit, reset, watch, formState: { errors } } = useForm< AddSubjectFormValues >();
     const {addSubject} = useCommunityActions();
 
-    let id_ = 5; //test
-
     const onSubmit = (data: AddSubjectFormValues ) =>{
         const [time_start, time_end] = data.time_range!
         const newSubject:ISubject = {
-            id:id_, name:data.name, audience:data.audience, time_start:time_start,
+            id:-1, name:data.name, audience:data.audience, time_start:time_start,
             time_end:time_end, day:data.day, date_start:data.date_start, date_end:data.date_end } 
         addSubject(newSubject);
         reset(); 
@@ -58,6 +56,8 @@ const AddSubjectForm:FC = (props) =>{
                     <Controller
                         name="day"
                         control={control}
+                        rules={ {required:true} }
+                        defaultValue={dayOptions[0].value}
                         render={({field: { onChange } }) => <Select
                             classNamePrefix="dayselect"
                             onChange={(value)=>onChange(value?.value)}

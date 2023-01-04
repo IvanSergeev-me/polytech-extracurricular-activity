@@ -1,23 +1,31 @@
-import { IUser } from "../../../Models/User";
-import { ActionsEnum, setUserAction , setAuthAction, setLoadingAction, setErrorAction} from "./types";
-import { AppDispatch } from "../../redux-store";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
-export const AuthActionCreators = {
-    setUser: (user: IUser): setUserAction =>({type:ActionsEnum.SET_USER, user}),
-    setAuth: (isAuth: boolean): setAuthAction => ({type: ActionsEnum.SET_AUTH, isAuth}),
-    setIsLoading: (isLoading: boolean): setLoadingAction => ({type: ActionsEnum.SET_LOADING, isLoading}),
-    setError: (error_message: string): setErrorAction => ({type: ActionsEnum.SET_ERROR, error_message}),
-    login: (username: string, password: string) => async (dispatch: AppDispatch) => {
+export const loginThunk = createAsyncThunk(
+    "auth/login",
+    async(_, thunkAPI) =>
+    {
         try {
-            dispatch(AuthActionCreators.setIsLoading(true));
-            dispatch(AuthActionCreators.setIsLoading(false));
-           
-        } catch (e) {
-            dispatch(AuthActionCreators.setError('Произошла ошибка при логине'))
+            const response = null;
+            return response;
+             
+        } catch (error) {
+            return thunkAPI.rejectWithValue("error")
         }
-    },
-    logout: () => async (dispatch: AppDispatch) => {
-        dispatch(AuthActionCreators.setUser({} as IUser));
-        dispatch(AuthActionCreators.setAuth(false))
+        
     }
-}
+);
+
+export const logoutThunk = createAsyncThunk(
+    "auth/logout",
+    async(_, thunkAPI) =>
+    {
+        try {
+            const response = null;
+            return response;
+             
+        } catch (error) {
+            return thunkAPI.rejectWithValue("error")
+        }
+        
+    }
+);

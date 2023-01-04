@@ -1,6 +1,7 @@
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { activityTypeList } from "../../../Models/Activities";
-import { ICommunityInfo, IEventShortInfo } from "../../../Models/Profile";
-import { ActionsEnum, ActionList, profileState } from "./types";
+import { ICommunityInfo, ICommunityInProfile, IEventInProfile, IEventShortInfo, IUserRequest } from "../../../Models/Profile";
+import { profileState } from "./types";
 
 export let initialState:profileState = {
     isLoading:false,
@@ -65,20 +66,30 @@ export let initialState:profileState = {
     error:"",
 }
 
-const profileReducer = (state:profileState = initialState , action: ActionList) => {
-    switch (action.type) {
-        case ActionsEnum.SET_LOADING:
-            return { ...state, isLoading:action.isLoading }
-        case ActionsEnum.SET_COMMUNITIES:
-            return {...state, communities:action.communities}
-        case ActionsEnum.SET_EVENTS:
-            return {...state, events:action.events}
-        case ActionsEnum.SET_ERROR:
-            return {...state, error:action.error_message}
-        case ActionsEnum.SET_USER_REQUESTS:
-            return {...state, userRequests:action.userRequests}
-        default: return state;
-    }
-}
+export const profileSlice = createSlice({
+    name:"profileSlice",
+    initialState:initialState,
+    reducers:{
+        setIsLoading(state, action:PayloadAction<boolean>){
+            state.isLoading = action.payload;
+        },
+        setError(state, action:PayloadAction<string>){
+            state.error = action.payload;
+            state.isLoading = false;
+        },
+        setCommunities(state, action:PayloadAction<ICommunityInProfile[]>){
+            state.communities = action.payload;
+        },
+        setEvents(state, action:PayloadAction<IEventInProfile[]>){
+            state.events = action.payload;
+        },
+        setUserRequests(state, action:PayloadAction<IUserRequest[]>){
+            state.userRequests = action.payload;
+        }
+    },
+    extraReducers:{
 
-export default profileReducer;
+    }
+});
+
+export default profileSlice.reducer;

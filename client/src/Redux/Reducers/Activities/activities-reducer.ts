@@ -1,8 +1,12 @@
-import { ActionsEnum, ActionList, activitiesState } from "./types";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IActivityCard } from "../../../Models/Activities";
+import { getActivitiesThunk } from "./action-creators";
+import { activitiesState } from "./types";
 
 //Файл типизированный редюсер 
 export let initialState:activitiesState = {
     isLoading:false,
+    error:"",
     activities:[
         {id:1,
             type:"community",
@@ -26,16 +30,38 @@ export let initialState:activitiesState = {
     page:1,
 }
 
-const activitiesReducer = (state:activitiesState = initialState , action: ActionList) => {
-    switch (action.type) {
-        case ActionsEnum.SET_LOADING:
-            return { ...state, isLoading:action.isLoading }
-        case ActionsEnum.SET_ACTIVITIES:
-            return {...state, activities:action.activities}
-        case ActionsEnum.SET_PAGE:
-            return {...state, page:action.page}
-        default: return state;
+export const activitiesSlice = createSlice({
+    name:"communitySlice",
+    initialState:initialState,
+    reducers:{
+        setIsLoading(state, action:PayloadAction<boolean>){
+            state.isLoading = action.payload;
+        },
+        setError(state, action:PayloadAction<string>){
+            state.error = action.payload;
+            state.isLoading = false;
+        },
+        setActivities(state, action:PayloadAction<IActivityCard[]>){
+            state.activities = action.payload;
+        },
+        setPage(state, action:PayloadAction<number>){
+            state.page = action.payload;
+        },
+    },
+    extraReducers:{
+        [getActivitiesThunk.fulfilled.type]:(state, action:PayloadAction<IActivityCard[]>)=>{
+            state.activities = action.payload;
+            state.error = "";
+            state.isLoading = false;
+        },
+        [getActivitiesThunk.pending.type]:(state, action)=>{
+            state.isLoading = true;
+        },
+        [getActivitiesThunk.rejected.type]:(state, action:PayloadAction<string>)=>{
+            state.error = action.payload;
+            state.isLoading = false;
+        },
     }
-}
+})
 
-export default activitiesReducer;
+export default activitiesSlice.reducer;

@@ -1,34 +1,39 @@
 import { useDispatch } from "react-redux"
 import { bindActionCreators } from "redux";
-import { ActivitiesActionCreators } from "../Redux/Reducers/Activities/action-creators";
-import { ActivityInfoActionCreators } from "../Redux/Reducers/ActivityInfo/action-creators";
-import { AuthActionCreators } from "../Redux/Reducers/Auth/action-creators";
-import { CommunityActionCreators } from "../Redux/Reducers/Community/action-creators";
-import { ProfileActionCreators } from "../Redux/Reducers/Profile/action-creators";
+import { activitiesSlice } from "../Redux/Reducers/Activities/activities-reducer";
+import { activityInfoSlice } from "../Redux/Reducers/ActivityInfo/activityInfo-reducer";
+import { authSlice } from "../Redux/Reducers/Auth/auth-reducer";
+import { communitySlice } from "../Redux/Reducers/Community/community-reducer";
+import { profileSlice } from "../Redux/Reducers/Profile/profile-reducer";
 import { AppDispatch } from "../Redux/redux-store";
 
 export const useAuthActions = () =>{
     const dispatch = useDispatch<AppDispatch>();
-    return bindActionCreators(AuthActionCreators , dispatch);
+    const actions = authSlice.actions;
+    return bindActionCreators(actions , dispatch);
 }
 
 export const useActivitiesActions = () =>{
     const dispatch = useDispatch<AppDispatch>();
-    return bindActionCreators(ActivitiesActionCreators , dispatch);
+    const actions = activitiesSlice.actions;
+    return bindActionCreators(actions , dispatch);
 }
 
 export const useActivityInfoActions = () =>{
     const dispatch = useDispatch<AppDispatch>();
-    return bindActionCreators(ActivityInfoActionCreators , dispatch);
+    const actions = activityInfoSlice.actions;
+    return bindActionCreators(actions, dispatch);
 }
 
 export const useCommunityActions = () =>{
     const dispatch = useDispatch<AppDispatch>();
-    return bindActionCreators(CommunityActionCreators , dispatch);
+    const actions = communitySlice.actions;
+    return bindActionCreators(actions , dispatch);
 }
 
 export const useProfileActions = () =>{
     const dispatch = useDispatch<AppDispatch>();
-    return bindActionCreators(ProfileActionCreators , dispatch);
+    const actions = profileSlice.actions;
+    return bindActionCreators(actions , dispatch);
 }
 

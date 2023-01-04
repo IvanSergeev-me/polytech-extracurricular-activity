@@ -1,4 +1,7 @@
-import { ActionsEnum, ActionList, authState } from "./types";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IUser } from "../../../Models/User";
+import { loginThunk, logoutThunk } from "./action-creators";
+import { authState } from "./types";
 
 export let initialState:authState = {
     isLoading:false,
@@ -7,19 +10,44 @@ export let initialState:authState = {
     error:"",
 }
 
-const authReducer = (state:authState = initialState , action: ActionList) => {
-    
-    switch (action.type) {
-        case ActionsEnum.SET_LOADING:
-            return { ...state, isLoading:action.isLoading }
-        case ActionsEnum.SET_AUTH:
-            return {...state, isAuth:action.isAuth}
-        case ActionsEnum.SET_USER:
-            return {...state, user:action.user}
-        case ActionsEnum.SET_ERROR:
-            return {...state, error:action.error_message, isLoading:false}
-        default: return state;
+export const authSlice = createSlice({
+    name:"authSlice",
+    initialState:initialState,
+    reducers:{
+        setIsLoading(state, action:PayloadAction<boolean>){
+            state.isLoading = action.payload;
+        },
+        setError(state, action:PayloadAction<string>){
+            state.error = action.payload;
+            state.isLoading = false;
+        },
+        setUser(state, action:PayloadAction<IUser>){
+            state.user = action.payload;
+        },
+        setIsAuth(state, action:PayloadAction<boolean>){
+            state.isAuth = action.payload;
+        },
+    },
+    extraReducers:{
+        [loginThunk.fulfilled.type]:(state, action:PayloadAction<IUser>)=>{
+            state.user = action.payload;
+            state.isAuth = true;
+            state.error = "";
+            state.isLoading = false;
+        },
+        [loginThunk.pending.type]:(state, action)=>{
+            state.isLoading = true;
+        },
+        [loginThunk.rejected.type]:(state, action:PayloadAction<string>)=>{
+            state.error = action.payload;
+            state.isLoading = false;
+        },
+        [logoutThunk.fulfilled.type]:(state, action:PayloadAction<IUser>)=>{
+            state.user = {} as IUser;
+            state.isAuth = false;
+            state.isLoading = false;
+        }
     }
-}
+});
 
-export default authReducer;
+export default authSlice.reducer;
