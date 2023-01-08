@@ -7,6 +7,7 @@ import { dayGlossary, DayType } from "../../../Models/TimeAndDate";
 import { selectCommunitySchedule } from "../../../Selectors";
 import { withCommunityRights } from "../../HOC/withCommunityRights";
 import style from "../CommunityPage.module.css";
+import sc_style from "./CommunitySchedule.module.css";
 import AddSubjectForm from "./AddSubjectForm";
 
 interface CommunityScheduleProps {
@@ -17,7 +18,7 @@ const CommunitySchedule: FC<CommunityScheduleProps> = (props) => {
 
     
     return ( 
-    <div className={style.main_content__schedule_section}>
+    <div className={sc_style.main_content__schedule_section}>
         <h2 className={style.title}>Расписание</h2>
         <AddSubjectForm />
         <SubjectsContainer />
@@ -35,9 +36,9 @@ interface ScheduleDayProps {
 const ScheduleDay:FC<ScheduleDayProps> = (props) =>{
     if(props.subjects.length===0) return null;
     return(
-        <div className={style.days__day_container}>
-            <h2 className={style.day_container__day_title}>{dayGlossary[props.day_name]}</h2>
-            <div className={style.day_container__subjects}>
+        <div className={sc_style.days__day_container}>
+            <h2 className={sc_style.day_container__day_title}>{dayGlossary[props.day_name]}</h2>
+            <div className={sc_style.day_container__subjects}>
                 {props.subjects.map(s => <Subject 
                     key={s.id} 
                     id={s.id} 
@@ -58,7 +59,7 @@ const SubjectsContainer:FC = (props) =>{
     let subjects = useTypedSelector(selectCommunitySchedule);
 
     return(
-        <div className={style.schedule_section__days}>
+        <div className={sc_style.schedule_section__days}>
             {(Object.keys(dayGlossary) as DayType[]).map(day => <ScheduleDay key={day} subjects={subjects.filter(s => s.day === day)} day_name={day}/>)}
         </div>
     )
@@ -78,18 +79,18 @@ const Subject:FC<ISubject> = (props) =>{
     // style={{background:subjectColor}}
 
     return(
-        <div className={style.subjects__subject_container}>
-            <div className={style.subject_container__top}>
-                <div className={style.subject_container__time}>
+        <div className={sc_style.subjects__subject_container}>
+            <div className={sc_style.subject_container__top}>
+                <div className={sc_style.subject_container__time}>
                     <span>{props.time_start}</span>
                     <span>-</span>
                     <span>{props.time_end}</span>
                 </div>
-                <div className={style.subject_container__audience}>{props.audience}</div>
+                <div className={sc_style.subject_container__audience}>{props.audience}</div>
                 <DeleteSubjectWithRights deleteSubject={deleteThisSubject}/>
             </div>
-            <h3 className={style.subject_container__name}>{props.name}</h3>
-            <div className={style.subject_container__date}>
+            <h3 className={sc_style.subject_container__name}>{props.name}</h3>
+            <div className={sc_style.subject_container__date}>
                 <span>{props.date_start}</span>
                 <span>-</span>
                 <span>{props.date_end}</span>
@@ -105,7 +106,7 @@ interface DeleteSubjectProps{
 
 const DeleteSubject:FC<DeleteSubjectProps> = (props) =>{
     return(
-        <div className={style.subject_container__delete}>
+        <div className={sc_style.subject_container__delete}>
             <p onClick={props.deleteSubject}>Удалить</p>
         </div>
     );

@@ -1,0 +1,21 @@
+.community_page_container__heading{
+    display: flex;
+    flex-direction: column;
+    gap:1em; 
+}
+.heading__info{
+    display: flex;
+    flex-direction: column;
+    gap:1em; 
+}
+
+.services__container{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.services__container a{
+    min-width: 125px;
+}

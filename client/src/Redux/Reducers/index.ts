@@ -3,6 +3,7 @@ import authReducer from "./Auth/auth-reducer";
 import activityInfoReducer from "./ActivityInfo/activityInfo-reducer";
 import communityReducer from "./Community/community-reducer";
 import profileReducer from "./Profile/profile-reducer";
+import { activitiesAPi } from "../../API/activities";
 
 // eslint-disable-next-line
 export default {
@@ -10,5 +11,6 @@ export default {
     authReducer,
     activityInfoReducer,
     communityReducer,
-    profileReducer
+    profileReducer,
+    [activitiesAPi.reducerPath]:activitiesAPi.reducer
 }

@@ -1,6 +1,7 @@
 import React, {FC, useMemo, useRef, useState} from "react";
 import { withCommunityRights } from "../../HOC/withCommunityRights";
 import style from "../CommunityPage.module.css";
+import p_style from "./CommunityPosts.module.css";
 import { useForm } from "react-hook-form";
 import { useCommunityActions } from "../../../Hooks/useActions";
 import { useTypedSelector } from "../../../Hooks/useTypedSelector";
@@ -45,8 +46,8 @@ const AddPublicationForm:FC = (props) =>{
     }
     
     return(
-        <div className={style.add_publication_form_container}>
-             <form className={style.add_publication_form_container__form} onSubmit={handleSubmit(onSubmit)}>
+        <div className={p_style.add_publication_form_container}>
+             <form className={p_style.add_publication_form_container__form} onSubmit={handleSubmit(onSubmit)}>
                 <div className={style.from__field}>
                     <h3 className={style.field__title}>Заголовок публикации</h3>
                     {errors.title && <p className={style.field__error}>{errors.title.message}</p>}
@@ -91,13 +92,13 @@ export const PostsFilePicker:FC<PostsFilePickerProps> = (props) =>{
     
 
     return(
-        <div className={style.from__photos__container}>
-            <div className={style.from__photos__container__heading}>
+        <div className={p_style.from__photos__container}>
+            <div className={p_style.from__photos__container__heading}>
                 <h3 className={style.field__title}>Фото сообщества</h3>
-                <button onClick={handleClick} className={style.add_photo_button}>＋ Добавить</button>
+                <button onClick={handleClick} className={p_style.add_photo_button}>＋ Добавить</button>
                 <input className={style.invisible_input} type="file" multiple={true} ref={filePicker} onChange={handleChange} accept="image/*,.png,.jpg"/>
             </div>
-            <div className={style.from__photos__container__choosen_files}>
+            <div className={p_style.from__photos__container__choosen_files}>
                 {props.files.map((file, index) => <ChoosenFile deleteFile={props.deleteFile} id={index} key={index} image={URL.createObjectURL(file)}/>)}
             </div>
         </div>
@@ -115,9 +116,9 @@ const ChoosenFile:FC<ChoosenFileProps> = (props) =>{
     const [isSelected, selectThis] = useState<boolean>(false);
 
     return(
-        <div onMouseEnter={()=> selectThis(true)} onMouseLeave={()=> selectThis(false)} className={style.choosen_files__container}>
+        <div onMouseEnter={()=> selectThis(true)} onMouseLeave={()=> selectThis(false)} className={p_style.choosen_files__container}>
             <img src={props.image} alt="choosen file" />
-            {isSelected && <div className={style.choosen_files__container__cross}><span onClick={() => props.deleteFile(props.id)} >X</span></div>}
+            {isSelected && <div className={p_style.choosen_files__container__cross}><span onClick={() => props.deleteFile(props.id)} >X</span></div>}
         </div>
     )
 }

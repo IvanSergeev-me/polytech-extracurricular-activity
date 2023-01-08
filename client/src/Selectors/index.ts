@@ -55,6 +55,11 @@ export const selectCommunitySchedule = createSelector(
     (community) => community.schedule,
 );
 
+export const selectCommunityInfo = createSelector(
+    [communitySelector],
+    (community) => community.info, 
+);
+
 export const selectCommunityMembers = createSelector(
     [communitySelector],
     (community) => community.members,

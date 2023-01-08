@@ -5,7 +5,7 @@ export enum activityTypeList{
 
 export interface ITag{
     id:number,
-    color?:string,
+    color:string,
     name:string,
 }
 
@@ -64,8 +64,6 @@ export type Activity = {
     links:IContact[],
     contacts:IContact[],
     photos:IPhoto[],
-    date?:string,
-    time?:string
 }
 
 
@@ -74,6 +72,8 @@ export type ActivityType = activityTypeList.community | activityTypeList.event;
 export type TypeGlossary = Record<ActivityType, string>;
 
 export type CommunityType = Activity & {communityId?:number}
+
+export type CommunityTypeShort = CommunityType & {members_count:never}
 
 export type EventType = Activity & {date:string, time:string}
 

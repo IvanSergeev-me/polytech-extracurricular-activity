@@ -11,6 +11,7 @@ import ProfileAdmin from "../Components/Profile/ProfileAdmin/ProfileAdmin";
 import ProfileMain from "../Components/Profile/ProfileMain/ProfileMain";
 import ProfileLinks from "../Components/Profile/ProfileLinks/ProfileLinks";
 import ProfileStatistics from "../Components/Profile/ProfileStatistics/ProfileStatistics";
+import CommunitySettings from "../Components/CommunityPage/CommunitySettings/CommunitySettings";
 
 export interface IRoute {
     path:string;
@@ -32,8 +33,10 @@ export enum routeNames {
 
 export enum communityRouteNames {
     POSTS = "/",
-    SCHEDULE= "/Schedule",
-    NO_MATCH = "*"
+    SCHEDULE= "/schedule",
+    SETTINGS = "/settings",
+    NO_MATCH = "*",
+    
 }
 
 export enum profileRouteNames {
@@ -61,6 +64,7 @@ export const privateRoutes: IRoute[] = [
 export const communityRoutes:IRoute[] = [
     {path:communityRouteNames.POSTS, element:CommunityPosts},
     {path:communityRouteNames.SCHEDULE, element:CommunitySchedule},
+    {path:communityRouteNames.SETTINGS, element:CommunitySettings},
     {path:communityRouteNames.NO_MATCH, element:NotFoundPage},
 ]
 

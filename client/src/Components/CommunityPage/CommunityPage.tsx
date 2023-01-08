@@ -27,23 +27,14 @@ const CommunityPageContent:FC = (props) =>{
     return(
         <section className={style.community_page_container}>
             <div className={style.community_page_container__main_content}>
-                {isMember?<CommunityHeaderIfMember community_name={community_name} info_id={info_id}/>:<CommunityHeaderIfGuest />}
+                {isMember?
+                    <CommunityHeaderIfMember community_name={community_name} info_id={info_id}/>:
+                    <CommunityHeaderIfGuest community_name={community_name} info_id={info_id} />}
                 <AppRouter routes={communityRoutes}/>
             </div>
             <AsidePanel isHidden={true}/>
         </section>
     )
 }
-
-
-/*const SendApplicationForm:FC = (props) =>{
-    return(
-        <div>
-
-        </div>
-    )
-}
-
-*/
 
 export default CommunityPage;

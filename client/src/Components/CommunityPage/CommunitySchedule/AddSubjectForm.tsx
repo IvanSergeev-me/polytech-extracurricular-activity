@@ -1,13 +1,15 @@
 import React, {FC, useMemo, useState} from "react";
 import { withCommunityRights } from "../../HOC/withCommunityRights";
+import "./ExternalComponents.css";
 import style from "../CommunityPage.module.css";
+import sc_style from "./CommunitySchedule.module.css";
 import { useForm, Controller } from "react-hook-form";
 import { ISubject } from "../../../Models/Community";
 import { useCommunityActions } from "../../../Hooks/useActions";
 import TimeRangePicker from '@wojtekmaj/react-timerange-picker';
 import Select from "react-select";
 import { getDays, DayOption } from "./selectOptions";
-import "./ExternalComponents.css";
+
 import { rolesRightsNames } from "../../../Models/RolesAndRights";
 
 
@@ -32,11 +34,11 @@ const AddSubjectForm:FC = (props) =>{
         reset(); 
     }
 
-    if(isFormHidden) return <div className={style.add_subject_form_container}>
+    if(isFormHidden) return <div className={sc_style.add_subject_form_container}>
         <div onClick={()=> setFormHidden(false)} className={style.submit__button}>Добавить предметы</div></div> 
     return(
-        <div className={style.add_subject_form_container}>
-             <form className={style.add_publication_form_container__form} onSubmit={handleSubmit(onSubmit)}>
+        <div className={sc_style.add_subject_form_container}>
+             <form className={sc_style.add_subject_form_container__form} onSubmit={handleSubmit(onSubmit)}>
                 <div className={style.form__controls}><p onClick={()=>setFormHidden(true)}>скрыть</p></div>
                 <div className={style.from__field}>
                     <h3 className={style.field__title}>Название предмета</h3>

@@ -1,0 +1,220 @@
+.main_content__posts_section{
+    display: flex;
+    flex-direction: column;
+}
+
+.posts_section__posts_heading{
+    margin-top: 1em;
+}
+
+.posts_section__posts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:10px;
+    margin-top: 10px;
+}
+
+.add_publication_form_container{
+    display: flex;
+    justify-content: center;
+    
+    margin-top: 1em;
+}
+
+.add_publication_form_container__form{
+    padding: 1em;
+    max-width: 1000px;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    background-color: var(--scheduleBg);
+    border-radius: 9px;
+}
+
+.from__photos__container{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+.from__photos__container__heading{
+    display: flex;
+    gap:1em;
+    align-items: center;
+}
+
+.add_photo_button{
+    padding: 5px 1em;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: var(--reallyBlue);
+    color: var(--text);
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+.from__photos__container__choosen_files{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+.choosen_files__container{
+    transition-property: all;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    width: 100%;
+    height: 80px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.choosen_files__container:hover{
+    transition: all 0.3s ease-in-out;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.choosen_files__container img{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.choosen_files__container:hover .choosen_files__container__cross{
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+    visibility: visible;
+}
+
+.choosen_files__container__cross{
+    z-index: 5;
+    transition-property: all;
+    opacity: 0;
+    display: flex;
+    visibility: hidden;
+    justify-content: flex-end;
+    position: relative;
+    background-color: rgba(0,0,0,0.8);
+    cursor: pointer;
+    top:-100%;
+    width: 100%;
+    height: 100%;
+    color: var(--text);
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.choosen_files__container__cross span{
+    transition-property: all;
+    padding: 10px;
+}
+
+.choosen_files__container__cross span:hover{
+    color:var(--red);
+    transition: all 0.3s ease-in-out;
+}
+
+.posts__post_container{
+    background-color: var(--scheduleBg);
+    border-radius: 9px;
+    padding: 10px;
+    gap:10px;
+    width: 100%;
+    max-width: 1000px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.post_container__images{
+    gap:5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.post_container__post_content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.post_content__text{
+    color:var(--text);
+    font-weight: 1em;
+}
+
+.post_content__post_top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.post_top__date{
+    font-weight: 1em;
+    color:var(--grey);
+    font-weight: 600;
+}
+
+.post_top__title{
+    
+    font-weight: 1.5em;
+    color:var(--text);
+    font-weight: 600;
+}
+
+.post_top__title::first-letter{
+    text-transform: uppercase;
+}
+
+.images__image_container{
+    min-width: 200px;
+    max-width: 100%;
+}
+
+.images_1el .images__image_container{
+    flex:1;
+}
+
+.images_2el .images__image_container{
+    flex:1;
+}
+
+.images_3el .images__image_container{
+    min-width: 400px;
+    flex: 1;
+}
+
+.images_4el .images__image_container{
+    flex:1;
+    min-width: 400px;
+}
+
+.images_many_el .images__image_container:first-child{
+    max-width: 50%;
+    min-width: 45%;
+    flex: 1;
+}
+.images_many_el .images__image_container:nth-child(2){
+    max-width: 50%;
+    min-width: 45%;
+    flex: 1;
+}
+
+.images_many_el .images__image_container:not(:nth-child(-n+2)){
+    flex: 1;
+}
+
+.images__image_container img{
+    border-radius: 9px;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}

@@ -1,26 +1,22 @@
 import React, {FC} from "react";
 import { useTypedSelector } from "../../../Hooks/useTypedSelector";
 import { selectCommunityPosts } from "../../../Selectors";
-import { CommunityPublication } from "../CommunityPublication/CommunityPublication";
+import { CommunityPublication } from "./CommunityPublication";
 import AddPublicationForm from "./AddPublicationForm";
 import style from "../CommunityPage.module.css";
+import p_style from "./CommunityPosts.module.css";
 
-interface CommunityPostsProps{
+const CommunityPosts:FC = (props) =>{
 
-}
-
-const CommunityPosts:FC<CommunityPostsProps> = (props) =>{
-
-    let userCanPost = true // temp
-    let posts = useTypedSelector(selectCommunityPosts);
+    const posts = useTypedSelector(selectCommunityPosts);
 
     return(
-        <div className={style.main_content__posts_section}>
-            <div className={style.posts_section__posts_heading}>
+        <div className={p_style.main_content__posts_section}>
+            <div className={p_style.posts_section__posts_heading}>
                 <h2 className={style.title}>Публикации</h2>
-                {userCanPost && <AddPublicationForm />}
+                <AddPublicationForm />
             </div>
-            <div className={style.posts_section__posts}>
+            <div className={p_style.posts_section__posts}>
                 {posts.map(post => <CommunityPublication 
                     id={post.id} 
                     key={post.id} 

@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { activityTypeList, CommunityTypeShort } from "../../../Models/Activities";
 import { ActivityInfoApplicationStatus } from "../../../Models/ApplictationStatuses";
 import { ICommunityPublication, ISubject } from "../../../Models/Community";
 import { IMember } from "../../../Models/User";
@@ -11,10 +12,11 @@ export const initialState:communityState = {
     error:"",
     community_name:"Музыкальное сообщество",
     members:[
-        {id:0, name:"Иван", lastname:"Сергеев", image:"https://play-lh.googleusercontent.com/8ddL1kuoNUB5vUvgDVjYY3_6HwQcrg1K2fd_R8soD-e2QYj8fT9cfhfh3G0hnSruLKec", roles:[
-            {name:"Руководитель", rights:[{name:"canEditPost", canDo:true}]},
-            {name:"Модератор", rights:[{name:"canEditPost", canDo:true},{name:"canEditSchedule", canDo:true}]},
-            {name:"Преподаватель по гитаре", rights:[]},
+        {id:0, name:"Иван", lastname:"Сергеев", 
+            image:"https://play-lh.googleusercontent.com/8ddL1kuoNUB5vUvgDVjYY3_6HwQcrg1K2fd_R8soD-e2QYj8fT9cfhfh3G0hnSruLKec", roles:[
+                {name:"Руководитель", rights:[{name:"canEditPost", canDo:true}]},
+                {name:"Модератор", rights:[{name:"canEditPost", canDo:true},{name:"canEditSchedule", canDo:true}]},
+                {name:"Преподаватель по гитаре", rights:[]},
         ]},
         {id:1, name:"Вадим", lastname:"Сидоров", image:"", roles:[
             {name:"Модератор", rights:[{name:"canEditPost", canDo:true},{name:"canEditSchedule", canDo:true}]},
@@ -48,7 +50,28 @@ export const initialState:communityState = {
         {id:0, name:"Занятие такое-то",audience:"Н-505", day:"Wed", time_start:"09:00", time_end:"10:30", date_start:"1 сен", date_end:"1 дек"},
         {id:1, name:"Занятие такое-то",audience:"Н-505", day:"Fri", time_start:"10:40", time_end:"12:10", date_start:"1 сен", date_end:"1 дек"},
         {id:3, name:"Занятие такое-то2",audience:"Н-505", day:"Wed", time_start:"12:20", time_end:"13:50", date_start:"1 сен", date_end:"1 дек"},
-    ]
+    ],
+    info:{
+        id: 0,
+        communityId:0,
+        image: "https://www.teachingenglish.org.uk/sites/teacheng/files/styles/wide/public/images/teens_and_exams_iStock_000005780399XSmall.jpg?itok=0nXiZMHU",
+        name: "Музыкальное сообщество",
+        description: "Тестовый дескрипшн",
+        type: activityTypeList.community,
+        tags: [{id:0, name:"Тестовый таг 0", color:"#AAAAAA"}, {id:1, name:"Тестовый таг 1", color:"#A1A1AA"}],
+        links:[
+            {id:0,name:"Aboboa JS", contact:"aboba.com", type:"link"}, {id:1,name:"гугл", contact:"google.com", type:"link"}],
+        photos:[
+            {id:0,description:"Фотка котенка с мероприятия", 
+                content:"https://storage-api.petstory.ru/resize/1000x1000x80/70/ed/7f/70ed7fbe48c44d5f95aa99de83021a54.jpeg"},
+            {id:1,description:"Фотка собачки с мероприятия", 
+                content:"https://klike.net/uploads/posts/2020-06/1591253681_1.jpg"},
+            {id:3,description:"Фотка 1 с мероприятия", 
+                content:"https://exlibris.ru/wp-content/uploads/2019/07/7-PR-instrumentov-dlya-prodvizheniya-vashego-meropriyatiya.jpg"},],
+        contacts:[
+            {id:0,name:"Whats App", contact:"88005553535", type:"contact"},
+            {id:1,name:"Телефон офиса", contact:"88006553535", type:"contact"}],
+    } as CommunityTypeShort
 }
 
 export const communitySlice = createSlice({
@@ -75,14 +98,14 @@ export const communitySlice = createSlice({
             state.posts = action.payload;
         },
         addPost(state, action:PayloadAction<ICommunityPublication>){
-            state.posts = [action.payload, ...state.posts];
+            state.posts.unshift(action.payload);
         },
         addSubject(state, action:PayloadAction<ISubject>){
             
             const max = state.schedule.reduce((prev, current) => (prev.id > current.id) ? prev : current);
             const newId = max.id + 1;
             const newSubject = {...action.payload, id:newId} as ISubject
-            state.schedule =  [ ...state.schedule, newSubject];
+            state.schedule.push(newSubject);
         },
         deleteSubject(state, action:PayloadAction<number>){
             state.schedule = state.schedule.filter(subject => subject.id !== action.payload);

@@ -1,4 +1,4 @@
-.community_settings-content {
+.color_picker-content {
     background-color: var(--scheduleBg);
     border: none;
     display: flex;
@@ -6,12 +6,9 @@
     gap: 10px;
     padding: 1em;
     margin-left: 10px;
-    box-sizing: border-box;
 }
-.community_settings-arrow {
+.color_picker-arrow {
     color: var(--scheduleBg);
     stroke: var(--scheduleBg);
-}
-.circle-picker{
-    width: fit-content!important;
+    border: none;
 }

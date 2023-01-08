@@ -1,3 +1,4 @@
+import { CommunityType } from "../../../Models/Activities";
 import { ActivityInfoApplicationStatus } from "../../../Models/ApplictationStatuses";
 import { ICommunityPublication, ISubject } from "../../../Models/Community";
 import { IMember } from "../../../Models/User";
@@ -10,4 +11,5 @@ export interface communityState{
     members:IMember[];
     posts:ICommunityPublication[];
     schedule:ISubject[];
+    info:CommunityType;
 }
