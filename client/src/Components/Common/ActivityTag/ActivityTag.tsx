@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import { ITag } from "../../Models/Activities";
+import { ITag } from "../../../Models/Activities";
 import style from "./ActivityTag.module.css"
 
 const ActivityTag:FC<ITag> = (props) =>{

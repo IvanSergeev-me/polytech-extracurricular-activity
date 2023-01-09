@@ -6,7 +6,7 @@ import style from './CommunityPage.module.css';
 import { CommunityProvider } from "../../Context";
 import { useTypedSelector } from "../../Hooks/useTypedSelector";
 import { selectCommunityName } from "../../Selectors";
-import AppRouter from "../Router/Router";
+import AppRouter from "../Common/Router/Router";
 import { communityRoutes } from "../../Routes/routes";
 
 const CommunityPage = () =>{

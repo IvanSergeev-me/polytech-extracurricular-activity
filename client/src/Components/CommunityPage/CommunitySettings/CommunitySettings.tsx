@@ -6,6 +6,7 @@ import s_style from "./CommunitySettings.module.css";
 import CommunityImage from './CommunityImage';
 import CommunityTags from './CommunityTags';
 import CommunityPhotos from './CommunityPhotos';
+import { withCommunityRights } from '../../HOC/withCommunityRights';
 
 const CommunitySettings:FC = () => {
     const {
@@ -31,4 +32,4 @@ const CommunitySettings:FC = () => {
   )
 }
 
-export default CommunitySettings;
+export default withCommunityRights(CommunitySettings, ['canEditCommunity']) ;

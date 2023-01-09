@@ -1,14 +1,14 @@
-import React, {FC, useMemo, useRef, useState} from "react";
+import React, {FC, useRef, useState} from "react";
 import { withCommunityRights } from "../../HOC/withCommunityRights";
 import style from "../CommunityPage.module.css";
 import p_style from "./CommunityPosts.module.css";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { useCommunityActions } from "../../../Hooks/useActions";
 import { useTypedSelector } from "../../../Hooks/useTypedSelector";
 import { selectUserId } from "../../../Selectors";
-import { IPublicationImage } from "../../../Models/Community";
-import { getCurrentDate } from "../../../Assets/Utils/getCurrentDate";
 import { rolesRightsNames } from "../../../Models/RolesAndRights";
+import { useCurrentDate } from "../../../Hooks/useCurrentDate";
+import { useGetImages } from "../../../Hooks/useGetImages";
 
 type AddPublicationFormValues = {
     title:string;
@@ -19,18 +19,17 @@ type AddPublicationFormValues = {
 const AddPublicationForm:FC = (props) =>{
 
     const {addPost} = useCommunityActions();
-    const currentDate = useMemo(()=>getCurrentDate(),[]);
+    const currentDate = useCurrentDate();
     const userId = useTypedSelector(selectUserId);
     const [files, setFiles] = useState<File[]>([]);
 
-    // eslint-disable-next-line
-    const { register, handleSubmit, reset, watch, formState: { errors } } = useForm< AddPublicationFormValues >();
+    const { register, control, handleSubmit, reset, formState: { errors } } = useForm< AddPublicationFormValues >();
 
-    let newPostImages = useMemo(()=>getImages(files),[files]);
+    let newPostImages = useGetImages(files);
 
     const onSubmit = (data: AddPublicationFormValues ) =>{
 
-        let newPost = {id:5,images:newPostImages, title:data.title, text:data.text, authorId:userId!, date:currentDate};
+        let newPost = {id:0,images:newPostImages, title:data.title, text:data.text, authorId:userId!, date:currentDate};
         addPost(newPost);
         setFiles([] as File[]);
         reset(); 
@@ -60,7 +59,15 @@ const AddPublicationForm:FC = (props) =>{
                     <textarea className={style.field__input + " " + style.resize_none} defaultValue="" {...register("text", { required: true, maxLength: 250 })} 
                         placeholder={"Текст публикации..."}/>
                 </div>
-                <PostsFilePicker onFilesChange={onFilesChange} deleteFile={deleteFile} files={files}/>
+                <Controller
+                        name="images"
+                        control={control}
+                        render={({field: { onChange } }) => <PostsFilePicker onFilesChange={val=>{
+                            onChange(val)
+                            onFilesChange(val)}
+                        } deleteFile={deleteFile} files={files}/>}
+                        />
+                
                 <div className={style.form__submit}>
                     <button type="submit" className={style.submit__button}>Опубликовать</button>
                 </div>
@@ -89,7 +96,6 @@ export const PostsFilePicker:FC<PostsFilePickerProps> = (props) =>{
     const handleChange = (e:any) => {
         props.onFilesChange([...props.files, ...e.target.files])
     }
-    
 
     return(
         <div className={p_style.from__photos__container}>
@@ -127,14 +133,3 @@ export default withCommunityRights(AddPublicationForm, [rolesRightsNames.canEdit
 
 
 
-export const getImages = (files:File[]) =>{
-    let newPostImages = [] as IPublicationImage[];
-
-    if(files.length!==0){
-        for (let i = 0; i<files.length; i++){
-            let fileImage = {id:i, image:URL.createObjectURL(files[i])}
-            newPostImages.push(fileImage)
-        }
-    }
-    return newPostImages;
-}

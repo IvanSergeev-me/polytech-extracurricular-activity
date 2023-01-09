@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import { IContact } from "../../Models/Activities";
+import { IContact } from "../../../Models/Activities";
 import style from "./ActivityContact.module.css"
 
 const ActivityContact:FC<IContact> = (props) =>{

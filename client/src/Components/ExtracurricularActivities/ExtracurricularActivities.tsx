@@ -5,8 +5,8 @@ import { IActivityCard } from "../../Models/Activities/index";
 import style from "./Activities.module.css";
 import { useNavigate } from 'react-router-dom';
 import { selectActivities } from "../../Selectors";
-import ActivityTag from "../ActivityTag/ActivityTag";
-import NotFoundPage from "../NotFoundPage/NotFoundPage";
+import ActivityTag from "../Common/ActivityTag/ActivityTag";
+import NotFoundPage from "../Common/NotFoundPage/NotFoundPage";
 //import { useActivitiesActions } from "../../Hooks/useActions";
 
 

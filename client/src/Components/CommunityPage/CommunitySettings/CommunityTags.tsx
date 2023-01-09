@@ -2,7 +2,7 @@ import style from "../CommunityPage.module.css";
 import s_style from "./CommunitySettings.module.css";
 import { ITag } from '../../../Models/Activities';
 import { Controller, useForm } from "react-hook-form";
-import AppColorPicker from "../../ColorPicker/AppColorPicker";
+import AppColorPicker from "../../Common/ColorPicker/AppColorPicker";
 
 interface CommunityTagsProps {tags:ITag[]}
 
@@ -22,13 +22,20 @@ const CommunityTags = ({tags}:CommunityTagsProps) =>{
 const CommunityTag = ({id,name,color}:ITag) =>{
 
     const onFormSubmit = (data:ITag) =>{
-    const newTag = {id:id, name:data.name, color:data.color} as ITag;
-       console.log(newTag);
+        const newTag = {id:id, name:data.name, color:data.color} as ITag;
+        console.log(newTag);
+    }
+
+    const handleDelete = () =>{
+        console.log(id);
     }
 
     return(
         <div className={s_style.settings_tags__settings_tag_container}>
-           <p className={style.subtitle}>Тег</p>
+            <div className={s_style.settings_tag_container__heading}>
+                <h3 className={style.subtitle}>Тег</h3>
+                <div className={style.form__controls}><p onClick={handleDelete}>удалить</p></div>
+            </div>
            <TagForm id={id} name={name} color={color} onFormSubmit={onFormSubmit}/>
         </div>
     )
@@ -37,13 +44,14 @@ const CommunityTag = ({id,name,color}:ITag) =>{
 type TagFormProps = ITag & {onFormSubmit:(data:ITag)=>void}
 
 const TagForm = ({id,name,color, onFormSubmit}:TagFormProps) =>{
-    const { register, control, handleSubmit, formState: { errors, dirtyFields } } = useForm<ITag>();
 
     //need to get from api
     const tagsColors = ["#f44336", "#e91e63", "#9c27b0", "#673ab7", 
-        "#3f51b5", "#2196f3", "#03a9f4", "#00bcd4", "#009688", 
-        "#4caf50", "#8bc34a", "#cddc39", "#ffeb3b", "#ffc107", 
-        "#ff9800", "#ff5722", "#795548", "#607d8b"]
+    "#3f51b5", "#2196f3", "#03a9f4", "#00bcd4", "#009688", 
+    "#4caf50", "#8bc34a", "#cddc39", "#ffeb3b", "#ffc107", 
+    "#ff9800", "#ff5722", "#795548", "#607d8b"]
+
+    const { register, control, handleSubmit, formState: { errors, dirtyFields } } = useForm<ITag>();
 
     const onSubmit = (data:ITag) => onFormSubmit(data);
 

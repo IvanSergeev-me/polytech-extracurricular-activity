@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import Header from './Components/Header/Header';
-import AppRouter from './Components/Router/Router';
+import AppRouter from './Components/Common/Router/Router';
 import { useTypedSelector } from './Hooks/useTypedSelector';
 import { privateRoutes, publicRoutes } from './Routes/routes';
 import { selectIsAuth } from './Selectors';

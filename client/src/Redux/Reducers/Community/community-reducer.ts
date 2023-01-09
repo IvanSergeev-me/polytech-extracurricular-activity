@@ -98,6 +98,8 @@ export const communitySlice = createSlice({
             state.posts = action.payload;
         },
         addPost(state, action:PayloadAction<ICommunityPublication>){
+            const postId = state.posts[state.posts.length-1].id + 1;
+            action.payload.id = postId;
             state.posts.unshift(action.payload);
         },
         addSubject(state, action:PayloadAction<ISubject>){

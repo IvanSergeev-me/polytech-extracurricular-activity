@@ -1,6 +1,6 @@
 import React from 'react';
 import {Routes, Route} from 'react-router-dom';
-import { IRoute} from '../../Routes/routes';
+import { IRoute} from '../../../Routes/routes';
 
 interface AppRouterProps{
     routes:IRoute[];

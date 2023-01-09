@@ -5,7 +5,7 @@ import CommunityPosts from "../Components/CommunityPage/CommunityPosts/Community
 import CommunitySchedule from "../Components/CommunityPage/CommunitySchedule/CommunitySchedule";
 import ExtracurricularActivities from "../Components/ExtracurricularActivities/ExtracurricularActivities";
 import Login from "../Components/Login/Login";
-import NotFoundPage from "../Components/NotFoundPage/NotFoundPage";
+import NotFoundPage from "../Components/Common/NotFoundPage/NotFoundPage";
 import Profile from "../Components/Profile/Profile";
 import ProfileAdmin from "../Components/Profile/ProfileAdmin/ProfileAdmin";
 import ProfileMain from "../Components/Profile/ProfileMain/ProfileMain";

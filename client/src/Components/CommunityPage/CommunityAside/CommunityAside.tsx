@@ -1,11 +1,11 @@
-import React, {FC, useCallback} from "react";
+import React, {FC} from "react";
 import {useCommunityContext} from "../../../Context/index";
 import { useTypedSelector } from "../../../Hooks/useTypedSelector";
 import { selectCommunityMembers } from "../../../Selectors";
 import { IMember } from "../../../Models/User";
 import { ICommunityRole } from "../../../Models/RolesAndRights";
-import { getFirstLetters } from "../../../Assets/Utils/getFirstLetters";
 import ap_style from "./CommunityAside.module.css";
+import { useFirstLetters } from "../../../Hooks/useFirstLetters";
 
 interface AsideProps {
     isHidden: boolean
@@ -34,8 +34,7 @@ const AsideMember:FC<IMember> = (props) =>{
 
     const roles = props.roles.map((role,index) => <AsideRole key={index} name={ role.name + (index !== props.roles.length-1?",":"")} rights={role.rights}/>);
     // eslint-disable-next-line
-    const firstLetters = useCallback(()=> getFirstLetters([props.lastname, props.name]), []);
-    const letters = firstLetters();
+    const letters = useFirstLetters([props.lastname, props.name])
 
     return(
         <div className={ap_style.members_container__aside_member}>

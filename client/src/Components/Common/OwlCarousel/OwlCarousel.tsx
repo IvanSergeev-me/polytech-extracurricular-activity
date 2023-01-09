@@ -4,7 +4,7 @@ import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import ActivityPhotoCard from "../ActivityPhotoCard/ActivityPhotoCard";
-import { IPhoto } from "../../Models/Activities";
+import { IPhoto } from "../../../Models/Activities";
 
 interface CarouselProps {
     photos:IPhoto[];
