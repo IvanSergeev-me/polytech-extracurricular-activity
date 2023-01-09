@@ -47,13 +47,13 @@ const AddPublicationForm:FC = (props) =>{
     return(
         <div className={p_style.add_publication_form_container}>
              <form className={p_style.add_publication_form_container__form} onSubmit={handleSubmit(onSubmit)}>
-                <div className={style.from__field}>
+                <div className={style.form__field}>
                     <h3 className={style.field__title}>Заголовок публикации</h3>
                     {errors.title && <p className={style.field__error}>{errors.title.message}</p>}
                     <input className={style.field__input} defaultValue="" {...register("title",{ required: true, maxLength: 25 })} 
                         placeholder={"Заголовок публикации..."}/>
                 </div>
-                <div className={style.from__field}>
+                <div className={style.form__field}>
                     <h3 className={style.field__title}>Содержание публикации</h3>
                     {errors.text && <p className={style.field__error}>{errors.text.message}</p>}
                     <textarea className={style.field__input + " " + style.resize_none} defaultValue="" {...register("text", { required: true, maxLength: 250 })} 
@@ -98,13 +98,13 @@ export const PostsFilePicker:FC<PostsFilePickerProps> = (props) =>{
     }
 
     return(
-        <div className={p_style.from__photos__container}>
-            <div className={p_style.from__photos__container__heading}>
+        <div className={p_style.form__photos__container}>
+            <div className={p_style.form__photos__container__heading}>
                 <h3 className={style.field__title}>Фото сообщества</h3>
                 <button onClick={handleClick} className={p_style.add_photo_button}>＋ Добавить</button>
                 <input className={style.invisible_input} type="file" multiple={true} ref={filePicker} onChange={handleChange} accept="image/*,.png,.jpg"/>
             </div>
-            <div className={p_style.from__photos__container__choosen_files}>
+            <div className={p_style.form__photos__container__choosen_files}>
                 {props.files.map((file, index) => <ChoosenFile deleteFile={props.deleteFile} id={index} key={index} image={URL.createObjectURL(file)}/>)}
             </div>
         </div>

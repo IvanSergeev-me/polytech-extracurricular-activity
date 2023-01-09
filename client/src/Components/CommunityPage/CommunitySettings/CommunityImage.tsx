@@ -1,48 +1,34 @@
 import React, {  ChangeEvent, SyntheticEvent, useRef, useState } from "react";
 import s_style from "./CommunitySettings.module.css";
 import style from "../CommunityPage.module.css";
-import { Controller, useForm } from "react-hook-form";
-
-interface CommunityImageProps {image:string}
-
-interface FormProps{
-    image:string;
-}
+import { Controller, useFormContext } from "react-hook-form";
+import { CommunityTypeShort } from "../../../Models/Activities";
 
 interface FilePickerProps{
     onImageChange: (files:File) => void;
 }
 
-const CommunityImage = ({image}:CommunityImageProps) =>{
+const CommunityImage = () =>{
     
     // eslint-disable-next-line
     const [isShowed, setShowed] = useState(true);
 
-    const { control, handleSubmit } = useForm<FormProps>();
+    const { control, getValues } = useFormContext<CommunityTypeShort>();
 
-    const [currentImage, setCurrentImage] = useState<string>(image);
-
-    const onImageChange = (file:File) =>{
-        setCurrentImage(URL.createObjectURL(file));
-    }
-
-    const onSubmit = (data:FormProps) => {
-        console.log(data.image)
-    };
+    const {image} = getValues();
 
     return(
         <div className={s_style.settings_left__image_container} onMouseEnter={()=>setShowed(true)} onMouseLeave={()=>setShowed(false)}>
-            <img src={currentImage} alt="community" />
-            <form onSubmit={handleSubmit(onSubmit)} className={s_style.image_container__change_image_box}>
+            <img src={image} alt="community" />
+            <div className={s_style.image_container__change_image_box}>
                 <Controller
                     name="image"
                     control={control}
                     render={({field: { onChange } }) => <ImageFilePicker onImageChange={val=>{
-                        onImageChange(val);
-                        onChange(val);
+                        onChange(URL.createObjectURL(val));
                     }}/>}
                     />
-            </form>
+            </div>
         </div>
     )
 }

@@ -26,7 +26,7 @@
     font-weight: 600;
 }
 
-.from__field{
+.form__field{
     display: flex;
     flex-direction: column;
     gap:10px;

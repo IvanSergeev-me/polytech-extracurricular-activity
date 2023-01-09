@@ -34,13 +34,13 @@
     border-radius: 9px;
 }
 
-.from__photos__container{
+.form__photos__container{
     display: flex;
     flex-direction: column;
     gap:10px;
 }
 
-.from__photos__container__heading{
+.form__photos__container__heading{
     display: flex;
     gap:1em;
     align-items: center;
@@ -58,7 +58,7 @@
     font-weight: 600;
 }
 
-.from__photos__container__choosen_files{
+.form__photos__container__choosen_files{
     display: flex;
     flex-direction: column;
     gap:10px;
