@@ -4,6 +4,7 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import "./PopupSettings.css";
 import style from "../../../Profile.module.css";
+import a_style from "../../ProfileAdmin.module.css";
 
 const  PopupMore = ({type, info}:any) =>{
 
@@ -90,7 +91,7 @@ const PopupMoreCommunityInfo = ({
 }:PopupMoreCommunityInfoProps) =>{
 
     return(
-        <Popup onOpen={setIsOpen} open={isOpen} className={"request_more"} trigger={<div className={style.event_container__event__more_button}>Подробнее</div>}>
+        <Popup onOpen={setIsOpen} open={isOpen} className={"request_more"} trigger={<div className={a_style.event_container__event__more_button}>Подробнее</div>}>
             <div className="request_more__content_box">
                 <div className={"content_box__request_top"}>
                     <div className={"request_top__title_box"}>
@@ -133,7 +134,7 @@ const PopupMoreEventInfo = ({
     name}:PopupMoreEventInfoProps) =>{
 
     return(
-        <Popup onOpen={setIsOpen} open={isOpen} trigger={<div className={style.event_container__event__more_button}>Подробнее</div>}>
+        <Popup onOpen={setIsOpen} open={isOpen} trigger={<div className={a_style.event_container__event__more_button}>Подробнее</div>}>
             <div className="request_more__content_box">
                 <div className={"content_box__request_top"}>
                     <div className={"request_top__title_box"}>

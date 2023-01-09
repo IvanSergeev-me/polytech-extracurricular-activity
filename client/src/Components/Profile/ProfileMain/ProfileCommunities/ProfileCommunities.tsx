@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { useTypedSelector } from "../../../../Hooks/useTypedSelector";
 import { selectCommunitiesInProfile } from "../../../../Selectors";
 import style from "../../Profile.module.css";
+import m_style from "../ProfileMain.module.css";
 import ProfileCommunityCard from "./ProfileCommunityCard/ProfileCommunityCard";
 
 interface ProfileCommunitiesProps {
@@ -13,9 +14,9 @@ const ProfileCommunities: FC<ProfileCommunitiesProps> = (props) => {
     const communities = useTypedSelector(selectCommunitiesInProfile);
 
     return ( 
-        <div className={style.main__communities_container}>
+        <div className={m_style.main__communities_container}>
             <h1 className={style.title}>Ваши сообщества</h1>
-            <div className={style.communities_container__communities}>
+            <div className={m_style.communities_container__communities}>
                 {communities.map(com => <ProfileCommunityCard 
                     id={com.id}
                     key={com.id} 
