@@ -6,7 +6,7 @@ import { rolesRightsNames } from "../../../Models/RolesAndRights";
 import { dayGlossary, DayType } from "../../../Models/TimeAndDate";
 import { selectCommunitySchedule } from "../../../Selectors";
 import { withCommunityRights } from "../../HOC/withCommunityRights";
-import style from "../CommunityPage.module.css";
+import style from "../CommunityPage.module.scss";
 import sc_style from "./CommunitySchedule.module.css";
 import AddSubjectForm from "./AddSubjectForm";
 

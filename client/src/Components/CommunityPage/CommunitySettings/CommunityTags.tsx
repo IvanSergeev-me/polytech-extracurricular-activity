@@ -1,5 +1,5 @@
-import style from "../CommunityPage.module.css";
-import s_style from "./CommunitySettings.module.css";
+import style from "../CommunityPage.module.scss";
+import s_style from "./CommunitySettings.module.scss";
 import { CommunityTypeShort, ITag } from '../../../Models/Activities';
 import { Controller, useFieldArray, useFormContext } from "react-hook-form";
 import AppColorPicker from "../../Common/ColorPicker/AppColorPicker";
@@ -19,7 +19,7 @@ const CommunityTags = () =>{
 
     const handleAddTag = () =>{
         if(tags.every( t => t.name )){
-            append({color:"grey", id:newTagId, name:""});
+            append({color:"grey", id:newTagId, name:""} as ITag);
         }
     }
     const handleDelete = (index:number) =>{
@@ -28,14 +28,14 @@ const CommunityTags = () =>{
         }
         else{
             remove(index);
-            append({color:"grey", id:newTagId, name:""});
+            append({color:"grey", id:newTagId, name:""} as ITag);
         }
     }
 
     return(
         <div className={s_style.settings_left__settings_tags_container}>
             <h3 className={style.subtitle}>Теги</h3>
-            <button onClick={handleAddTag}><span>+</span><p>Добавить</p></button>
+            <button className={s_style.add_button} onClick={handleAddTag}><span>＋</span><p>Добавить</p></button>
             <div className={s_style.settings_tags_container__settings_tags}>
                 {fields.map((t,index) => <CommunityTag
                     handleDelete={handleDelete} 

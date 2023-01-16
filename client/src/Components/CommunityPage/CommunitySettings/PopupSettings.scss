@@ -1,0 +1,28 @@
+.photo_description{
+    &-arrow {
+        color: var(--scheduleBg);
+        stroke: var(--scheduleBg);
+    }
+    &-content {
+        background-color: var(--scheduleBg);
+        border: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 1em;
+        margin-left: 10px;
+        box-sizing: border-box;
+    }
+    &-overlay{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+    }
+}
+
+[role='tooltip'].photo_description-content {
+    width: 350px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+}
+

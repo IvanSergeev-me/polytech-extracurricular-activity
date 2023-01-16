@@ -2,7 +2,7 @@ import React, {FC} from "react";
 //import { useParams } from "react-router-dom";
 import { CommunityHeaderIfGuest, CommunityHeaderIfMember } from "./CommunityHeader/CommunityHeader";
 import {AsidePanel} from "./CommunityAside/CommunityAside";
-import style from './CommunityPage.module.css';
+import style from './CommunityPage.module.scss';
 import { CommunityProvider } from "../../Context";
 import { useTypedSelector } from "../../Hooks/useTypedSelector";
 import { selectCommunityName } from "../../Selectors";

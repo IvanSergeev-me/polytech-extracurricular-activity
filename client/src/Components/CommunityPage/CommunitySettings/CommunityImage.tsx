@@ -1,6 +1,6 @@
 import React, {  ChangeEvent, SyntheticEvent, useRef, useState } from "react";
-import s_style from "./CommunitySettings.module.css";
-import style from "../CommunityPage.module.css";
+import s_style from "./CommunitySettings.module.scss";
+import style from "../CommunityPage.module.scss";
 import { Controller, useFormContext } from "react-hook-form";
 import { CommunityTypeShort } from "../../../Models/Activities";
 

@@ -1,6 +1,6 @@
 import React, {FC, useRef, useState} from "react";
 import { withCommunityRights } from "../../HOC/withCommunityRights";
-import style from "../CommunityPage.module.css";
+import style from "../CommunityPage.module.scss";
 import p_style from "./CommunityPosts.module.css";
 import { Controller, useForm } from "react-hook-form";
 import { useCommunityActions } from "../../../Hooks/useActions";

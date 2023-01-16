@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { useTypedSelector } from '../../../Hooks/useTypedSelector';
 import { selectCommunityInfo } from '../../../Selectors';
-import style from "../CommunityPage.module.css";
-import s_style from "./CommunitySettings.module.css";
+import style from "../CommunityPage.module.scss";
+import s_style from "./CommunitySettings.module.scss";
 import CommunityImage from './CommunityImage';
 import CommunityTags from './CommunityTags';
 import CommunityPhotos from './CommunityPhotos';
@@ -20,6 +20,7 @@ const CommunitySettings:FC = () => {
         
     const onSubmit = (data:CommunityTypeShort) =>{
         console.log(data);
+        methods.reset();
     };
 
     return (
@@ -34,7 +35,7 @@ const CommunitySettings:FC = () => {
                         <CommunityImage />
                         <CommunityTags />
                         <CommunityPhotos photos={photos}/>
-                        <button type="submit">Сохранить изменения</button>
+                        <button className={style.submit__button} type="submit">Сохранить изменения</button>
                     </div>
                     <div className={s_style.settings_container__settings_right}>
                         Правая часть

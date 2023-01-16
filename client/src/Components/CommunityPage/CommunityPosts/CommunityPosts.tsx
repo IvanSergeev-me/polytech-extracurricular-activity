@@ -3,7 +3,7 @@ import { useTypedSelector } from "../../../Hooks/useTypedSelector";
 import { selectCommunityPosts } from "../../../Selectors";
 import { CommunityPublication } from "./CommunityPublication";
 import AddPublicationForm from "./AddPublicationForm";
-import style from "../CommunityPage.module.css";
+import style from "../CommunityPage.module.scss";
 import p_style from "./CommunityPosts.module.css";
 
 const CommunityPosts:FC = (props) =>{

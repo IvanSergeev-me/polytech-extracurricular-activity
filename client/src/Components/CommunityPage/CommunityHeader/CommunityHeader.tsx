@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import style from "../CommunityPage.module.css";
+import style from "../CommunityPage.module.scss";
 import h_style from "./CommunityHeader.module.css";
 import PageService from "../../PageService/PageService";
 import { useCommunityUpdate } from "../../../Context";
