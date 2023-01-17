@@ -9,13 +9,15 @@ import CommunityPhotos from './CommunityPhotos';
 import { withCommunityRights } from '../../HOC/withCommunityRights';
 import { useForm, FormProvider } from "react-hook-form";
 import { CommunityTypeShort } from '../../../Models/Activities';
+import CommunityDescription from './CommunityDescription';
 
 const CommunitySettings:FC = () => {
     const {
-        id,links,contacts,description,
+        id,links,contacts,description,description_short,
         photos,image,tags,name,} = useTypedSelector(selectCommunityInfo);
 
-    const methods = useForm<CommunityTypeShort>({defaultValues:{id,links,contacts,description,
+    const methods = useForm<CommunityTypeShort>({defaultValues:{id,links,contacts,
+        description, description_short,
         photos,image,tags,name}});
         
     const onSubmit = (data:CommunityTypeShort) =>{
@@ -34,11 +36,11 @@ const CommunitySettings:FC = () => {
                     <div className={s_style.settings_container__settings_left}>
                         <CommunityImage />
                         <CommunityTags />
-                        <CommunityPhotos photos={photos}/>
+                        <CommunityPhotos />
                         <button className={style.submit__button} type="submit">Сохранить изменения</button>
                     </div>
                     <div className={s_style.settings_container__settings_right}>
-                        Правая часть
+                        <CommunityDescription />
                     </div>
                 </form>
             </FormProvider>

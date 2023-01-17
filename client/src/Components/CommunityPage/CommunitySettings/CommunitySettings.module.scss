@@ -33,6 +33,8 @@
     &__settings_right{
         min-width: 500px;
         flex: 1;
+        @extend %flex-column;
+        gap: 10px;
     }
 }
 
@@ -239,6 +241,13 @@
         color: var(--text);
         font-weight: 600;
         cursor: pointer;
+    }
+}
+
+.settings_right{
+    &__settings_description_container{
+        @extend %flex-column;
+        gap: 10px;
     }
 }
 

@@ -73,7 +73,7 @@ export type TypeGlossary = Record<ActivityType, string>;
 
 export type CommunityType = Activity & {communityId?:number}
 
-export type CommunityTypeShort = Omit<CommunityType, "members_count">
+export type CommunityTypeShort = Omit<CommunityType, "members_count"> & {description_short:string}
 
 export type EventType = Activity & {date:string, time:string}
 

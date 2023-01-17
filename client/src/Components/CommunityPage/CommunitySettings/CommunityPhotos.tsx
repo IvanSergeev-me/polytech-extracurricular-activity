@@ -6,12 +6,10 @@ import "./PopupSettings.scss";
 import { useFieldArray, useFormContext } from 'react-hook-form';
 import Popup from 'reactjs-popup';
 
-interface CommunityPhotosProps {photos:IPhoto[]}
+const CommunityPhotos= () => {
 
-const CommunityPhotos= (props:CommunityPhotosProps) => {
- // eslint-disable-next-line
-    const { control, getValues } = useFormContext<CommunityTypeShort>();
- // eslint-disable-next-line
+    const { control } = useFormContext<CommunityTypeShort>();
+    
     const { fields, append, remove } = useFieldArray({
       control,
       name: "photos"

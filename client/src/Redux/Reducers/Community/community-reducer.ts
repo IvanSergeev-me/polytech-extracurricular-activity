@@ -57,6 +57,7 @@ export const initialState:communityState = {
         image: "https://www.teachingenglish.org.uk/sites/teacheng/files/styles/wide/public/images/teens_and_exams_iStock_000005780399XSmall.jpg?itok=0nXiZMHU",
         name: "Музыкальное сообщество",
         description: "Тестовый дескрипшн",
+        description_short:"Короткий дескрипшн",
         type: activityTypeList.community,
         tags: [{id:0, name:"Тестовый таг 0", color:"#AAAAAA"}, {id:1, name:"Тестовый таг 1", color:"#A1A1AA"}],
         links:[
