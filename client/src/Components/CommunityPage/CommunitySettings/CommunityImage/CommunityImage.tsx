@@ -1,8 +1,8 @@
 import React, {  ChangeEvent, SyntheticEvent, useRef, useState } from "react";
-import s_style from "./CommunitySettings.module.scss";
-import style from "../CommunityPage.module.scss";
+import style from "../../CommunityPage.module.scss";
+import s_style from "../CommunitySettings.module.scss";
 import { Controller, useFormContext } from "react-hook-form";
-import { CommunityTypeShort } from "../../../Models/Activities";
+import { CommunityTypeShort } from "../../../../Models/Activities";
 
 interface FilePickerProps{
     onImageChange: (files:File) => void;

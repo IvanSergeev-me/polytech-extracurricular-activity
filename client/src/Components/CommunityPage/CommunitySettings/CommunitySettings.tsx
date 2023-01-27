@@ -3,13 +3,15 @@ import { useTypedSelector } from '../../../Hooks/useTypedSelector';
 import { selectCommunityInfo } from '../../../Selectors';
 import style from "../CommunityPage.module.scss";
 import s_style from "./CommunitySettings.module.scss";
-import CommunityImage from './CommunityImage';
-import CommunityTags from './CommunityTags';
-import CommunityPhotos from './CommunityPhotos';
+import CommunityImage from './CommunityImage/CommunityImage';
+import CommunityTags from './CommunityTags/CommunityTags';
+import CommunityPhotos from './CommunityPhotos/CommunityPhotos';
 import { withCommunityRights } from '../../HOC/withCommunityRights';
 import { useForm, FormProvider } from "react-hook-form";
 import { CommunityTypeShort } from '../../../Models/Activities';
-import CommunityDescription from './CommunityDescription';
+import CommunityDescription from './CommunityDescription/CommunityDescription';
+import CommunityLinks from './CommunityContacts/CommunityLinks';
+import CommunityContacts from './CommunityContacts/CommunityContacts';
 
 const CommunitySettings:FC = () => {
     const {
@@ -33,14 +35,20 @@ const CommunitySettings:FC = () => {
             </div>
             <FormProvider {...methods}>
                 <form onSubmit={methods.handleSubmit(onSubmit)} className={s_style.settings_section__settings_container}>
-                    <div className={s_style.settings_container__settings_left}>
-                        <CommunityImage />
-                        <CommunityTags />
-                        <CommunityPhotos />
-                        <button className={style.submit__button} type="submit">Сохранить изменения</button>
+                    <div className={s_style.settings_container__settings_form_content}>
+                        <div className={s_style.settings_form_content__settings_left}>
+                            <CommunityImage />
+                            <CommunityTags />
+                            <CommunityPhotos />
+                        </div>
+                        <div className={s_style.settings_form_content__settings_right}>
+                            <CommunityDescription />
+                            <CommunityLinks />
+                            <CommunityContacts />
+                        </div>
                     </div>
-                    <div className={s_style.settings_container__settings_right}>
-                        <CommunityDescription />
+                    <div className={s_style.settings_container__settings_buttons}>
+                        <button className={style.submit__button} type="submit">Сохранить изменения</button>
                     </div>
                 </form>
             </FormProvider>

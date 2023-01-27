@@ -25,6 +25,11 @@
     font-weight: 600;
 }
 
+.subtitle_min{
+    @extend .subtitle;
+    font-size: 1.1em;
+}
+
 .form{
     &__field{
         display: flex;

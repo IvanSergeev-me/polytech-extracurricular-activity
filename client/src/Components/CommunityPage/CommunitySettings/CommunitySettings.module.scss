@@ -11,19 +11,40 @@
 }
 
 .settings_section{
-        &__header{   
+    &__header{   
         @extend %flex-column;
         gap:10px;    
     }
     &__settings_container{
-        flex-wrap: wrap;
-        display: flex;
-        justify-content: space-between;
-        gap: 1em;
+        @extend %flex-column;
+        gap:10px;  
     }
 }
 
 .settings_container{
+    &__settings_form_content{
+        flex-wrap: wrap;
+        display: flex;
+        justify-content: space-between;
+        gap: 50px;
+        @media(max-width: 1200px){
+            gap: 10px;
+        }
+    }
+    &__settings_buttons{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        button{
+            min-width: 300px;
+            @media(max-width:1200px){
+                width: 100%;
+            }
+        }
+    }
+}
+
+.settings_form_content{
     &__settings_left{
         min-width: 500px;
         flex: 1;
@@ -49,6 +70,7 @@
             object-fit: fill;
             height: 100%;
             width: 100%;
+            border-radius: 10px;
         }
         &:hover {
             .image_container__change_image_box{
@@ -56,6 +78,7 @@
                 transition: all 0.3s ease-in-out;
                 opacity: 1;
                 visibility: visible;
+                border-radius: 10px;
             }
         }
     }
@@ -67,6 +90,7 @@
         @extend %flex-column;
         gap: 10px;
     }
+    
 }
 
 .image_container{
@@ -143,11 +167,15 @@
 }
 
 .settings_photos_container{
+    &__controls{
+        display: flex;
+    }
     &__settings_photos{
         @extend %flex-column;
         padding: 10px;
         gap: 10px;
-        height: 300px;
+        min-height: 250px;
+        height: fit-content;
         border-radius: 10px;
         overflow: auto;
         overflow-x: hidden;
@@ -249,5 +277,35 @@
         @extend %flex-column;
         gap: 10px;
     }
+    &__settings_links_container{
+        @extend %flex-column;
+        gap: 10px;
+    }
 }
 
+.settings_links_container{
+    &__settings_links{
+        @extend %flex-column;
+        gap: 10px;
+    }
+}
+.contacts_form_wrapper{
+    padding: 10px;
+    background-color: var(--scheduleBg);
+    border-radius: 10px;
+    &__contacts_form{
+        @extend %flex-column;
+        gap: 10px;
+    }
+}
+.contacts_form{
+    &__contact_field_group{
+        @extend %flex-column;
+        gap: 10px;
+        .contact_field_group__heading{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+}

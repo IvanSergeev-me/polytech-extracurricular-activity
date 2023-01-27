@@ -1,8 +1,8 @@
 import React from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
-import { CommunityTypeShort } from '../../../Models/Activities';
-import s_style from "./CommunitySettings.module.scss";
-import Textarea from '../../Common/Textarea/Textarea';
+import { CommunityTypeShort } from '../../../../Models/Activities';
+import s_style from "../CommunitySettings.module.scss";
+import Textarea from '../../../Common/Textarea/Textarea';
 
 const CommunityDescription = () => {
 

@@ -19,7 +19,7 @@ export interface IContact{
     id:number,
     name:string,
     contact:string,
-    type:'link'|'contact',
+    type:ContactType,
 }
 
 export interface IPhoto{  
@@ -68,6 +68,8 @@ export type Activity = {
 
 
 export type ActivityType = activityTypeList.community | activityTypeList.event;
+
+export type ContactType = 'link'|'contact';
 
 export type TypeGlossary = Record<ActivityType, string>;
 
