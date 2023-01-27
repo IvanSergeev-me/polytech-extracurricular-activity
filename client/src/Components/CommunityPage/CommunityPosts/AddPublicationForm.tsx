@@ -9,6 +9,7 @@ import { selectUserId } from "../../../Selectors";
 import { rolesRightsNames } from "../../../Models/RolesAndRights";
 import { useCurrentDate } from "../../../Hooks/useCurrentDate";
 import { useGetImages } from "../../../Hooks/useGetImages";
+import Textarea from "../../Common/Textarea/Textarea";
 
 type AddPublicationFormValues = {
     title:string;
@@ -54,10 +55,20 @@ const AddPublicationForm:FC = (props) =>{
                         placeholder={"Заголовок публикации..."}/>
                 </div>
                 <div className={style.form__field}>
-                    <h3 className={style.field__title}>Содержание публикации</h3>
-                    {errors.text && <p className={style.field__error}>{errors.text.message}</p>}
-                    <textarea className={style.field__input + " " + style.resize_none} defaultValue="" {...register("text", { required: true, maxLength: 250 })} 
-                        placeholder={"Текст публикации..."}/>
+                    {errors.text && <p className={style.field__error}></p>}
+                    <Controller
+                        name="text"
+                        control={control}
+                        rules={{ maxLength:256 }}
+                        render={ ({field: {value, onChange } }) =>
+                            <Textarea 
+                                value={value}
+                                onChange={val=> onChange(val)}
+                                placeholder={"Текст публикации..."}
+                                errorMessage={errors.text && errors.text.message}
+                                title={"Содержание публикации"} 
+                                />
+                    }/>
                 </div>
                 <Controller
                         name="images"

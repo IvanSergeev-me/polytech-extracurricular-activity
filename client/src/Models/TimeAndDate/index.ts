@@ -11,3 +11,5 @@ export type ColorByTimeGlossary = Record<SubjectTimeType, string>
 
 export const colorByTimeGlossary:ColorByTimeGlossary = 
     {"09:00-10:30":"#FC0FC0", "10:40-12:10":"#FF2B2B" , "12:20-13:50":"#8B00FF", "14:30-16:00":"#8B00FF", "16:10-17:40":"#8B00FF"}
+
+export const datePattern = /^\d{2}(\s)([a-z]|[а-я]){3}$/;

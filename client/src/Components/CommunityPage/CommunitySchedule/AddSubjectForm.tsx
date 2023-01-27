@@ -11,6 +11,7 @@ import Select from "react-select";
 import { getDays, DayOption } from "./selectOptions";
 
 import { rolesRightsNames } from "../../../Models/RolesAndRights";
+import { datePattern } from "../../../Models/TimeAndDate";
 
 
 type AddSubjectFormValues = ISubject;
@@ -40,19 +41,19 @@ const AddSubjectForm:FC = (props) =>{
         <div className={sc_style.add_subject_form_container}>
              <form className={sc_style.add_subject_form_container__form} onSubmit={handleSubmit(onSubmit)}>
                 <div className={style.form__controls}><p onClick={()=>setFormHidden(true)}>скрыть</p></div>
-                <div className={style.from__field}>
+                <div className={style.form__field}>
                     <h3 className={style.field__title}>Название предмета</h3>
                     {errors.name && <p className={style.field__error}>Это поле обязательно</p>}
                     <input className={style.field__input} defaultValue="" {...register("name",{ required: true, maxLength: 25 })} 
                         placeholder={"Название предмета..."}/>
                 </div>
-                <div className={style.from__field}>
+                <div className={style.form__field}>
                     <h3 className={style.field__title}>Номер аудитории</h3>
                     {errors.audience && <p className={style.field__error}>Это поле обязательно</p>}
                     <input className={style.field__input} defaultValue="" {...register("audience",{ required: true, maxLength: 6 })} 
                         placeholder={"Номер аудитории..."}/>
                 </div>
-                <div className={style.from__field}>
+                <div className={style.form__field}>
                     <h3 className={style.field__title}>День занятия</h3>
                     {errors.day && <p className={style.field__error}>Это поле обязательно</p>}
                     <Controller
@@ -68,7 +69,7 @@ const AddSubjectForm:FC = (props) =>{
                         />}
                     />    
                 </div>
-                <div className={style.from__field}>
+                <div className={style.form__field}>
                     <h3 className={style.field__title}>Продолжительность занятия</h3>
                     <Controller
                         name="time_range"
@@ -78,7 +79,7 @@ const AddSubjectForm:FC = (props) =>{
                             onChange={onChange} format="HH:mm" disableClock={true} value={value} required={true} rangeDivider={"до"}/>}
                     />
                 </div>
-                <div className={style.from__field}>
+                <div className={style.form__field}>
                     <h3 className={style.field__title}>Даты проведения занятий</h3>
                     {(errors.date_start || errors.date_end) && <p className={style.field__error}>
                         {((errors.date_start?.type || errors.date_end?.type )=== "required") && "Это поле обязательно "} 
@@ -86,10 +87,10 @@ const AddSubjectForm:FC = (props) =>{
                     </p>}
                     <div className={style.field__date_range}>
                         <input className={style.field__input} defaultValue="" 
-                            {...register("date_start",{ required: true, pattern: /^\d{2}(\s)([a-z]|[а-я]){3}$/, maxLength: 6 })} 
+                            {...register("date_start",{ required: true, pattern: datePattern, maxLength: 6 })} 
                             placeholder={"01 мес..."}/>
                         <input className={style.field__input} defaultValue="" 
-                            {...register("date_end",{ pattern: /^\d{2}(\s)([a-z]|[а-я]){3}$/, required: true, maxLength: 6 })} 
+                            {...register("date_end",{ pattern: datePattern, required: true, maxLength: 6 })} 
                             placeholder={"31 мес..."}/>
                     </div>
                 </div>
