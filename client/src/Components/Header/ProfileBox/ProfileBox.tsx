@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import React from "react";
-import style from "../Header.module.css";
+import style from "../Header.module.scss";
 import classNames from "classnames/bind";
 import { useTypedSelector } from "../../../Hooks/useTypedSelector";
 import { usePathname } from "../../../Hooks/usePathname";

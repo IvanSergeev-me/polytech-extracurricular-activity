@@ -9,12 +9,9 @@ import { withCommunityRights } from "../../HOC/withCommunityRights";
 import style from "../CommunityPage.module.scss";
 import sc_style from "./CommunitySchedule.module.css";
 import AddSubjectForm from "./AddSubjectForm";
-
-interface CommunityScheduleProps {
-    
-}
+import ThinkingEmojiComponent from "../../Common/ThinkingEmojiComponent/ThinkingEmoji";
  
-const CommunitySchedule: FC<CommunityScheduleProps> = (props) => {
+const CommunitySchedule: FC = () => {
 
     
     return ( 
@@ -57,6 +54,10 @@ const ScheduleDay:FC<ScheduleDayProps> = (props) =>{
 const SubjectsContainer:FC = (props) =>{
 
     let subjects = useTypedSelector(selectCommunitySchedule);
+
+    if(subjects.length === 0){
+        return(<ThinkingEmojiComponent text="Расписания пока-что нет"/>)
+    }
 
     return(
         <div className={sc_style.schedule_section__days}>

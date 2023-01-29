@@ -14,6 +14,7 @@ export enum rolesRightsNames{
     canEditRoles = 'canEditRoles',
     canEditSchedule = 'canEditSchedule',
     canEditCommunity = 'canEditCommunity',
+    canEditRequests = 'canEditRequests',
 }
 
-export type RoleRightName = 'canBan' | 'canEditPost' | 'canEditRoles' | 'canEditSchedule' | 'canEditCommunity';
+export type RoleRightName = 'canBan' | 'canEditPost' | 'canEditRoles' | 'canEditSchedule' | 'canEditCommunity' | 'canEditRequests';

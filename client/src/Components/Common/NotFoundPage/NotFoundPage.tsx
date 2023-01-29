@@ -1,6 +1,6 @@
 import React, {FC} from "react";
 import { NavLink } from "react-router-dom";
-import style from "./NotFoundPage.module.css";
+import style from "./NotFoundPage.module.scss";
 import SadEmoji from "../../../Assets/Images/sad_emoji.gif";
 
 const NotFoundPage:FC = (props) =>{

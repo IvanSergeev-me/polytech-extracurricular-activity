@@ -1,0 +1,27 @@
+.contact{
+    display: flex;
+    &__title{
+        white-space: nowrap;
+        color: var(--text);
+        font-size: 1em;
+        font-weight: 600;
+    }
+    &__title::first-letter{
+        text-transform: uppercase;
+    }
+    &__text{
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 1em;
+        color: var(--blue);
+    }
+    &__separation{
+        font-size: 1em;
+        font-weight: 600;
+        color: var(--text);
+        margin: 0 1em;
+        @media(max-width:600px) {
+            margin: 0 5px;
+        }
+    }
+}

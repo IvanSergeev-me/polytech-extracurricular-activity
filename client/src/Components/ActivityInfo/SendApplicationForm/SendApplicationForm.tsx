@@ -4,7 +4,7 @@ import { useTypedSelector } from "../../../Hooks/useTypedSelector";
 import { ActivityType, activityTypeList } from "../../../Models/Activities";
 import { ApplicationGlossary } from "../../../Models/ApplictationStatuses";
 import { selectAppStatus } from "../../../Selectors";
-import style from "../ActivityInfo.module.css";
+import style from "../ActivityInfo.module.scss";
 
 interface ApplicationFormProps{
     activityType:ActivityType;

@@ -1,5 +1,5 @@
 import React from "react"
-import ActivityInfo from "../Components/ActivityInfo/ActivityInfo";
+import ActivityInfo from "../Components/ActivityInfo/ActivityInfoPage";
 import CommunityPage from "../Components/CommunityPage/CommunityPage";
 import CommunityPosts from "../Components/CommunityPage/CommunityPosts/CommunityPosts";
 import CommunitySchedule from "../Components/CommunityPage/CommunitySchedule/CommunitySchedule";
@@ -12,6 +12,7 @@ import ProfileMain from "../Components/Profile/ProfileMain/ProfileMain";
 import ProfileLinks from "../Components/Profile/ProfileLinks/ProfileLinks";
 import ProfileStatistics from "../Components/Profile/ProfileStatistics/ProfileStatistics";
 import CommunitySettings from "../Components/CommunityPage/CommunitySettings/CommunitySettings";
+import CommunityJoinRequests from "../Components/CommunityPage/CommunityJoinRequests/CommunityJoinRequests";
 
 export interface IRoute {
     path:string;
@@ -35,6 +36,8 @@ export enum communityRouteNames {
     POSTS = "/",
     SCHEDULE= "/schedule",
     SETTINGS = "/settings",
+    REQUESTS = "/requests",
+    EDITROLES = "/edit-roles",
     NO_MATCH = "*",
     
 }
@@ -65,6 +68,7 @@ export const communityRoutes:IRoute[] = [
     {path:communityRouteNames.POSTS, element:CommunityPosts},
     {path:communityRouteNames.SCHEDULE, element:CommunitySchedule},
     {path:communityRouteNames.SETTINGS, element:CommunitySettings},
+    {path:communityRouteNames.REQUESTS, element:CommunityJoinRequests},
     {path:communityRouteNames.NO_MATCH, element:NotFoundPage},
 ]
 

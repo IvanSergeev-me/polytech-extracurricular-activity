@@ -1,6 +1,6 @@
 import React, {FC, useState} from "react";
 import { IPhoto } from "../../../Models/Activities";
-import style from "./ActivityPhotoCard.module.css";
+import style from "./ActivityPhotoCard.module.scss";
 
 const ActivityPhotoCard:FC<IPhoto> = (props) =>{
 

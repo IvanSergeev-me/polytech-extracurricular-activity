@@ -2,7 +2,7 @@ import classNames from "classnames/bind";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { SearchFormValues } from "../Header";
-import style from "../Header.module.css";
+import style from "../Header.module.scss";
 
 export const SearchForm = (props:any) => {
     const cx = classNames.bind(style);
