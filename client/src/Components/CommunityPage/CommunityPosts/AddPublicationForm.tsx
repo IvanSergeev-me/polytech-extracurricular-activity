@@ -1,7 +1,7 @@
 import React, {FC, useRef, useState} from "react";
 import { withCommunityRights } from "../../HOC/withCommunityRights";
 import style from "../CommunityPage.module.scss";
-import p_style from "./CommunityPosts.module.css";
+import p_style from "./CommunityPosts.module.scss";
 import { Controller, useForm } from "react-hook-form";
 import { useCommunityActions } from "../../../Hooks/useActions";
 import { useTypedSelector } from "../../../Hooks/useTypedSelector";

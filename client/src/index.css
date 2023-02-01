@@ -136,3 +136,21 @@ body::-webkit-scrollbar {
 	outline: 1px solid rgb(26, 26, 26);
 }
 
+@media(max-width:1300px){
+  :root{
+    --dimension:400px;
+  }
+  
+}
+@media(max-width:1000px){
+  :root{
+    --dimension:350px;
+  } 
+}
+
+@media (max-width:800px) {
+  .app{
+    flex-direction: column-reverse;
+  }
+}
+

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import { NavLink } from "react-router-dom";
 import style from "./Header.module.scss";
+import { Logo } from "./logo/Logo";
 import ProfileBox from "./ProfileBox/ProfileBox";
 import { SearchForm } from "./SearchForm/SearchForm";
 
@@ -24,17 +24,5 @@ const Header : FC= (props) => {
         </header>
      );
 }
-
-type LogoProps = {}
-
-const areEqual = (prevProps:LogoProps, nextProps:LogoProps) => {
-    return true;
-}
-
-const Logo = React.memo((props:LogoProps) =>{
-    return <NavLink to="/" className={style.header__logo_container}>
-            <img className={style.logo} src="https://old.mospolytech.ru/img_new/top_bn/top_sh_en.png" alt="polytech logo" />
-        </NavLink>
-}, areEqual)
 
 export default Header ;

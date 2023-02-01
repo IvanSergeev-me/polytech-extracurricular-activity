@@ -1,0 +1,99 @@
+.activities_container{
+    flex:1;
+    height: 100%;
+    overflow-x: hidden;
+    position: relative;
+    background: var(--theme);
+    padding: 10px 10%;
+    @media(max-width:1000px){
+        padding: 10px;
+    }
+    &__activities{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: stretch;
+        gap: 15px;
+        @media(max-width:1000px){
+            align-items: center;
+            flex-direction: column;
+        }
+        @media(max-width:800px){
+            margin-bottom: 60px;
+        }
+    }
+}
+
+.card_container{
+    margin-top: 1em;
+    height: 100%;
+    position: relative;
+    width: var(--dimension);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @media(max-width:600px){
+        width:100%;
+        margin-top: 0;
+    }
+    &__top{
+        cursor: pointer;
+        height:calc(var(--dimension) - 50px);
+        position: relative;
+        width: 100%;
+    }
+    &__tltle_box{
+        text-decoration: none;
+        cursor: pointer;
+    }
+    &__tags_box{
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+}
+
+.top{
+    &__image_box{
+        height: 100%;
+        position: relative;
+        width: 100%;
+        img{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
+    }
+    &__description_box{
+        background-color: rgba(0, 0, 0, 0.8); 
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content:flex-end;
+        top:-100%;
+    }
+}
+
+.description_box{
+    &__text{
+        text-decoration: none;
+        padding: 1em;
+        font-size: 1em;
+        color: var(--text);
+    }
+}
+
+.tltle_box{
+    &__text{
+        margin-top: 10px;
+        font-size: 1.5em;
+        font-weight: 600;
+        color: var(--text);
+    }
+}

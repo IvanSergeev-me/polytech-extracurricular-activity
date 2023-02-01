@@ -1,27 +1,41 @@
 import React, {FC} from "react";
-import {useCommunityContext} from "../../../Context/index";
+import {useCommunityContext, useCommunityUpdate} from "../../../Context/index";
 import { useTypedSelector } from "../../../Hooks/useTypedSelector";
 import { selectCommunityMembers } from "../../../Selectors";
 import { IMember } from "../../../Models/User";
 import { ICommunityRole } from "../../../Models/RolesAndRights";
-import ap_style from "./CommunityAside.module.css";
+import ap_style from "./CommunityAside.module.scss";
 import { useFirstLetters } from "../../../Hooks/useFirstLetters";
+import classNames from "classnames/bind";
 
 interface AsideProps {
     isHidden: boolean
 }
 
 export const AsidePanel:FC<AsideProps> = (props) =>{
+    const cx = classNames.bind(ap_style);
+
     const {isHidden} = useCommunityContext();
+
+    const communityUpdate = useCommunityUpdate();
+
+    const handleClose = () =>{
+       communityUpdate((prev)=>({...prev, isHidden:!prev.isHidden}));
+    }
+
+    const asideClass = cx({
+        community_page_container__aside_content:true,
+        aside_closed:isHidden,
+        aside_opened:!isHidden
+    })
 
     const members = useTypedSelector(selectCommunityMembers);
 
-    if(isHidden) return null;
-
     return(
-        <div className={ap_style.community_page_container__aside_content}>
+        <div className={asideClass}>
             <div className={ap_style.aside_content__top}>
                 <h2>{members.length} участников</h2>
+                <div className={ap_style.top__close_button} onClick={handleClose}>Закрыть</div>
             </div>
             <div className={ap_style.aside_content__members_container}>
                 {members.map(member => <AsideMember id={member.id} image={member.image} key={member.id} name={member.name} lastname={member.lastname} roles={member.roles}/>)}

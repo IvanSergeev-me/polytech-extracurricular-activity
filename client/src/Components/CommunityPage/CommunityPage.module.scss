@@ -7,6 +7,10 @@
     padding:0 10% 0 10%;
     display: flex;
     justify-content: space-between;
+    @media (max-width:800px) {
+        margin-bottom: 60px;
+        padding: 10px;
+    }
     &__main_content{
         width: 100%;
         margin-top: 10px;

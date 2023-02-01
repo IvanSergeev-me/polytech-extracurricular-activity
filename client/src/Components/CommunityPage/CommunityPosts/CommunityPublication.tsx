@@ -1,6 +1,6 @@
 import React, {FC} from "react";
 import {ICommunityPublication, IPublicationImage} from "../../../Models/Community/index";
-import p_style from "./CommunityPosts.module.css";
+import p_style from "./CommunityPosts.module.scss";
 import classNames from "classnames/bind";
 
 export const CommunityPublication:FC<ICommunityPublication> = (props) =>{

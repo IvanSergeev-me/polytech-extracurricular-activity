@@ -1,20 +1,13 @@
-import React, {FC, useState } from "react";
+import React, {FC} from "react";
 import { NavLink } from "react-router-dom";
 import { useTypedSelector } from "../../Hooks/useTypedSelector";
 import { IActivityCard } from "../../Models/Activities/index";
-import style from "./Activities.module.css";
-import { useNavigate } from 'react-router-dom';
+import style from "./Activities.module.scss";
 import { selectActivities } from "../../Selectors";
 import ActivityTag from "../Common/ActivityTag/ActivityTag";
 import NotFoundPage from "../Common/NotFoundPage/NotFoundPage";
+import ActivityImageBox from "./ActivityImageBox/ActivityImageBox";
 //import { useActivitiesActions } from "../../Hooks/useActions";
-
-
-interface ImageBoxProps {
-    id:number,
-    description:string,
-    image:string
-}
 
 const ExtracurricularActivities:FC = (props) => {
     let activities = useTypedSelector(selectActivities);
@@ -38,7 +31,7 @@ const ExtracurricularActivities:FC = (props) => {
 }
  
 const ActivityCard:FC<IActivityCard> = (props) =>{
-    let tags = props.tags.map(tag => <ActivityTag key={tag.id} name={tag.name} color={tag.color} id={tag.id}/>);
+    const tags = props.tags.map(tag => <ActivityTag key={tag.id} name={tag.name} color={tag.color} id={tag.id}/>);
 
     return(
         <div className={style.card_container}>
@@ -49,35 +42,6 @@ const ActivityCard:FC<IActivityCard> = (props) =>{
             <div className={style.card_container__tags_box}>
                 {tags}
             </div>       
-        </div>
-    );
-}
-
-
-const ActivityImageBox:FC<ImageBoxProps> = ({id, description, image}) =>{
-    let navigate = useNavigate();
-    
-    let [isSelected, showDescription] = useState(false);
-
-    let toggleSelect = () =>{
-        isSelected?showDescription(false):showDescription(true);
-    }
-
-    const goToActivity = () =>{
-        navigate(`activities/${id}`);
-    }
-
-    return(
-        <div onClick={goToActivity} onMouseEnter={toggleSelect} onMouseLeave={toggleSelect} className={style.card_container__top}>
-            <div className={style.top__image_box}>
-                <img src={image} alt="pic" />
-            </div>
-            {isSelected?<div className={style.top__description_box}>
-                <p className={style.description_box__text}>
-                    {description}
-                </p>
-            </div>:null}
-                
         </div>
     );
 }
