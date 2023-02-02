@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { NavLink } from "react-router-dom";
-import style from "../Profile.module.css";
-import pl_style from "./ProfileLinks.module.css";
+import style from "../Profile.module.scss";
+import pl_style from "./ProfileLinks.module.scss";
 import { CommunitiesRequests, EventsRequests, RequestsColProps } from "./RequestLinksData";
 
 interface ProfileRequestsProps {

@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { useTypedSelector } from "../../../../Hooks/useTypedSelector";
 import { selectCommunitiesInProfile } from "../../../../Selectors";
-import style from "../../Profile.module.css";
-import m_style from "../ProfileMain.module.css";
+import style from "../../Profile.module.scss";
+import m_style from "../ProfileMain.module.scss";
 import ProfileCommunityCard from "./ProfileCommunityCard/ProfileCommunityCard";
 
 interface ProfileCommunitiesProps {

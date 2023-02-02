@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
 import React from "react";
 import { NavLink} from "react-router-dom";
-import n_style from "./ProfileNavbar.module.css";
+import n_style from "./ProfileNavbar.module.scss";
 
 interface ProfileNavbarProps {
     currentPath:string;

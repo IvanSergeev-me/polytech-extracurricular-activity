@@ -1,0 +1,61 @@
+.profile_page_container{
+    &__admin_section{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        @media (max-width:800px) {
+            align-items: center;
+        }
+    }
+}
+
+.admin_section{
+    &__requests{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+}
+
+.requests{
+    &__request_container{
+        max-width:500px;
+        width: 500px;
+        padding: 10px;
+        display: flex;
+        gap:10px;
+        flex-direction: column;
+        border-radius: 9px;
+        background-color: var(--scheduleBg);
+        @media (max-width:600px) {
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+    }
+}
+
+.request_container{
+    &__type{
+        color: var(--grey);
+        font-size: 1em;
+        font-weight: 600;
+    }
+    &__date{
+        color: var(--grey);
+        font-size: 1em;
+    }
+}
+
+.event_container{
+    &__event__more_button{
+        cursor: pointer;
+        text-align: center;
+        color: var(--text);
+        background-color: var(--reallyBlue);
+        border-radius: 9px;
+        padding: 10px;
+        font-weight: 600;
+    }
+}

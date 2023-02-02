@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { ICommunityInfo, IEventInfo } from "../../../../../Models/Profile";
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import "./PopupSettings.css";
-import style from "../../../Profile.module.css";
-import a_style from "../../ProfileAdmin.module.css";
+import "./PopupSettings.scss";
+import style from "../../../Profile.module.scss";
+import a_style from "../../ProfileAdmin.module.scss";
 
 const  PopupMore = ({type, info}:any) =>{
 
@@ -35,7 +35,7 @@ const  PopupMore = ({type, info}:any) =>{
             setIsOpen={setIsOpen}
             closePopup={closePopup}
             handleApprove={handleApprove}
-            handleReject={handleReject} 
+            handleReject={handleReject}
             id={communityInfo.id} 
             authorGroup={communityInfo.authorGroup} 
             authorLastname={communityInfo.authorLastname}
@@ -91,7 +91,7 @@ const PopupMoreCommunityInfo = ({
 }:PopupMoreCommunityInfoProps) =>{
 
     return(
-        <Popup onOpen={setIsOpen} open={isOpen} className={"request_more"} trigger={<div className={a_style.event_container__event__more_button}>Подробнее</div>}>
+        <Popup modal={true} onOpen={setIsOpen} open={isOpen} className={"request_more"} trigger={<div className={a_style.event_container__event__more_button}>Подробнее</div>}>
             <div className="request_more__content_box">
                 <div className={"content_box__request_top"}>
                     <div className={"request_top__title_box"}>
@@ -134,7 +134,7 @@ const PopupMoreEventInfo = ({
     name}:PopupMoreEventInfoProps) =>{
 
     return(
-        <Popup onOpen={setIsOpen} open={isOpen} trigger={<div className={a_style.event_container__event__more_button}>Подробнее</div>}>
+        <Popup modal={true} onOpen={setIsOpen} open={isOpen} trigger={<div className={a_style.event_container__event__more_button}>Подробнее</div>}>
             <div className="request_more__content_box">
                 <div className={"content_box__request_top"}>
                     <div className={"request_top__title_box"}>

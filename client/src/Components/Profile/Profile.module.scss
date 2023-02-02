@@ -5,6 +5,10 @@
     position: relative;
     background: var(--theme);
     padding: 10px 10%;
+    @media (max-width:800px) {
+        padding: 10px;
+        margin-bottom: 60px;
+    }
 }
 
 .link{
@@ -16,7 +20,7 @@
 
 .title{
     color: var(--text);
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: 600;
 }
 

@@ -7,6 +7,10 @@
     padding: 1em;
     margin-left: 10px;
     box-sizing: border-box;
+    width: 300px;
+}
+.community_settings-overlay{
+    width: 300px;
 }
 .community_settings-arrow {
     color: var(--scheduleBg);
@@ -14,4 +18,7 @@
 }
 .circle-picker{
     width: fit-content!important;
+}
+[role=tooltip].community_settings-content{
+    width: 300px;
 }

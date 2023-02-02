@@ -1,0 +1,44 @@
+.profile_page_container{
+    &__requests{
+        width: 100%;
+    }
+}
+
+.requests{
+    &__requests_wrapper{
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        gap: 100px;
+        @media (max-width:600px) {
+            gap: 10px;
+            flex-direction: column;
+        }
+    }
+}
+
+.requests_wrapper{
+    &__requests_col{
+        max-width: 500px;
+        width: 500px;
+        padding: 10px;
+        display: flex;
+        gap:15px;
+        flex-direction: column;
+        border-radius: 9px;
+        background-color: var(--scheduleBg);
+        @media (max-width:600px) {
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+    }
+}
+
+.requests_col{
+    &__options{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+}

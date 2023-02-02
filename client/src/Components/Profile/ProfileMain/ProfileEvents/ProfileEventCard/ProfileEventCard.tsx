@@ -1,10 +1,10 @@
 import React, { FC, useState } from "react";
 import { IEventInProfile, IEventShortInfo } from "../../../../../Models/Profile";
-import style from "../../../Profile.module.css";
-import m_style from "../../ProfileMain.module.css";
+import style from "../../../Profile.module.scss";
+import m_style from "../../ProfileMain.module.scss";
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import "./PopupSettings.css";
+import "./PopupSettings.scss";
 import { IMemberShort } from "../../../../../Models/User";
 import { useFirstLetters } from "../../../../../Hooks/useFirstLetters";
 
@@ -42,33 +42,38 @@ const SettingsPopup = ({info}:SettingsProps) =>{
     }
 
     return(
-        <Popup onOpen={setIsOpen} open={isOpen} contentStyle={m_style} className={"event_settings"} trigger={<div className={m_style.event_container__event__more_button}>Подробнее</div>}>
-            <div className={m_style.event_info_wrapper}>
-                <div className={m_style.event_info_wrapper__event_info_wrapper_top}>
-                    <div className={m_style.event_info_wrapper_top__controls}>   
-                        <h2 className={style.title}>{info.name}</h2>
-                        <div onClick={closePopup} className={style.link}>Закрыть</div>
+        <Popup
+            modal={true}
+            onOpen={setIsOpen} 
+            open={isOpen} 
+            className={"event_settings"} 
+            trigger={<div className={m_style.event_container__event__more_button}>Подробнее</div>}>
+                <div className={m_style.event_info_wrapper}>
+                    <div className={m_style.event_info_wrapper__event_info_wrapper_top}>
+                        <div className={m_style.event_info_wrapper_top__controls}>   
+                            <h2 className={m_style.controls__name}>{info.name}</h2>
+                            <div onClick={closePopup} className={style.link}>Закрыть</div>
+                        </div>
+                        <div className={m_style.event_info_wrapper_top__date_container}>
+                            <p>{info.date_visit}</p>
+                            <p>Место: {info.location}</p>
+                        </div>     
                     </div>
-                    <div className={m_style.event_info_wrapper_top__date_container}>
-                        <p>{info.date_visit}</p>
-                        <p>Место: {info.location}</p>
-                    </div>     
-                </div>
-                <div className={m_style.event_info_wrapper__description_container}>
-                    <p>{info.description}</p>
-                </div>
-                <div className={m_style.event_info_wrapper__event_members_container}>
-                    <div className={m_style.event_members_container__title_box}>
-                        <p className={style.subtitle}>Это мероприятие также посетили {info.members.length} человек:</p>
+                    <div className={m_style.event_info_wrapper__description_container}>
+                        <p>{info.description}</p>
                     </div>
-                    {info.members.map(member => <MemberPreview 
-                        id={member.id} 
-                        key={member.id} 
-                        name={member.name} 
-                        lastname={member.lastname} 
-                        group={member.group}/>)}
+                    <div className={m_style.event_info_wrapper__event_members_container}>
+                        <div className={m_style.event_members_container__title_box}>
+                            <p>Это мероприятие также посетили {info.members.length} человек:</p>
+                        </div>
+                        {info.members.map(member => <MemberPreview 
+                            id={member.id} 
+                            key={member.id} 
+                            name={member.name} 
+                            lastname={member.lastname} 
+                            group={member.group}/>)}
+                    </div>
                 </div>
-            </div>
         </Popup>
     );
 }

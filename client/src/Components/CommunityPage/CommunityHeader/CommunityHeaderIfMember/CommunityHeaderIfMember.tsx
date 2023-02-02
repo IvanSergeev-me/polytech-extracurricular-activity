@@ -12,7 +12,6 @@ import RequestsIcon from "../../../../Assets/Images/Requests.png";
 import RoleIcon from "../../../../Assets/Images/Role.png";
 import { useCommunityUpdate } from '../../../../Context';
 import PageService from '../../../Common/PageService/PageService';
-import ReactOwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 
@@ -39,20 +38,8 @@ const PageServices:FC<PageServicesProps> = (props) =>{
        communityUpdate((prev)=>({...prev, isHidden:!prev.isHidden}));
     }
 
-    const breakpoints = {
-        0:{
-            items:2,
-        },
-        800:{
-            items:3
-        },
-        1400:{
-            items:7,
-        }
-    }
-
     return(
-        <ReactOwlCarousel responsive={breakpoints}  stageClass={"services-stage"} margin={10} className={h_style.services__container} >
+        <div className={h_style.services__container} >
                 <PageService id={0} name={"Публикации"} image={FeedIcon} color={"#EC5F6B"} link={`./`}/>
                 <PageService id={1} name={"Расписание"} image={ScheduleIcon} color={"#EC5FB6"} link={`schedule`}/>
                 <PageService id={2} name={"Участники"} image={MembersIcon} color={"#9CBBFF"}  onServiceClick={onMembersServiceClick}/>
@@ -60,6 +47,6 @@ const PageServices:FC<PageServicesProps> = (props) =>{
                 <PageService id={4} name={"Настройки сообщества"} image={GearIcon} color={"#797979"} link={`settings`}/>
                 <PageService id={5} name={"Настройки ролей"} image={RoleIcon} color={"#EE9E44"} link={`edit-roles`}/>
                 <PageService id={6} name={"Заявки на вступление"} image={RequestsIcon} color={"#40C5C5"} link={`requests`}/>
-        </ReactOwlCarousel>
+        </div>
     )
 }

@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import m_style from "./ProfileMain.module.css";
+import m_style from "./ProfileMain.module.scss";
 import ProfileCommunities from "./ProfileCommunities/ProfileCommunities";
 import ProfileEvents from "./ProfileEvents/ProfileEvents";
 

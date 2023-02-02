@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { useTypedSelector } from "../../../Hooks/useTypedSelector";
 import { selectUsersRequests } from "../../../Selectors";
-import style from "../Profile.module.css";
-import a_style from "./ProfileAdmin.module.css";
+import style from "../Profile.module.scss";
+import a_style from "./ProfileAdmin.module.scss";
 import RequestCard from "./RequestCard/RequestCard";
 
 interface ProfileAdminProps {}

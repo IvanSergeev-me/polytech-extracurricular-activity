@@ -1,8 +1,8 @@
 import React from "react";
 import { typeGlossary } from "../../../../Models/Activities";
 import { IUserRequest} from "../../../../Models/Profile";
-import style from "../../Profile.module.css";
-import a_style from "../ProfileAdmin.module.css";
+import style from "../../Profile.module.scss";
+import a_style from "../ProfileAdmin.module.scss";
 import PopupMore from "./PopupMoreInfo/PopupMoreInfo";
 
  

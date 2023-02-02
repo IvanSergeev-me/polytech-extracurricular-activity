@@ -6,6 +6,9 @@
     height: 100%;
     align-items: center;
     justify-content: center;
+    @media (max-width:800px) {
+        height: auto;
+    }
     &__emoji{
         margin-bottom: 1em;
         color:var(--text);
@@ -19,6 +22,10 @@
         color:var(--text);
         font-weight: 600;
         font-size: 1.5em;
+        @media (max-width:800px) {
+            font-size: 1em;
+            text-align: center;
+        }
     }
     &__link{
         margin-top: 1em;

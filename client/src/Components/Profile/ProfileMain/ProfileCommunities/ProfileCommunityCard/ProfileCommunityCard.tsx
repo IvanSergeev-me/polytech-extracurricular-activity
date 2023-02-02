@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { communityStatusGlossary, ICommunityInProfile } from "../../../../../Models/Profile";
-import style from "../../../Profile.module.css";
+import style from "../../../Profile.module.scss";
+import m_style from "../../ProfileMain.module.scss";
 import classNames from "classnames/bind";
 import { CommunityStatus } from "../../../../../Models/Profile";
 import { NavLink } from "react-router-dom";
@@ -8,7 +9,6 @@ import gear from "../../../../../Assets/Images/Gear.png";
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import "./PopupSettings.css";
-import m_style from "../../ProfileMain.module.css";
  
 const ProfileCommunityCard: FC<ICommunityInProfile> = (props) => {
 
@@ -58,11 +58,17 @@ const SettingsPopup = ({community_status, community_id, isCommunityAdmin}:Settin
     }
 
     return(
-        <Popup contentStyle={m_style} className={"community_settings"} trigger={<img className={m_style.name_and_settings__gear} src={gear} alt="gear-settings"/>} position="right center">
-            <p className={style.subtitle}>Настройки сообщества</p>
-            {isCommunityAdmin?
-                <p className={style.link} onClick={onDeleteClick}>Удалить сообщество</p>:
-                <p className={style.link}>Покинуть сообщество</p>}
+        <Popup
+            keepTooltipInside={true}
+            className={"community_settings"} 
+            trigger={<img className={m_style.name_and_settings__gear} 
+            src={gear} 
+            alt="gear-settings"/>} 
+            position="right center">
+                <p className={style.subtitle}>Настройки сообщества</p>
+                {isCommunityAdmin?
+                    <p className={style.link} onClick={onDeleteClick}>Удалить сообщество</p>:
+                    <p className={style.link}>Покинуть сообщество</p>}
         </Popup>
     );
 }

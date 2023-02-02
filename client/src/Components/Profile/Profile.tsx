@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { usePathname } from "../../Hooks/usePathname";
 import { profileRoutes } from "../../Routes/routes";
 import AppRouter from "../Common/Router/Router";
-import style from "./Profile.module.css";
+import style from "./Profile.module.scss";
 import ProfileNavbar from "./ProfileNavbar/ProfileNavbar";
 
 interface ProfileProps {

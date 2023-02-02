@@ -21,12 +21,17 @@
 
 .services{
     &__container{
+        width: 100%;
         display: flex;
         align-items: center;
         flex-wrap: wrap;
+        overflow-y: hidden;
+        overflow-x: hidden;
         gap: 10px;
-        @media(max-width:800px) {
-            justify-content: center;
+        @media(max-width:1000px) {
+            flex-wrap: nowrap;
+            overflow-y: hidden;
+            overflow-x: visible;
         }
         a{
             min-width: 125px;
