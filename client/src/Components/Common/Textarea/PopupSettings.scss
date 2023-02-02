@@ -1,19 +1,22 @@
-.textarea-popup{
+.textarea_popup{
     &-arrow {
-        color: var(--scheduleBg);
-        stroke: var(--scheduleBg);
+        color: var(--scheduleBg)!important;
+        stroke: var(--scheduleBg)!important;
     }
     &-content {
-        background-color: var(--scheduleBg);
-        border: none;
+        background-color: var(--scheduleBg)!important;
+        border: none!important;
         display: flex;
         flex-direction: column;
         gap: 10px;
         padding: 1em;
-        margin-left: 10px;
-        box-sizing: border-box;
-        color: var(--text);
+        margin-left: 10px!important;
+        box-sizing: border-box!important;
+        color: var(--text)!important;
         font-size: 1em;
+        @media (max-width:600px) {
+            margin-left: 0!important;
+        }
     }
     &-overlay{
         display: flex;
@@ -21,4 +24,8 @@
         justify-content: center;
     
     }
+}
+
+[role='tooltip'].textarea_popup-content {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
 }

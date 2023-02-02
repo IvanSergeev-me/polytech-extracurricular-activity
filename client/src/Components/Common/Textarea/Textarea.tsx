@@ -20,7 +20,6 @@ const Textarea =  forwardRef< HTMLTextAreaElement , TextareaProps>(
     const [rows, setRows] = useState<number>(2);
 
     useEffect(() => {
-
         if(value && value.length>0){
             setRows(Math.round(value.length/60));
         }
@@ -34,8 +33,10 @@ const Textarea =  forwardRef< HTMLTextAreaElement , TextareaProps>(
         <div className={style.textarea_wrapper}>
             <h3  className={style.textarea_wrapper__title}>
                 {title} 
-                {PopupChildren&&<Popup 
-                    className="textarea-popup" 
+                {PopupChildren&&<Popup
+                    className="textarea_popup"
+                    keepTooltipInside={true}
+                    repositionOnResize={true}
                     trigger={<span className={style.textarea_wrapper__popup_trigger}>?</span>}
                     position={'right center'}>
                         {PopupChildren}

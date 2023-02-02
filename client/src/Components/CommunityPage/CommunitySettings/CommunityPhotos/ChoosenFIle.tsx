@@ -27,10 +27,17 @@ const ChoosenFile = (props:ChoosenFileProps) =>{
                     <span onClick={() => props.deleteFile(props.index)} >X</span>
                 </div>
                 <div className={s_style.controls_screen__text_box}>
-                  <Popup className={"photo_description"} trigger={<p className={s_style.text_box__text}>Нажмите, чтобы изменить описание</p>} position={'bottom center'}>
-                    {(existsCondition && errors.photos![props.index]!.description?.type === 'maxLength') && <p className={style.field__error}>Слишком много символов</p>}
-                    <textarea className={style.field__input + " " + style.resize_none} placeholder="Введите описание..." defaultValue={props.description}
-                        {...register(`photos.${props.index}.description`, { required: false, maxLength:64 })}/>
+                  <Popup className={"photo_description"} 
+                    modal={true} 
+                    trigger={<p className={s_style.text_box__text}>Нажмите, чтобы изменить описание</p>} 
+                    position={'bottom center'}>
+                      <p className={style.subtitle}>Изменить описание</p>
+                      {(existsCondition && errors.photos![props.index]!.description?.type === 'maxLength') && 
+                        <p className={style.field__error}>Слишком много символов</p>}
+                        <textarea className={style.field__input + " " + style.resize_none} 
+                                  placeholder="Введите описание..." 
+                                  defaultValue={props.description}
+                                  {...register(`photos.${props.index}.description`, { required: false, maxLength:64 })}/>
                   </Popup> 
                 </div>
               </div>

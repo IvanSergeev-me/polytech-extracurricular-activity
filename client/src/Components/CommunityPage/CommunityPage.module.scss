@@ -21,17 +21,26 @@
     color: var(--text);
     font-size: 2em;
     font-weight: 600;
+    @media (max-width:800px) {
+        font-size: 1.5em;
+    }
 }
 
 .subtitle{
     color: var(--text);
     font-size: 1.5em;
     font-weight: 600;
+    @media (max-width:800px) {
+        font-size: 1em;
+    }
 }
 
 .subtitle_min{
     @extend .subtitle;
     font-size: 1.1em;
+    @media (max-width:800px) {
+        font-size: 0.9em;
+    }
 }
 
 .form{
@@ -43,6 +52,9 @@
     &__submit{
         display: flex;
         justify-content: flex-end;
+        @media (max-width:600px) {
+            justify-content: center;
+        }
     }
     &__controls{
         display: flex;
@@ -132,6 +144,9 @@
     color: var(--text);
     font-size: 1em;
     font-weight: 600;
+    @media (max-width:600px) {
+        width: 100%;
+    }
 }
 
 .invisible_input{

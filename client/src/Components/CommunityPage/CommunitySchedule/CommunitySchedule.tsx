@@ -7,7 +7,7 @@ import { dayGlossary, DayType } from "../../../Models/TimeAndDate";
 import { selectCommunitySchedule } from "../../../Selectors";
 import { withCommunityRights } from "../../HOC/withCommunityRights";
 import style from "../CommunityPage.module.scss";
-import sc_style from "./CommunitySchedule.module.css";
+import sc_style from "./CommunitySchedule.module.scss";
 import AddSubjectForm from "./AddSubjectForm";
 import ThinkingEmojiComponent from "../../Common/ThinkingEmojiComponent/ThinkingEmoji";
  

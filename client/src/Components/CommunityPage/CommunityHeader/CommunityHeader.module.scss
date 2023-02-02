@@ -1,0 +1,35 @@
+.community_page_container{
+    &__heading{
+        display: flex;
+        flex-direction: column;
+        gap:1em;
+        @media(max-width:800px) {
+            align-items: center;
+        }
+    }
+}
+.heading{
+    &__info{
+        display: flex;
+        flex-direction: column;
+        gap:1em;
+        @media(max-width:800px) {
+            align-items: center;
+        }
+    }
+}
+
+.services{
+    &__container{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        @media(max-width:800px) {
+            justify-content: center;
+        }
+        a{
+            min-width: 125px;
+        }
+    }
+}

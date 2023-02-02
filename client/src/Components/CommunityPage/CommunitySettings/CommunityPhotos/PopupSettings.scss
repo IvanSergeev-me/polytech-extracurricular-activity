@@ -4,6 +4,8 @@
         stroke: var(--scheduleBg);
     }
     &-content {
+        width: 90%;
+        max-width: 500px;
         background-color: var(--scheduleBg);
         border: none;
         display: flex;
@@ -12,8 +14,10 @@
         padding: 1em;
         margin-left: 10px;
         box-sizing: border-box;
+        border-radius: 10px;
     }
     &-overlay{
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -22,7 +26,7 @@
 }
 
 [role='tooltip'].photo_description-content {
-    width: 350px;
+    width: 100%;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
 }
 

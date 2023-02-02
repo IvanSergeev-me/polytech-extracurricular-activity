@@ -2,7 +2,7 @@ import React, {FC, useMemo, useState} from "react";
 import { withCommunityRights } from "../../HOC/withCommunityRights";
 import "./ExternalComponents.css";
 import style from "../CommunityPage.module.scss";
-import sc_style from "./CommunitySchedule.module.css";
+import sc_style from "./CommunitySchedule.module.scss";
 import { useForm, Controller } from "react-hook-form";
 import { ISubject } from "../../../Models/Community";
 import { useCommunityActions } from "../../../Hooks/useActions";
