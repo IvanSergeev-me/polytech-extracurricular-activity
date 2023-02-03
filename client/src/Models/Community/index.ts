@@ -14,6 +14,16 @@ export interface IPublicationImage {
     image:string,
 }
 
+export interface IJoinRequest{
+    id:number,
+    name:string,
+    lastname:string,
+    group:string,
+    image?:string,
+    time:string,
+    date:string,
+}
+
 export interface ISubject {
     id:number,
     name:string,

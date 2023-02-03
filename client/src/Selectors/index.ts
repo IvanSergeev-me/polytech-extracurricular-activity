@@ -60,6 +60,11 @@ export const selectCommunityInfo = createSelector(
     (community) => community.info, 
 );
 
+export const selectCommunityJoinRequests = createSelector(
+    [communitySelector],
+    (community) => community.joinRequests, 
+);
+
 export const selectCommunityMembers = createSelector(
     [communitySelector],
     (community) => community.members,

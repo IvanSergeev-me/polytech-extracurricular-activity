@@ -18,7 +18,7 @@ const breakpoints = {
     600:{
         items:2
     },
-    1400:{
+    1600:{
         items:3,
     }
 }

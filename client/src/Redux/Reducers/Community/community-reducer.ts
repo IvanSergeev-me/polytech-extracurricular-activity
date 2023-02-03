@@ -1,9 +1,10 @@
+import { IJoinRequest } from './../../../Models/Community/index';
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { activityTypeList, CommunityTypeShort } from "../../../Models/Activities";
 import { ActivityInfoApplicationStatus } from "../../../Models/ApplictationStatuses";
 import { ICommunityPublication, ISubject } from "../../../Models/Community";
 import { IMember } from "../../../Models/User";
-import { setAppStatusThunk } from "./action-creators";
+import { setAppStatusThunk, setJoinRequestsThunk } from "./action-creators";
 import { communityState } from "./types";
 
 export const initialState:communityState = {
@@ -72,7 +73,15 @@ export const initialState:communityState = {
         contacts:[
             {id:0,name:"Whats App", contact:"88005553535", type:"contact"},
             {id:1,name:"Телефон офиса", contact:"88006553535", type:"contact"}],
-    } as CommunityTypeShort
+    } as CommunityTypeShort,
+    joinRequests:[
+        {id:5, name:"Лачин", lastname:"Лачинов", 
+            image:"https://play-lh.googleusercontent.com/8ddL1kuoNUB5vUvgDVjYY3_6HwQcrg1K2fd_R8soD-e2QYj8fT9cfhfh3G0hnSruLKec", 
+            date:"01 сен", time:"12:39", group:"191-361"
+        },
+        {id:6, name:"Василий", lastname:"Пупкин", image:"",date:"31 сен", time:"16:20", group:"191-361" },
+        {id:7, name:"Вера", lastname:"Сердючка", image:"", date:"23 фев", time:"14:48", group:"191-361"},
+    ]
 }
 
 export const communitySlice = createSlice({
@@ -127,6 +136,18 @@ export const communitySlice = createSlice({
             state.isLoading = true;
         },
         [setAppStatusThunk.rejected.type]:(state, action:PayloadAction<string>)=>{
+            state.error = action.payload;
+            state.isLoading = false;
+        },
+        [setJoinRequestsThunk.fulfilled.type]:(state, action:PayloadAction<IJoinRequest[]>)=>{
+            state.joinRequests = action.payload;
+            state.error = "";
+            state.isLoading = false;
+        },
+        [setJoinRequestsThunk.pending.type]:(state, action)=>{
+            state.isLoading = true;
+        },
+        [setJoinRequestsThunk.rejected.type]:(state, action:PayloadAction<string>)=>{
             state.error = action.payload;
             state.isLoading = false;
         },

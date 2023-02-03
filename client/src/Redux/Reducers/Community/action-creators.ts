@@ -15,3 +15,19 @@ export const setAppStatusThunk = createAsyncThunk(
     }
 );
 
+export const setJoinRequestsThunk = createAsyncThunk(
+    "community/setJoinRequests",
+    async(_, thunkAPI) =>
+    {
+        try {
+            const response = null;
+            return response;
+
+        } catch (error) {
+            return thunkAPI.rejectWithValue("error")
+        }
+        
+    }
+);
+
+
