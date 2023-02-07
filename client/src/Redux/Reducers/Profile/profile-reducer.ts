@@ -7,10 +7,15 @@ export let initialState:profileState = {
     isLoading:false,
     communities:[
         {id:0, name:"Музыкальное сообщество", date_start:"01.09.2022",
-            image:"https://www.classicalmusicnews.ru/wp-content/uploads/2014/03/klassicheskaya-muzyika.jpg", roles:[{name:"Руководитель", rights:[
-            {name:"canEditPost", canDo:true}, {name:"canEditSchedule", canDo:true}]}], status:"active"},
+            image:"https://www.classicalmusicnews.ru/wp-content/uploads/2014/03/klassicheskaya-muzyika.jpg", 
+            roles:[{name:"Руководитель", 
+                rights:
+                    ["canEditPost", "canEditSchedule"]}], 
+                    status:"active"},
         {id:1, name:"Клуб настольных игр", date_start:"01.09.2022", 
-            image:"https://www.ok-internet.ru/uploads/posts/2020-09/1599717397_50.jpg", roles:[{name:"Участник", rights:[]}], status:"active"}
+            image:"https://www.ok-internet.ru/uploads/posts/2020-09/1599717397_50.jpg", 
+            roles:[{name:"Участник", rights:[]}], 
+            status:"active"}
     ],
     events:[
         {id:0, name:"Фестиваль первокурсника", date_visit:"10.09.2022", image:"", info:{

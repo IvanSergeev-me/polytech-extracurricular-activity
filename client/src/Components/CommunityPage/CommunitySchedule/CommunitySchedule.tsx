@@ -2,7 +2,7 @@ import React , { FC } from "react";
 import { useCommunityActions } from "../../../Hooks/useActions";
 import { useTypedSelector } from "../../../Hooks/useTypedSelector";
 import { ISubject } from "../../../Models/Community";
-import { rolesRightsNames } from "../../../Models/RolesAndRights";
+import { RolesRightsNames } from "../../../Models/RolesAndRights";
 import { dayGlossary, DayType } from "../../../Models/TimeAndDate";
 import { selectCommunitySchedule } from "../../../Selectors";
 import { withCommunityRights } from "../../HOC/withCommunityRights";
@@ -113,4 +113,4 @@ const DeleteSubject:FC<DeleteSubjectProps> = (props) =>{
     );
 }
 
-const DeleteSubjectWithRights = withCommunityRights(DeleteSubject, [rolesRightsNames.canEditSchedule]);
+const DeleteSubjectWithRights = withCommunityRights(DeleteSubject, [RolesRightsNames.canEditSchedule]);

@@ -5,6 +5,7 @@
     position: relative;
     width: 125px;
     height: 135px;
+    min-width: 125px;
     background: var(--schedule);
     border-radius: var(--brSemi);
     color: var(--text);

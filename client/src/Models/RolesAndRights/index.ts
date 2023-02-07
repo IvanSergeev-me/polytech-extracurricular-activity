@@ -1,20 +1,16 @@
+import { ValueOf } from './../../Assets/Utils/ValueOf';
 export interface ICommunityRole{
     name:string,
-    rights:IRoleRights[]
+    rights:RoleRightName[]
 }
 
-export interface IRoleRights{
-    name:RoleRightName,
-    canDo:boolean
-}
+export const RolesRightsNames = {
+    canBan:'canBan',
+    canEditPost :'canEditPost',
+    canEditRoles: 'canEditRoles',
+    canEditSchedule: 'canEditSchedule',
+    canEditCommunity : 'canEditCommunity',
+    canEditRequests : 'canEditRequests',
+} as const
 
-export enum rolesRightsNames{
-    canBan = 'canBan',
-    canEditPost = 'canEditPost',
-    canEditRoles = 'canEditRoles',
-    canEditSchedule = 'canEditSchedule',
-    canEditCommunity = 'canEditCommunity',
-    canEditRequests = 'canEditRequests',
-}
-
-export type RoleRightName = 'canBan' | 'canEditPost' | 'canEditRoles' | 'canEditSchedule' | 'canEditCommunity' | 'canEditRequests';
+export type RoleRightName = ValueOf<typeof RolesRightsNames>

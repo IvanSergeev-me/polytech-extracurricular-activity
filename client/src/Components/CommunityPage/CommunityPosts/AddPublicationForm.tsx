@@ -6,7 +6,7 @@ import { Controller, useForm } from "react-hook-form";
 import { useCommunityActions } from "../../../Hooks/useActions";
 import { useTypedSelector } from "../../../Hooks/useTypedSelector";
 import { selectUserId } from "../../../Selectors";
-import { rolesRightsNames } from "../../../Models/RolesAndRights";
+import { RolesRightsNames } from "../../../Models/RolesAndRights";
 import { useCurrentDate } from "../../../Hooks/useCurrentDate";
 import { useGetImages } from "../../../Hooks/useGetImages";
 import Textarea from "../../Common/Textarea/Textarea";
@@ -140,7 +140,7 @@ const ChoosenFile:FC<ChoosenFileProps> = (props) =>{
     )
 }
 
-export default withCommunityRights(AddPublicationForm, [rolesRightsNames.canEditPost]);
+export default withCommunityRights(AddPublicationForm, [RolesRightsNames.canEditPost]);
 
 
 

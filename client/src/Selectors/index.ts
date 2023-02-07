@@ -16,6 +16,8 @@ const isAuthSelector = (state:RootState) => state.authReducer.isAuth;
 
 const profileSelector = (state:RootState) => state.profileReducer;
 
+export const communityRightsSelector = (state:RootState) => state.communityReducer.userRights;
+
 export const appStatusSelector = (state:RootState) => state.activityInfoReducer.appStatus;
 
 export const selectActivities = createSelector(

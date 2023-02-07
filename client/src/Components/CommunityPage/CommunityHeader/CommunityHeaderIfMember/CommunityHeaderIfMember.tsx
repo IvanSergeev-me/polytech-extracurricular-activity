@@ -3,17 +3,12 @@ import { HeaderProps } from '../CommunityHeader';
 import h_style from "../CommunityHeader.module.scss";
 import style from "../../CommunityPage.module.scss";
 import "./OwlCarouselSettings.scss";
-import GearIcon from "../../../../Assets/Images/Gear.png";
-import FeedIcon from "../../../../Assets/Images/Feed.png";
-import ScheduleIcon from "../../../../Assets/Images/Schedule.png";
-import MembersIcon from "../../../../Assets/Images/Members2.png";
-import InfoIcon from "../../../../Assets/Images/Info.png";
-import RequestsIcon from "../../../../Assets/Images/Requests.png";
-import RoleIcon from "../../../../Assets/Images/Role.png";
+import {FeedIcon, GearIcon, InfoIcon,RequestsIcon,RoleIcon,ScheduleIcon,MembersIcon} from "Assets";
 import { useCommunityUpdate } from '../../../../Context';
 import PageService from '../../../Common/PageService/PageService';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+import { withCommunityRights } from 'Components/HOC/withCommunityRights';
 
 export const CommunityHeaderIfMember:FC<HeaderProps> = ({community_name,info_id}) =>{
     return(
@@ -44,9 +39,18 @@ const PageServices:FC<PageServicesProps> = (props) =>{
                 <PageService id={1} name={"Расписание"} image={ScheduleIcon} color={"#EC5FB6"} link={`schedule`}/>
                 <PageService id={2} name={"Участники"} image={MembersIcon} color={"#9CBBFF"}  onServiceClick={onMembersServiceClick}/>
                 <PageService id={3} name={"Информация"} image={InfoIcon} color={"#5F6DEC"} link={`/activities/${props.info_id}`}/>
-                <PageService id={4} name={"Настройки сообщества"} image={GearIcon} color={"#797979"} link={`settings`}/>
-                <PageService id={5} name={"Настройки ролей"} image={RoleIcon} color={"#EE9E44"} link={`edit-roles`}/>
-                <PageService id={6} name={"Заявки на вступление"} image={RequestsIcon} color={"#40C5C5"} link={`requests`}/>
+                <SettingsPageService />
+                <RolesPageService />
+                <RequestsPageService />
         </div>
     )
 }
+
+const SettingsPageService = withCommunityRights(
+    () => <PageService id={4} name={"Настройки сообщества"} image={GearIcon} color={"#797979"} link={`settings`} />, ["canEditCommunity"]);
+
+const RolesPageService = withCommunityRights(
+    () => <PageService id={5} name={"Настройки ролей"} image={RoleIcon} color={"#EE9E44"} link={`edit-roles`}/>, ["canEditRoles"]);
+
+const RequestsPageService = withCommunityRights(
+    () => <PageService id={6} name={"Заявки на вступление"} image={RequestsIcon} color={"#40C5C5"} link={`requests`}/>, ["canEditRequests"]);

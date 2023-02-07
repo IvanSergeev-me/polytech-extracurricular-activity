@@ -13,6 +13,7 @@ import ProfileLinks from "../Components/Profile/ProfileLinks/ProfileLinks";
 import ProfileStatistics from "../Components/Profile/ProfileStatistics/ProfileStatistics";
 import CommunitySettings from "../Components/CommunityPage/CommunitySettings/CommunitySettings";
 import CommunityJoinRequests from "../Components/CommunityPage/CommunityJoinRequests/CommunityJoinRequests";
+import CommunityRoles from "../Components/CommunityPage/CommunityRoles/CommunityRoles";
 
 export interface IRoute {
     path:string;
@@ -69,6 +70,7 @@ export const communityRoutes:IRoute[] = [
     {path:communityRouteNames.SCHEDULE, element:CommunitySchedule},
     {path:communityRouteNames.SETTINGS, element:CommunitySettings},
     {path:communityRouteNames.REQUESTS, element:CommunityJoinRequests},
+    {path:communityRouteNames.EDITROLES, element:CommunityRoles},
     {path:communityRouteNames.NO_MATCH, element:NotFoundPage},
 ]
 

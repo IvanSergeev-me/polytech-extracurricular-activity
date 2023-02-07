@@ -12,15 +12,23 @@ export const initialState:communityState = {
     appStatus:"activityinfo/APPLICATION_ACCEPTED",
     error:"",
     community_name:"Музыкальное сообщество",
+    userRights:[
+        "canBan",
+        "canEditCommunity",
+        "canEditPost",
+        "canEditRequests",
+        "canEditRoles",
+        "canEditSchedule",
+    ],
     members:[
         {id:0, name:"Иван", lastname:"Сергеев", 
             image:"https://play-lh.googleusercontent.com/8ddL1kuoNUB5vUvgDVjYY3_6HwQcrg1K2fd_R8soD-e2QYj8fT9cfhfh3G0hnSruLKec", roles:[
-                {name:"Руководитель", rights:[{name:"canEditPost", canDo:true}]},
-                {name:"Модератор", rights:[{name:"canEditPost", canDo:true},{name:"canEditSchedule", canDo:true}]},
+                {name:"Руководитель", rights:["canEditPost"]},
+                {name:"Модератор", rights:["canEditPost","canEditSchedule"]},
                 {name:"Преподаватель по гитаре", rights:[]},
         ]},
         {id:1, name:"Вадим", lastname:"Сидоров", image:"", roles:[
-            {name:"Модератор", rights:[{name:"canEditPost", canDo:true},{name:"canEditSchedule", canDo:true}]},
+            {name:"Модератор", rights:["canEditPost","canEditSchedule"]},
         ]},
         {id:2, name:"Сергей", lastname:"Ларичев", image:"", roles:[
             {name:"Участник", rights:[]},

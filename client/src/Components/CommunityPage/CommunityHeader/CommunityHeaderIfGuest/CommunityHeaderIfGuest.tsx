@@ -4,10 +4,7 @@ import h_style from "../CommunityHeader.module.scss";
 import style from "../../CommunityPage.module.scss";
 import { useCommunityUpdate } from '../../../../Context';
 import PageService from '../../../Common/PageService/PageService';
-import FeedIcon from "../../../../Assets/Images/Feed.png";
-import ScheduleIcon from "../../../../Assets/Images/Schedule.png";
-import MembersIcon from "../../../../Assets/Images/Members2.png";
-import InfoIcon from "../../../../Assets/Images/Info.png";
+import {FeedIcon,InfoIcon,ScheduleIcon,MembersIcon} from "Assets";
 
 export const CommunityHeaderIfGuest:FC<HeaderProps> = ({community_name,info_id}) =>{
     return(
