@@ -1,4 +1,4 @@
-import { RoleRightName } from './../../../Models/RolesAndRights/index';
+import { RoleRightName, RoleAndMembers } from './../../../Models/RolesAndRights/index';
 import { CommunityTypeShort } from "../../../Models/Activities";
 import { ActivityInfoApplicationStatus } from "../../../Models/ApplictationStatuses";
 import { ICommunityPublication, IJoinRequest, ISubject } from "../../../Models/Community";
@@ -15,4 +15,5 @@ export interface communityState{
     schedule:ISubject[];
     info:CommunityTypeShort;
     joinRequests:IJoinRequest[];
+    roles:RoleAndMembers[];
 }

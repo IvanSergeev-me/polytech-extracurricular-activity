@@ -40,11 +40,9 @@ export const selectCommunityName = createSelector(
     (community) => community.community_name, 
 );
 
-//dont works
-export const selectCommunityUserRoles = createSelector(
-    //Select user roles in community and its rights
+export const selectCommunityRoles = createSelector(
     [communitySelector],
-    (community) => community, 
+    (community) => community.roles, 
 );
 
 export const selectCommunityPosts = createSelector(

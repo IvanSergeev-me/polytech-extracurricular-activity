@@ -48,6 +48,7 @@
         display: flex;
         flex-direction: column;
         gap:10px;
+        position: relative;
     }
     &__submit{
         display: flex;
@@ -73,12 +74,23 @@
         font-size: 1.1em;
         font-weight: 600;
     }
+    &__title_controls{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        h3{
+            color: var(--text);
+            font-size: 1.1em;
+            font-weight: 600; 
+        }
+    }
     &__error{
         color: var(--red);
         font-size: 1em;
         font-weight: 600;
     }
     &__input{
+        position: relative;
         box-sizing: border-box;
         border: none;
         outline: none;

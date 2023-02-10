@@ -24,8 +24,8 @@ export const initialState:communityState = {
         {id:0, name:"Иван", lastname:"Сергеев", 
             image:"https://play-lh.googleusercontent.com/8ddL1kuoNUB5vUvgDVjYY3_6HwQcrg1K2fd_R8soD-e2QYj8fT9cfhfh3G0hnSruLKec", roles:[
                 {name:"Руководитель", rights:["canEditPost"]},
-                {name:"Модератор", rights:["canEditPost","canEditSchedule"]},
                 {name:"Преподаватель по гитаре", rights:[]},
+                {name:"Участник", rights:[]},
         ]},
         {id:1, name:"Вадим", lastname:"Сидоров", image:"", roles:[
             {name:"Модератор", rights:["canEditPost","canEditSchedule"]},
@@ -89,6 +89,31 @@ export const initialState:communityState = {
         },
         {id:6, name:"Василий", lastname:"Пупкин", image:"",date:"31 сен", time:"16:20", group:"191-361" },
         {id:7, name:"Вера", lastname:"Сердючка", image:"", date:"23 фев", time:"14:48", group:"191-361"},
+    ],
+    roles:[
+        {id:0,
+            name:"Руководитель",
+            rights:[ 
+                "canBan",
+                "canEditCommunity",
+                "canEditPost",
+                "canEditRequests",
+                "canEditRoles",
+                "canEditSchedule",],
+            members:[{id:0,name:"Иван", lastname:"Сергеев",group:"191-361"}]},
+            {id:1,
+                name:"Участник",
+                rights: [],
+                members: [{ id: 1, name: "Сергей", lastname: "Ларичев", group: "191-361" },
+                { id: 0, name: "Иван", lastname: "Сергеев", group: "191-361" }]
+            },
+            {
+                id: 2,
+                name: "Модератор",
+                rights: ["canEditRequests","canBan",],
+                members: [{ id: 1, name: "Вадим", lastname: "Сидоров", group: "191-361" },]
+            },
+            {id:3, name:"Преподаватель по гитаре", rights:[], members:[{id:0,name:"Иван", lastname:"Сергеев",group:"191-361"}]},
     ]
 }
 
