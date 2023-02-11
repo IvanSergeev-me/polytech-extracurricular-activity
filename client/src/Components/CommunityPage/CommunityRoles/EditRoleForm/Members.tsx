@@ -84,7 +84,6 @@ const SearchMembers = ({addMember,allowedMembers}:SearchMemberProps) =>{
         setQuery(e.target.value);
     }
 
-    // eslint-disable-next-line
     const [membersToView, setMembersToView] = useState<IMember[]>(allowedMembers);
 
     useEffect(() => {
@@ -95,9 +94,9 @@ const SearchMembers = ({addMember,allowedMembers}:SearchMemberProps) =>{
     return(
         <div className={style.form__field}>
             <input value={query} onChange={handleChange} className={style.field__input} placeholder={"Введите имя..."} />
-            {query && 
+            {query && (membersToView.length > 0) &&
             <div className={ro_style.collapsable_wapper}>
-                {allowedMembers.map(m => <MemberCollapsable
+                {membersToView.map(m => <MemberCollapsable
                     addMember={addMember}
                     id={m.id} 
                     key={m.id} 
@@ -116,9 +115,10 @@ type MemberCollapsableProps = IMember & {addMember:({id, lastname, name,group}:I
 
 const MemberCollapsable = ({id,image,lastname,name,roles,group,addMember}:MemberCollapsableProps) =>{
     return(
-        <div onClick={()=> addMember({id, lastname, name,group} as IMemberShort)}>
+        <div className={ro_style.collapsable_wapper__member} onClick={()=> addMember({id, lastname, name,group} as IMemberShort)}>
             <p>{name}</p>
             <p>{lastname}</p>
+            <p>{group}</p>
         </div>
     )
 }

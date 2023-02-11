@@ -21,16 +21,16 @@ export const initialState:communityState = {
         "canEditSchedule",
     ],
     members:[
-        {id:0, name:"Иван", lastname:"Сергеев", 
+        {id:0, name:"Иван", lastname:"Сергеев", group:"191-361",
             image:"https://play-lh.googleusercontent.com/8ddL1kuoNUB5vUvgDVjYY3_6HwQcrg1K2fd_R8soD-e2QYj8fT9cfhfh3G0hnSruLKec", roles:[
                 {name:"Руководитель", rights:["canEditPost"]},
                 {name:"Преподаватель по гитаре", rights:[]},
                 {name:"Участник", rights:[]},
         ]},
-        {id:1, name:"Вадим", lastname:"Сидоров", image:"", roles:[
+        {id:1, name:"Вадим",group:"191-361", lastname:"Сидоров", image:"", roles:[
             {name:"Модератор", rights:["canEditPost","canEditSchedule"]},
         ]},
-        {id:2, name:"Сергей", lastname:"Ларичев", image:"", roles:[
+        {id:2, name:"Сергей",group:"191-361", lastname:"Ларичев", image:"", roles:[
             {name:"Участник", rights:[]},
         ]},
     ],
