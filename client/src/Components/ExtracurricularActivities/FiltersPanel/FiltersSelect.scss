@@ -1,0 +1,30 @@
+.filter_select{
+  &__control {
+    background-color: var(--schedule) !important;
+    outline: none !important;
+    border: none !important;
+  }
+  &__value-container {
+    div{
+      color: var(--text) !important;
+      font-size: 1em;
+    }
+    
+  }
+  &__menu {
+    background-color: var(--schedule) !important;
+  }
+  &__option {
+    background-color: var(--schedule) !important;
+    color: var(--text) !important;
+    font-size: 1em;
+    div{
+      background-color: var(--schedule) !important;
+      color: var(--text) !important;
+      font-size: 1em;
+    }
+    &:hover{
+      background-color: var(--scheduleBg) !important;
+    }
+  }
+}

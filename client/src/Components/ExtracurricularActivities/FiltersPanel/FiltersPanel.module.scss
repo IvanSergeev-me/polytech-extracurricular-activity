@@ -1,0 +1,85 @@
+%flex_col {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+    gap: 10px;
+}
+
+%button_default{
+    cursor: pointer;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    background-color: var(--reallyBlue);
+    color: var(--text);
+    font-size: 1em;
+    font-weight: 600;
+    @media (max-width:600px) {
+        width: 100%;
+    }
+}
+
+.activities_container {
+    &__filters_panel_wrapper {
+        @extend %flex_col;
+
+        .filters_panel_wrapper {
+            &__expand_title {
+                font-size: 1em;
+                cursor: pointer;
+                color: var(--blue);
+                @media (max-width:800px) {
+                    margin-bottom: 15px;
+                }
+            }
+
+            &__panel_expanded {
+                @extend %flex_col;
+
+                .panel_expanded {
+                    &__type_row {
+                        @extend %flex_col;
+                        h2{
+                            font-size: 1.5em;
+                            font-weight: 600;
+                            color: var(--text);
+                        }
+                        .type_row{
+                            &__sort_row{
+                                display: flex;
+                                align-items: center;
+                                width: 100%;
+                                gap: 15px;
+                                flex-wrap: wrap;
+                                button{
+                                    @extend %button_default;
+                                    width: 300px;
+                                    @media (max-width:800px) {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                            &__form{
+                                @extend %flex_col;
+                                .form{
+                                    &__controls{
+                                        width: 100%;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: flex-end;
+                                        button{
+                                            @extend %button_default;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

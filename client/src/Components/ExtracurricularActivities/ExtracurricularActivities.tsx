@@ -7,6 +7,7 @@ import { selectActivities } from "../../Selectors";
 import ActivityTag from "../Common/ActivityTag/ActivityTag";
 import NotFoundPage from "../Common/NotFoundPage/NotFoundPage";
 import ActivityImageBox from "./ActivityImageBox/ActivityImageBox";
+import FiltersPanel from "./FiltersPanel/FiltersPanel";
 //import { useActivitiesActions } from "../../Hooks/useActions";
 
 const ExtracurricularActivities:FC = (props) => {
@@ -16,6 +17,7 @@ const ExtracurricularActivities:FC = (props) => {
 
     return (
         <section className={style.activities_container}>
+            <FiltersPanel />
             <div className={style.activities_container__activities}>
                 {activities.map(actv => <ActivityCard 
                     key={actv.id} 
