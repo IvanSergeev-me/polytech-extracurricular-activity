@@ -12,6 +12,8 @@ const userSelector = (state:RootState) => state.authReducer.user;
 
 const communitySelector = (state:RootState) => state.communityReducer;
 
+export const eventSelector = (state:RootState) => state.eventReducer;
+
 const isAuthSelector = (state:RootState) => state.authReducer.isAuth;
 
 const profileSelector = (state:RootState) => state.profileReducer;

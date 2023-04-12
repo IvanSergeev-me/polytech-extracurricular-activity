@@ -7,10 +7,18 @@ import 'reactjs-popup/dist/index.css';
 import "./PopupSettings.scss";
 import { IMemberShort } from "../../../../../Models/User";
 import { useFirstLetters } from "../../../../../Hooks/useFirstLetters";
+import { CompareDates } from "Assets/Utils/CompareDates";
+import { useTypedSelector } from "Hooks/useTypedSelector";
+import { selectUserId } from "Selectors";
+import { NavLink } from "react-router-dom";
 
 const ProfileEventCard: FC<IEventInProfile> = (props) => {
 
+    const visitText = !CompareDates(props.date_visit)?"Вы были":"Мероприятие состоится";
+
     const letters = useFirstLetters([props.name[0],props.name[1]]);
+
+    const userId = useTypedSelector(selectUserId);
 
     return ( 
         <div className={m_style.events__event_container}>
@@ -19,9 +27,10 @@ const ProfileEventCard: FC<IEventInProfile> = (props) => {
             </div>
             <div className={m_style.event_container__event_short_info}>
                 <p className={m_style.event_short_info__name}>{props.name}</p>
-                <p className={m_style.event_short_info__visit}>Вы были <span>{props.date_visit}</span></p>
+                <p className={m_style.event_short_info__visit}>{visitText} <span>{props.date_visit}</span></p>
             </div>
             <SettingsPopup info={props.info}/>
+            {props.creatorId === userId && <NavLink to={`/event/${props.id}`} className={m_style.event_container__event__more_button}>Настройки</NavLink>}
         </div>
     );
 }

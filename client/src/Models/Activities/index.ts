@@ -1,7 +1,16 @@
+import { ValueOf } from "Assets/Utils/ValueOf";
+
 export enum activityTypeList{
     community = "community",
     event = "event",
 }
+
+export const ActivityTypeList = {
+    community:"community",
+    event:"event",
+} as const;
+
+export type ActivityType = ValueOf<typeof ActivityTypeList>;
 
 export interface ITag{
     id:number,
@@ -66,9 +75,6 @@ export type Activity = {
     photos:IPhoto[],
 }
 
-
-export type ActivityType = activityTypeList.community | activityTypeList.event;
-
 export type ContactType = 'link'|'contact';
 
 export type TypeGlossary = Record<ActivityType, string>;
@@ -78,6 +84,8 @@ export type CommunityType = Activity & {communityId?:number}
 export type CommunityTypeShort = Omit<CommunityType, "members_count"> & {description_short:string}
 
 export type EventType = Activity & {date:string, time:string}
+
+export type EventTypeShort = Omit<EventType, "members_count"> & {description_short:string, creatorId:number}
 
 export const typeGlossary:TypeGlossary = {"community":"Сообщество", "event":"Мероприятие"};
 

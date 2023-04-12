@@ -17,7 +17,8 @@ const ProfileEvents: FC<ProfileEventsProps> = (props) => {
         <div className={m_style.main__events_container}>
             <h1 className={style.title}>История мероприятий</h1>
             <div className={m_style.events_container__events}>
-                {events.map(event => <ProfileEventCard 
+                {events.map(event => <ProfileEventCard
+                    creatorId={event.creatorId}
                     id={event.id} 
                     key={event.id} 
                     date_visit={event.date_visit} 

@@ -3,6 +3,7 @@ import authReducer from "./Auth/auth-reducer";
 import activityInfoReducer from "./ActivityInfo/activityInfo-reducer";
 import communityReducer from "./Community/community-reducer";
 import profileReducer from "./Profile/profile-reducer";
+import eventReducer from "./Event/event-reducer";
 import { activitiesAPi } from "../../API/activities";
 
 // eslint-disable-next-line
@@ -12,5 +13,6 @@ export default {
     activityInfoReducer,
     communityReducer,
     profileReducer,
+    eventReducer,
     [activitiesAPi.reducerPath]:activitiesAPi.reducer
 }

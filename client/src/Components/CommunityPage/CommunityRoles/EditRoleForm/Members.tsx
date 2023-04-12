@@ -84,7 +84,7 @@ const SearchMembers = ({addMember,allowedMembers}:SearchMemberProps) =>{
         setQuery(e.target.value);
     }
 
-    const [membersToView, setMembersToView] = useState<IMember[]>(allowedMembers);
+    const [membersToView, setMembersToView] = useState<IMember[]>([]);
 
     useEffect(() => {
         setMembersToView(allowedMembers.filter(m=>(m.lastname.startsWith(query) || m.name.startsWith(query) || m.group?.startsWith(query))))

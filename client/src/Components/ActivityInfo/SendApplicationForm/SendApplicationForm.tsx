@@ -1,4 +1,4 @@
-import React from "react";
+import React, { SyntheticEvent } from "react";
 import { NavLink } from "react-router-dom";
 import { useTypedSelector } from "../../../Hooks/useTypedSelector";
 import { ActivityType, activityTypeList } from "../../../Models/Activities";
@@ -16,13 +16,13 @@ interface ApplicationFormProps{
 const SendApplicationForm= ({activityType, onAppStatusSubmit, communityId, applicationGlossary}:ApplicationFormProps) =>{
     const appStatus = useTypedSelector(selectAppStatus);
 
-    let isNotSent = appStatus === applicationGlossary.APPLICATION_NOT_SENT;
-    let isRejected =  appStatus === applicationGlossary.APPLICATION_REJECTED;
-    let isSent =  appStatus === applicationGlossary.APPLICATION_SENT;
-    let isAccepted =  appStatus === applicationGlossary.APPLICATION_ACCEPTED;
+    const  isNotSent = appStatus === applicationGlossary.APPLICATION_NOT_SENT;
+    const  isRejected =  appStatus === applicationGlossary.APPLICATION_REJECTED;
+    const  isSent =  appStatus === applicationGlossary.APPLICATION_SENT;
+    const  isAccepted =  appStatus === applicationGlossary.APPLICATION_ACCEPTED;
 
-    const onSubmit = (evnt:any) =>{
-        evnt.preventDefault();
+    const onSubmit = (e:SyntheticEvent) =>{
+        e.preventDefault();
         switch (appStatus){
             case applicationGlossary.APPLICATION_NOT_SENT:
             case  applicationGlossary.APPLICATION_REJECTED:

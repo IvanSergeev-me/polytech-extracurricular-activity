@@ -22,7 +22,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": [
-    "src"
-  ]
+  "include":  ["./src/**/*.tsx", "./src/**/*.ts", "src/jest.config.ts", "src/Components/__tests__/value.test.js", "src/Components/__tests__/value.js", "src/Components/__tests__/value.test.js"]
 }

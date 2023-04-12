@@ -14,12 +14,16 @@ import ProfileStatistics from "../Components/Profile/ProfileStatistics/ProfileSt
 import CommunitySettings from "../Components/CommunityPage/CommunitySettings/CommunitySettings";
 import CommunityJoinRequests from "../Components/CommunityPage/CommunityJoinRequests/CommunityJoinRequests";
 import CommunityRoles from "../Components/CommunityPage/CommunityRoles/CommunityRoles";
+import EventPage from "Components/EventPage/EventPage";
+import EventSettings from "Components/EventPage/EventSettings/EventSettings";
+import EventMembers from "Components/EventPage/EventMembers/EventMembers";
+import EventRequests from "Components/EventPage/EventRequests/EventRequests";
 
 export interface IRoute {
-    path:string;
+    path: string;
     element: React.ComponentType;
-    exact?:boolean;
-    id?:number;
+    exact?: boolean;
+    id?: number;
 
 }
 
@@ -27,57 +31,76 @@ export enum routeNames {
     LOGIN = "/Login",
     HOME = "/",
     ACTIVITIES = "/Activities",
-    ACTIVITY_INFO ="/Activities/:id",
-    COMMUNITY_PAGE="/Community/:id/*",
-    PROFILE="/Profile/*",
+    ACTIVITY_INFO = "/Activities/:id",
+    COMMUNITY_PAGE = "/Community/:id/*",
+    EVENT_PAGE = "/Event/:id/*",
+    PROFILE = "/Profile/*",
     NO_MATCH = "*"
 }
 
 export enum communityRouteNames {
     POSTS = "/",
-    SCHEDULE= "/schedule",
+    SCHEDULE = "/schedule",
     SETTINGS = "/settings",
     REQUESTS = "/requests",
     EDITROLES = "/edit-roles",
     NO_MATCH = "*",
-    
+}
+
+export enum eventRouteNames {
+    MAIN = "/",
+    SETTINGS = "/settings",
+    REQUESTS = "/requests",
+    MEMBERS = "/members",
+    NO_MATCH = "*",
+
 }
 
 export enum profileRouteNames {
     MAIN = "/",
-    STAT= "/statistics",
+    STAT = "/statistics",
     LINKS = "/links",
     ADMIN = "/admin",
     NO_MATCH = "*"
 }
 
 export const publicRoutes: IRoute[] = [
-    {path: routeNames.HOME ,element:Login },
-    {path: routeNames.NO_MATCH ,element:Login },
+    { path: routeNames.HOME, element: Login },
+    { path: routeNames.NO_MATCH, element: Login },
 ]
 
 export const privateRoutes: IRoute[] = [
-    {path: routeNames.HOME ,element:ExtracurricularActivities },
-    {path: routeNames.ACTIVITIES ,element:ExtracurricularActivities },
-    {path: routeNames.ACTIVITY_INFO ,element:ActivityInfo },
-    {path: routeNames.COMMUNITY_PAGE ,element:CommunityPage },
-    {path: routeNames.PROFILE, element:Profile},
-    {path: routeNames.NO_MATCH, element:NotFoundPage}
+    { path: routeNames.HOME, element: ExtracurricularActivities },
+    { path: routeNames.ACTIVITIES, element: ExtracurricularActivities },
+    { path: routeNames.ACTIVITY_INFO, element: ActivityInfo },
+    { path: routeNames.COMMUNITY_PAGE, element: CommunityPage },
+    { path: routeNames.EVENT_PAGE, element:EventPage},
+    { path: routeNames.PROFILE, element: Profile },
+    { path: routeNames.NO_MATCH, element: NotFoundPage }
 ]
 
-export const communityRoutes:IRoute[] = [
-    {path:communityRouteNames.POSTS, element:CommunityPosts},
-    {path:communityRouteNames.SCHEDULE, element:CommunitySchedule},
-    {path:communityRouteNames.SETTINGS, element:CommunitySettings},
-    {path:communityRouteNames.REQUESTS, element:CommunityJoinRequests},
-    {path:communityRouteNames.EDITROLES, element:CommunityRoles},
-    {path:communityRouteNames.NO_MATCH, element:NotFoundPage},
+export const communityRoutes: IRoute[] = [
+    { path: communityRouteNames.POSTS, element: CommunityPosts },
+    { path: communityRouteNames.SCHEDULE, element: CommunitySchedule },
+    { path: communityRouteNames.SETTINGS, element: CommunitySettings },
+    { path: communityRouteNames.REQUESTS, element: CommunityJoinRequests },
+    { path: communityRouteNames.EDITROLES, element: CommunityRoles },
+    { path: communityRouteNames.NO_MATCH, element: NotFoundPage },
 ]
 
-export const profileRoutes:IRoute[] = [
-    {path:profileRouteNames.MAIN, element:ProfileMain},
-    {path:profileRouteNames.STAT, element:ProfileStatistics},
-    {path:profileRouteNames.LINKS, element:ProfileLinks},
-    {path:profileRouteNames.ADMIN, element:ProfileAdmin},
-    {path:profileRouteNames.NO_MATCH, element:NotFoundPage},
+export const profileRoutes: IRoute[] = [
+    { path: profileRouteNames.MAIN, element: ProfileMain },
+    { path: profileRouteNames.STAT, element: ProfileStatistics },
+    { path: profileRouteNames.LINKS, element: ProfileLinks },
+    { path: profileRouteNames.ADMIN, element: ProfileAdmin },
+    { path: profileRouteNames.NO_MATCH, element: NotFoundPage },
 ]
+
+export const eventRoutes: IRoute[] = [
+    { path: eventRouteNames.MAIN, element: EventSettings },
+    { path: eventRouteNames.SETTINGS, element: EventSettings },
+    { path: eventRouteNames.MEMBERS, element: EventMembers },
+    { path: eventRouteNames.REQUESTS, element: EventRequests },
+    { path: profileRouteNames.NO_MATCH, element: NotFoundPage },
+]
+

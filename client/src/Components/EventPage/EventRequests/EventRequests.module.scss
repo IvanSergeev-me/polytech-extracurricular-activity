@@ -1,0 +1,114 @@
+.main_content {
+    &__members_wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+
+        .members_wrapper {
+            &{
+                display: flex;
+                align-items: center;
+                gap: 15px;
+            }
+            &__member {
+                display: flex;
+                box-sizing: border-box;
+                align-items: stretch;
+                gap: 15px;
+                width: 500px;
+                flex-wrap: wrap;
+                padding: 10px;
+                border-radius: 10px;
+                background-color: var(--scheduleBg);
+
+                @media (max-width:800px) {
+                    width: 100%;
+                }
+
+                .member {
+                    &__image {
+                        height: 100%;
+                        --size: 100px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: var(--size);
+                        height: var(--size);
+                        background-color: var(--grey);
+                        border-radius: 10px;
+                        user-select: none;
+                        @media (max-width:800px) {
+                            width: 100%;
+                            height: 150px;
+                        }
+
+                        img {
+                            user-select: none;
+                            border-radius: 10px;
+                            width: 100%;
+                            height: 100%;
+                            min-width: 100%;
+                            object-fit: fill;
+                        }
+                    }
+                    &__controls{
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        gap: 10px;
+                        @media (max-width:500px) {
+                            flex-direction: column;
+                        }
+                        button{
+                            width: 170px;
+                            @media (max-width:500px) {
+                                width: 100%;
+                            }
+                        }
+                    }
+
+                    &__info {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        gap: 10px;
+
+                        .info {
+                            &__group_name {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 10px;
+
+                                .group_name {
+                                    &__group {
+                                        font-size: 1em;
+                                        font-weight: 600;
+                                        color: var(--grey);
+                                    }
+                                }
+                            }
+
+                            &__date {
+                                .date {
+                                    &__datetime {
+                                        font-size: 1em;
+                                        color: var(--text);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.approve_button{
+    background-color: var(--reallyBlue);
+}
+.reject_button{
+    background-color: var(--red)!important;
+}

@@ -35,7 +35,7 @@ const CommunityContacts = () => {
 
     return (
         <div className={s_style.settings_right__settings_links_container}>
-            <h3 className={style.subtitle_min}>Ссылки</h3>
+            <h3 className={style.subtitle_min}>Контакты</h3>
             <button className={s_style.add_button} onClick={handleAddLink}><span>＋</span><p>Добавить</p></button>
             <div className={s_style.settings_links_container__settings_links}>
                 {fields.map((c,index) => <CommunityContactForm

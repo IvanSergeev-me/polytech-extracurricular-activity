@@ -16,10 +16,11 @@ export interface IEventInProfile {
     name:string;
     image:string;
     date_visit:string;
+    creatorId:number,
     info:IEventShortInfo;
 }
 
-export interface IEventShortInfo {
+export interface IEventShortInfo { 
     name:string;
     date_visit:string;
     description:string;

@@ -26,5 +26,6 @@ export interface IMemberShort {
     name:string,
     lastname:string,
     group?:string,
+    image?:string,
 }
 
