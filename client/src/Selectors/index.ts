@@ -18,6 +18,12 @@ const isAuthSelector = (state:RootState) => state.authReducer.isAuth;
 
 const profileSelector = (state:RootState) => state.profileReducer;
 
+export const achievementCardsSelector = (state:RootState) => state.profileReducer.achievements.achievementCards;
+
+export const statisticsSelector = (state:RootState) => state.profileReducer.statistics;
+
+export const activityGraphDataSelector = (state:RootState) => state.profileReducer.activityGraphData;
+
 export const communityRightsSelector = (state:RootState) => state.communityReducer.userRights;
 
 export const appStatusSelector = (state:RootState) => state.activityInfoReducer.appStatus;

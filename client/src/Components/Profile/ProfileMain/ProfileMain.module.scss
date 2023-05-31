@@ -157,7 +157,7 @@
         gap: 10px;
         max-width: 500px;
         width: 300px;
-        height: 300px;
+        height: fit-content;
         @media (max-width:800px) {
             width: 250px;
             height: 250px;
@@ -171,38 +171,52 @@
 }
 
 .event_container{
-    &__image_box{
+    &__image_and_info{
         display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: var(--grey);
-        width: 100%;
-        height: 250px;
-        p{
-            color:var(--text);
-            font-size: 2em;
-            font-weight: 600;
-        }
-        img{
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
+        flex-direction: column;
+        gap: 10px;
+        .image_and_info{
+            &__image_box{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: var(--grey);
+                width: 100%;
+                height: 250px;
+                p{
+                    color:var(--text);
+                    font-size: 2em;
+                    font-weight: 600;
+                }
+                img{
+                    object-fit: cover;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            &__event_short_info{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
         }
     }
-    &__event_short_info{
+    &__controls{
         display: flex;
         flex-direction: column;
         gap: 10px;
     }
-    &__event__more_button{
-        cursor: pointer;
-        text-align: center;
-        color: var(--text);
-        background-color: var(--reallyBlue);
-        border-radius: 9px;
-        padding: 10px;
-        font-weight: 600;
-    }
+    
+}
+
+.control_button{
+    cursor: pointer;
+    text-align: center;
+    color: var(--text);
+    background-color: var(--reallyBlue);
+    border-radius: 9px;
+    padding: 10px;
+    font-weight: 600;
 }
 
 .event_short_info{
@@ -223,7 +237,7 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
     @media (max-width:800px) {
         align-items: center; 
     }
@@ -250,7 +264,6 @@
         }
     }
     &__event_members_container{
-        gap: 10px;
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -293,6 +306,9 @@
 .event_members_container{
     &__title_box{
         text-align: center;
+        user-select: none;
+        padding: 10px;
+        border-bottom: 1px solid var(--grey);
         p{
             font-size: 1em;
             color: var(--grey);
@@ -307,7 +323,7 @@
         align-items: center;
         gap: 5px;
         color: var(--text);
-        border-top: 1px solid var(--text);
+        border-bottom: 1px solid var(--grey);
         padding: 10px;
         @media (max-width:800px) {
             padding: 10px 0;

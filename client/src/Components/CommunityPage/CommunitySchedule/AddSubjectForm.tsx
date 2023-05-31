@@ -21,8 +21,7 @@ const AddSubjectForm:FC = (props) =>{
 
     const dayOptions: readonly DayOption[] = useMemo(()=>getDays(),[]);
     
-    // eslint-disable-next-line
-    const { register, control, handleSubmit, reset, watch, formState: { errors } } = useForm< AddSubjectFormValues >();
+    const { register, control, handleSubmit, reset, formState: { errors } } = useForm< AddSubjectFormValues >({defaultValues:{} as AddSubjectFormValues});
     const {addSubject} = useCommunityActions();
 
     const onSubmit = (data: AddSubjectFormValues ) =>{

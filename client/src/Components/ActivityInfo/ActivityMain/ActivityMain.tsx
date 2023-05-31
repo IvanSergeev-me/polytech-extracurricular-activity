@@ -3,6 +3,7 @@ import { ActivityType } from '../../../Models/Activities';
 import { activityApplicationGlossary, ActivityInfoApplicationStatus } from '../../../Models/ApplictationStatuses';
 import style from "../ActivityInfo.module.scss";
 import SendApplicationForm from '../SendApplicationForm/SendApplicationForm';
+import ActivityDesctiption from './ActivityDesctiption';
 
 type ActivityMainProps = {
     image:string, 
@@ -21,7 +22,7 @@ export const ActivityMain = ({image, description,communityId,onAppStatusSubmit,t
         </div>
         <div className={style.main__right}>
             <div className={style.right__description}>
-                {description}
+                <ActivityDesctiption description={description} />
             </div>
             <SendApplicationForm
                 applicationGlossary={activityApplicationGlossary}

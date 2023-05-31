@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { activityTypeList } from "../../../Models/Activities";
 import { ICommunityInfo, ICommunityInProfile, IEventInProfile, IEventShortInfo, IUserRequest } from "../../../Models/Profile";
 import { profileState } from "./types";
+import { getCommunitiesInProfileThunk } from "./action-creators";
 
 export let initialState: profileState = {
     isLoading: false,
@@ -42,10 +43,10 @@ export let initialState: profileState = {
             creatorId: 2,
             name: "Конференция от компании Selectel",
             date_visit: "11.11.2022",
-            image: "https://cdn.selectel.ru/site/img/selectel.1d4a236.png", info: {
+            image: "https://ucarecdn.com/0eddfa5e-15cc-493e-8fbf-e0b90440a362/", info: {
                 date_visit: "10.09.2022",
-                description: "Тут было такое то событие",
-                members: [{ id: 0, name: "Иван", lastname: "Сергеев" }, { id: 1, name: "Вадим", lastname: "Сидоров" }],
+                description: "Встреча с представителями компании Selectel. Разговор с руководством компании и обсуждение трудоустройства.",
+                members: [{ id: 0, name: "Иван", lastname: "Сергеев", group: "191-361" }, { id: 1, name: "Вадим", lastname: "Сидоров", group: "191-361" }],
                 name: "Конференция от компании Selectel",
                 location: "Аудитория А-200, Большая Семеновская"
             } as IEventShortInfo
@@ -103,6 +104,47 @@ export let initialState: profileState = {
         }
 
     ],
+    achievements: {
+        achievementCards: [
+            {
+                id: 0, cardName: "Первое место на хакатоне 'Айти прогер'",
+                cardImage: "https://www.zodiak-2000.ru/media/posters/1030_033_003.jpg"
+            },
+            {
+                id: 1, cardName: "Достижение 2",
+                cardImage: "https://1nagrada.ru/wa-data/public/shop/products/67/41/4167/images/2509/2509.970.jpg"
+            },
+            {
+                id: 2, cardName: "Достижение 3",
+                cardImage: ""
+            },
+            {
+                id: 3, cardName: "Достижение 4",
+                cardImage: ""
+            },
+            {
+                id: 4, cardName: "Достижение 5",
+                cardImage: "https://d2j2pkaf21fpf8.cloudfront.net/attachments/c-7/s-8/widgets/4b36d397a43b4edde32e1ee23ab365cc49b4956cfae12ed313df3f96512dd5bff3a41eeb/variants/v-550x550-contain.jpg"
+            },
+        ],
+        achievementInfo: null,
+    },
+    statistics:{
+        classesVisited:0,
+        eventsVisited:0,
+        favoriteCommunity:"Музыкальное сообщество политеха",
+        favoriteEvent:"Отсутствует",
+        postsPublicated:0,
+    },
+    activityGraphData:[
+        {activityIndex:10, dayName:"23 мая"},
+        {activityIndex:15, dayName:"24 мая"},
+        {activityIndex:14, dayName:"25 мая"},
+        {activityIndex:64, dayName:"26 мая"},
+        {activityIndex:28, dayName:"27 мая"},
+        {activityIndex:37, dayName:"28 мая"},
+        {activityIndex:69, dayName:"29 мая"},
+    ],
     error: "",
 }
 
@@ -128,7 +170,18 @@ export const profileSlice = createSlice({
         }
     },
     extraReducers: {
-
+        [getCommunitiesInProfileThunk.fulfilled.type]: (state, action: PayloadAction<any>) => {
+            console.log(action.payload)
+            state.error = "";
+            state.isLoading = false;
+        },
+        [getCommunitiesInProfileThunk.pending.type]: (state) => {
+            state.isLoading = true;
+        },
+        [getCommunitiesInProfileThunk.rejected.type]: (state, action: PayloadAction<string>) => {
+            state.error = action.payload;
+            state.isLoading = false;
+        },
     }
 });
 

@@ -1,9 +1,9 @@
-import { IActivity } from "../../../Models/Activities";
+import { CommunityType, EventType } from "../../../Models/Activities";
 import { ActivityInfoApplicationStatus } from "../../../Models/ApplictationStatuses";
 
 export interface activitiyInfoState{
     isLoading: boolean;
-    activity:IActivity;
+    activity:CommunityType | EventType;
     appStatus:ActivityInfoApplicationStatus;
     error:string;
 }

@@ -183,7 +183,7 @@
     outline: none;
     border-radius: 6px;
     background-color: var(--reallyBlue);
-    color: var(--text);
+    color: #fafafa;
     font-size: 0.9em;
     font-weight: 600;
     display: flex;
@@ -299,7 +299,7 @@
 .text_box{
     &__text{
         font-size: 1em;
-        color: var(--text);
+        color: #fafafa;
         font-weight: 600;
         cursor: pointer;
         @media (max-width:800px) {

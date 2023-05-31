@@ -1,41 +1,39 @@
+@import "../../SCSSKit/index.scss";
+
 .profile_page_container{
-    flex:1;
-    height: 100%;
-    overflow-x: hidden;
-    position: relative;
-    background: var(--theme);
-    padding: 10px 10%;
-    @media (max-width:800px) {
-        padding: 10px;
-        margin-bottom: 60px;
-    }
+    @extend %section_style;
 }
 
 .link{
-    cursor: pointer;
-    color: var(--blue);
-    font-size: 0.9em;
-    text-decoration: none;
+    @extend %link;
 }
 
 .title{
-    color: var(--text);
-    font-size: 1.5em;
-    font-weight: 600;
+    @extend %title;
 }
 
 .subtitle{
-    color: var(--text);
-    font-size: 1em;
-    font-weight: 600;
+    @extend %subtitle;
+}
+
+.subtitle_min{
+    @extend %subtitle_min;
 }
 
 .status_active{
-    padding: 5px 10px;
-    background-color: green;
+    @extend %status_active;
 }
 
 .status_non_active{
-    padding: 5px 10px;
-    background-color: var(--grey);
+    @extend %status_non_active;
+}
+
+.button{
+    @extend %button_default;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    img{
+        filter: invert(1);
+    }
 }

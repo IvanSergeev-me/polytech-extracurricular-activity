@@ -61,11 +61,13 @@
         height: 100%;
         position: relative;
         width: 100%;
+        background-color: var(--grey);
+        border-radius: 10px;
         img{
             position: relative;
             width: 100%;
             height: 100%;
-            object-fit: fill;
+            object-fit: cover;
             border-radius: 10px;
         }
     }
@@ -97,5 +99,16 @@
         font-size: 1.5em;
         font-weight: 600;
         color: var(--text);
+    }
+}
+
+.title {
+    color: var(--text);
+    font-size: 2em;
+    font-weight: 600;
+    margin-bottom: 1em;
+
+    @media (max-width:800px) {
+        font-size: 1.5em;
     }
 }

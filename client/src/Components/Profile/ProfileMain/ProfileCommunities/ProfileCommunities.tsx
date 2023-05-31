@@ -1,15 +1,23 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { useTypedSelector } from "../../../../Hooks/useTypedSelector";
 import { selectCommunitiesInProfile } from "../../../../Selectors";
 import style from "../../Profile.module.scss";
 import m_style from "../ProfileMain.module.scss";
 import ProfileCommunityCard from "./ProfileCommunityCard/ProfileCommunityCard";
+import { useAppDispatch } from "Hooks/useActions";
+import { getCommunitiesInProfileThunk } from "Redux/Reducers/Profile/action-creators";
 
 interface ProfileCommunitiesProps {
-    
+    userId:number,
 }
  
-const ProfileCommunities: FC<ProfileCommunitiesProps> = (props) => {
+const ProfileCommunities: FC<ProfileCommunitiesProps> = ({userId}) => {
+
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(getCommunitiesInProfileThunk(userId));
+    }, [dispatch, userId]);
 
     const communities = useTypedSelector(selectCommunitiesInProfile);
 

@@ -1,6 +1,6 @@
 /*SelectDay*/
 .dayselect__control{
-    background-color: var(--schedule)!important;
+    background-color: var(--theme)!important;
     outline: none!important;
     border: none!important;
   }
@@ -37,6 +37,9 @@
   .react-timerange-picker__wrapper{
     border: none!important;
     color: var(--text);
+    background-color: var(--theme)!important;
+    border-radius: 5px;
+    padding: 5px;
     font-size: 1em;
   }
   .react-timerange-picker__button svg{

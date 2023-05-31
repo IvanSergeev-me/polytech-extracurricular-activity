@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import style from "../Header.module.scss";
 import NavIcon from "../NavIcon/NavIcon";
+import { LogoRus } from "Assets";
 
 type LogoProps = {}
 
@@ -9,7 +10,7 @@ export const Logo = (props: LogoProps) => {
     return(
         <div className={style.header__logo_container}>
             <NavLink to="/" className={style.logo_container__logo}>
-                <img className={style.mospolytech_logo} src="https://old.mospolytech.ru/img_new/top_bn/top_sh_en.png" alt="polytech logo" />
+                <img className={style.mospolytech_logo} src={LogoRus} alt="polytech logo" />
             </NavLink>
             <NavIcon exactPath={true} link={"/"} title="Главная">
                 <svg 

@@ -1,5 +1,4 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit"
-import { activitiesAPi } from "../API/activities";
 import reducers from "./Reducers/index"
 
 let rootReducer = combineReducers(reducers);
@@ -7,7 +6,6 @@ let rootReducer = combineReducers(reducers);
 export const setupStore = () => {
     return configureStore({
         reducer:rootReducer, 
-        middleware:(getDefaultMiddleware)=>getDefaultMiddleware().concat(activitiesAPi.middleware),
     });
 }
 

@@ -51,17 +51,20 @@ const AddPublicationForm:FC = (props) =>{
                 <div className={style.form__field}>
                     <h3 className={style.field__title}>Заголовок публикации</h3>
                     {errors.title && <p className={style.field__error}>{errors.title.message}</p>}
-                    <input className={style.field__input} defaultValue="" {...register("title",{ required: true, maxLength: 25 })} 
+                    <input className={style.field__input} defaultValue="" {...register("title",{ 
+                        required: {value:true, message:"Это поле обязательно"},
+                        maxLength: {value:25, message:"Слишком много символов"} })} 
                         placeholder={"Заголовок публикации..."}/>
                 </div>
                 <div className={style.form__field}>
-                    {errors.text && <p className={style.field__error}></p>}
                     <Controller
                         name="text"
                         control={control}
-                        rules={{ maxLength:256 }}
+                        rules={{ maxLength: {value:256, message:"Слишком много символов"} }}
+                        defaultValue=""
                         render={ ({field: {value, onChange } }) =>
-                            <Textarea 
+                            <Textarea
+                                defaultValue=""
                                 value={value}
                                 onChange={val=> onChange(val)}
                                 placeholder={"Текст публикации..."}

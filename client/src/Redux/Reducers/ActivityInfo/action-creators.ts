@@ -1,15 +1,17 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { ActivitiesApi } from "API/activities-api";
  
-export const setAppStatusThunk = createAsyncThunk(
-    "activityInfo/setAppStatus",
-    async(_, thunkAPI) =>
+export const getActivityInfoThunk = createAsyncThunk(
+    "activityInfo/setInfo",
+    async(activity_id:number, thunkAPI) =>
     {
         try {
-            const response = null;
-            return response;
+            const response = await ActivitiesApi.getActivityInfo(activity_id);
+            if (response.data.error) thunkAPI.rejectWithValue(response.data.error);
+            else return response.data.data;
 
         } catch (error) {
-            return thunkAPI.rejectWithValue("Произошла ошибка при подаче заявки");
+            return thunkAPI.rejectWithValue(error);
         }
         
     }

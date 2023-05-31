@@ -1,0 +1,105 @@
+.statisctics {
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    &__achievements {
+        margin-top: 1em;
+        display: flex;
+        width: 100%;
+        gap: 30px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .achievements {
+            &__card {
+                --size: 350px;
+                --cardPadding: 10px;
+                width: var(--size);
+                padding: var(--cardPadding);
+                border-radius: 10px;
+                background-color: var(--form);
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                box-sizing: border-box;
+                gap: 10px;
+
+                .card {
+                    &__image_box {
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: var(--grey);
+                        border-radius: 10px;
+                        width: calc(var(--size) - (2*var(--cardPadding)));
+                        height: calc(var(--size) - 50px);
+                        max-height: calc(var(--size) - 50px);
+                        user-select: none;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 10px;
+                            user-select: none;
+                            object-fit: contain;
+                        }
+
+                        p {
+                            color: var(--text);
+                            font-size: 1em;
+                        }
+                    }
+
+                    &__info {
+                        flex: 1;
+                        width: 100%;
+
+                        p {
+                            text-align: center;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__statistics_wrapper {
+        margin-top: 1em;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .statistics_wrapper {
+            &__list_wrapper {
+                margin-top: 10px;
+
+                ul {
+                    li {
+                        color: var(--text);
+                        font-size: 1em;
+                        margin-top: 10px;
+                        letter-spacing: 1.5px;
+                    }
+                }
+            }
+        }
+    }
+
+    &__graph_wrapper {
+        margin-top: 1em;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        .graph_wrapper{
+            &__graph{
+                margin-top: 1em;
+                width: 100%;
+            }
+        }
+    }
+}

@@ -75,6 +75,11 @@ export type Activity = {
     photos:IPhoto[],
 }
 
+export type getActivitiesParams = {
+    page:number,
+    size:number,
+}
+
 export type ContactType = 'link'|'contact';
 
 export type TypeGlossary = Record<ActivityType, string>;
@@ -86,6 +91,8 @@ export type CommunityTypeShort = Omit<CommunityType, "members_count"> & {descrip
 export type EventType = Activity & {date:string, time:string}
 
 export type EventTypeShort = Omit<EventType, "members_count"> & {description_short:string, creatorId:number}
+
+export type AllActivityType = EventType | CommunityType;
 
 export const typeGlossary:TypeGlossary = {"community":"Сообщество", "event":"Мероприятие"};
 

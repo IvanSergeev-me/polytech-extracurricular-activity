@@ -22,15 +22,20 @@ const ProfileEventCard: FC<IEventInProfile> = (props) => {
 
     return ( 
         <div className={m_style.events__event_container}>
-            <div className={m_style.event_container__image_box}>
-                {props.image? <img src={props.image} alt="event" />:<p>{letters}</p>}
+            <div className={m_style.event_container__image_and_info}>
+                <div className={m_style.image_and_info__image_box}>
+                    {props.image? <img src={props.image} alt="event" />:<p>{letters}</p>}
+                </div>
+                <div className={m_style.image_and_info__event_short_info}>
+                    <p className={m_style.event_short_info__name}>{props.name}</p>
+                    <p className={m_style.event_short_info__visit}>{visitText} <span>{props.date_visit}</span></p>
+                </div>
             </div>
-            <div className={m_style.event_container__event_short_info}>
-                <p className={m_style.event_short_info__name}>{props.name}</p>
-                <p className={m_style.event_short_info__visit}>{visitText} <span>{props.date_visit}</span></p>
+            <div className={m_style.event_container__controls}>
+                <SettingsPopup info={props.info}/>
+                {props.creatorId === userId && <NavLink to={`/event/${props.id}`} className={m_style.control_button}>Настройки</NavLink>}
             </div>
-            <SettingsPopup info={props.info}/>
-            {props.creatorId === userId && <NavLink to={`/event/${props.id}`} className={m_style.event_container__event__more_button}>Настройки</NavLink>}
+            
         </div>
     );
 }
@@ -56,7 +61,7 @@ const SettingsPopup = ({info}:SettingsProps) =>{
             onOpen={setIsOpen} 
             open={isOpen} 
             className={"event_settings"} 
-            trigger={<div className={m_style.event_container__event__more_button}>Подробнее</div>}>
+            trigger={<div className={m_style.control_button}>Подробнее</div>}>
                 <div className={m_style.event_info_wrapper}>
                     <div className={m_style.event_info_wrapper__event_info_wrapper_top}>
                         <div className={m_style.event_info_wrapper_top__controls}>   
@@ -91,7 +96,7 @@ const MemberPreview = ({id, lastname, name, group}:IMemberShort) =>{
     return(
         <div className={m_style.event_members_container__member}>
             <span>{lastname}</span>
-            <span>{name}</span>
+            <span>{name},</span>
             <span>{group}</span>
         </div>
     );
