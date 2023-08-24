@@ -21,7 +21,7 @@
 
 ## Скриншоты приложения
 
-![Карточки внеучебной деятельности](https://github.com/IvanSergeev-me/polytech-extracurricular-activity/screenshots/mainpage.png)
+![Карточки внеучебной деятельности](https://github.com/IvanSergeev-me/polytech-extracurricular-activity/tree/main/screenshots/mainpage.png)
 
 ![Информация про выбранную активность](https://github.com/IvanSergeev-me/polytech-extracurricular-activity/screenshots/activity.png)
 
