@@ -21,14 +21,14 @@
 
 ## Скриншоты приложения
 
-![Карточки внеучебной деятельности](https://github.com/IvanSergeev-me/polytech-extracurricular-activity/screenshots/mainpage.png)
+![Карточки внеучебной деятельности](https://github.com/IvanSergeev-me/polytech-extracurricular-activity/blob/main/screenshots/mainpage.png)
 
-![Информация про выбранную активность](https://github.com/IvanSergeev-me/polytech-extracurricular-activity/screenshots/activity.png)
+![Информация про выбранную активность](https://github.com/IvanSergeev-me/polytech-extracurricular-activity/blob/main/screenshots/activity.png)
 
-![Расписание для занятия внутри сообщества](https://github.com/IvanSergeev-me/polytech-extracurricular-activity/screenshots/schedule.png)
+![Расписание для занятия внутри сообщества](https://github.com/IvanSergeev-me/polytech-extracurricular-activity/blob/main/screenshots/schedule.png)
 
-![Профиль с возможностью мониторинга активностей](https://github.com/IvanSergeev-me/polytech-extracurricular-activity/screenshots/profile.png)
+![Профиль с возможностью мониторинга активностей](https://github.com/IvanSergeev-me/polytech-extracurricular-activity/blob/main/screenshots/profile.png)
 
-![Станица с настройкой ролей в сообществе](https://github.com/IvanSergeev-me/polytech-extracurricular-activity/screenshots/roles.png)
+![Станица с настройкой ролей в сообществе](https://github.com/IvanSergeev-me/polytech-extracurricular-activity/blob/main/screenshots/roles.png)
 
-![Настройка параметров активности](https://github.com/IvanSergeev-me/polytech-extracurricular-activity/screenshots/settings.png)
+![Настройка параметров активности](https://github.com/IvanSergeev-me/polytech-extracurricular-activity/blob/main/screenshots/settings.png)
