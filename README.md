@@ -21,10 +21,14 @@
 
 ## Скриншоты приложения
 
-![Карточки внеучебной деятельности](https://imgur.com/jQsaEmQ)
+![Карточки внеучебной деятельности](https://github.com/IvanSergeev-me/polytech-extracurricular-activity/screenshots/mainpage.png)
 
-![Информация про выбранную активность](https://imgur.com/zHSB63p)
+![Информация про выбранную активность](https://github.com/IvanSergeev-me/polytech-extracurricular-activity/screenshots/activity.png)
 
-![Расписание для занятия внутри сообщества](https://imgur.com/k7W3xqQ)
+![Расписание для занятия внутри сообщества](https://github.com/IvanSergeev-me/polytech-extracurricular-activity/screenshots/schedule.png)
 
-![Расписание с открытым списком участников и формой](https://imgur.com/iYXIgj0)
+![Профиль с возможностью мониторинга активностей](https://github.com/IvanSergeev-me/polytech-extracurricular-activity/screenshots/profile.png)
+
+![Станица с настройкой ролей в сообществе](https://github.com/IvanSergeev-me/polytech-extracurricular-activity/screenshots/roles.png)
+
+![Настройка параметров активности](https://github.com/IvanSergeev-me/polytech-extracurricular-activity/screenshots/settings.png)
